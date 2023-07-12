@@ -1,1 +1,0 @@
-# SUNGMYEONGGI.github.io
