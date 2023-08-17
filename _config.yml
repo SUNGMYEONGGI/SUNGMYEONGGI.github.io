@@ -1,33 +1,48 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
-# Theme Settings
-#
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark"  # 전체적인 블로그의 색감을 정하는 값입니다.
+                           # "default" "air", "aqua", "contrast", "dark"
+                           # "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Site Title"
+locale                   : "ko-KR"    # 블로그의 주요 언어입니다. 한국어로 보려고 ko-KR로 설정했습니다.
+title                    : "정리가 재밌는 개발자 Blog"  # 사이트 탭에서 보이는 이름입니다.
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
+subtitle                 : "version 1.0"              # 화면 title 하단에 있는 소제목입니다.
+name                     : "성명기(Sung MyeongGi)"      # 화면 하단 영역의 이름입니다.
+description              : "매일 반복하는 공부 습관"   # 설명란입니다. (어디 적용되는지 모르겠네요...) 
+url                      : "https://github.com/SUNGMYEONGGI" # 현재의 블로그 url 입니다.
+baseurl                  : # 폴백(예기치 못한 오류)일 때 연결되는 url입니다.
+repository               : "https://github.com/eona1301/eona1301.github.io" # Github Repo url입니다.
+teaser                   : # 폴백일 때 보일 이미지입니다. "assets/images/"로 연결됩니다.
+logo                     : # 화면에 보여지는 logo 이미지입니다. "assets/images"로 세팅합니다.
+masthead_title           : "모르면 알때까지"     # 화면 title 입니다.
+
+
+# Site Footer
+footer:
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:eona1301@email.com
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      # url:                                        # 이런식으로 url을 주석처리하면 노출되지 않습니다.
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook-square"
+      # url: "https://www.facebook.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/SUNGMYEONGGI"
+    - label: "GitLab"
+      icon: "fab fa-fw fa-gitlab"
+      # url:
+    - label: "Bitbucket"
+      icon: "fab fa-fw fa-bitbucket"
+      # url:
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/danghyeona/"
+
+
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -102,54 +117,30 @@ analytics:
     anonymize_ip         : # true, false (default)
 
 
+
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
-
-# Site Footer
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+  name             : "MyeongGi Sung"                  # 이름 영역입니다.
+  avatar           : "image/image1.jpeg"     # 프로필 사진 경로입니다.
+  bio              : "**기록이 자산!!**<br>매일 공부하고 있습니다.<br>소통을 좋아합니다."
+                     # biography의 약칭으로, 자기소개를 적으시면 됩니다.
+                     # 줄바꿈은 <br>로 굵은 글씨는 **글씨** 로 표기해주세요.
+                     
+  # location         : "Republic of Korea"            # 지역 입니다. 
+  # email            : # 이메일 주소입니다. (links에서 작성할 수 있기 때문에 생략하였습니다.)
+  # links:
+  #   - label: "Email"
+  #     icon: "fas fa-fw fa-envelope-square"
+  #     url: mailto:smgsmg226@gmail.com
+  #   - label: "GitHub"
+  #     icon: "fab fa-fw fa-github"
+  #     url: "https://github.com/SUNGMYEONGGI"
+  #   - label: "Facebook"
+  #     icon: "fab fa-fw fa-facebook-square"
+  #     url: "https://www.facebook.com/eona1301"
+  #   - label: "Instagram"                            # 표시되는 이름입니다.
+  #     icon: "fab fa-fw fa-instagram"                # fab fa-fw fa-{SNS NAME} 으로 해주세요.
+  #     url: "https://www.instagram.com/danghyeona/"  # 개인 SNS 계정 링크를 기재하면 됩니다.
 
 
 # Reading Files
@@ -268,7 +259,6 @@ tag_archive:
 #     category: /categories/:name/
 #     tag: /tags/:name/
 
-
 # HTML Compression
 # - https://jch.penibelst.de/
 compress_html:
@@ -290,3 +280,11 @@ defaults:
       comments: # true
       share: true
       related: true
+  
+  # _pages                      : 해당 하단 영역이 새로 추가되었습니다.
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
