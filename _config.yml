@@ -15,12 +15,12 @@
 minimal_mistakes_skin    : "dark" # "default"  "air", "aqua", "contrast", , "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "ko-KR"
-title                    : " 평생 공부 블로그 : Today I Learned‍ 🌙"
+locale                   : "en-US"
+title                    : "Site Title"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "식빵맘💛"
-description              : "공부 & 취미 블로그"
+name                     : "Your Name"
+description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "ansohxxn/comments" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -93,10 +93,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Sung MyeongGI"
-  avatar           : "https://user-images.githubusercontent.com/42318591/108615416-2e1bb580-7447-11eb-8a54-6338e53ce625.png"
-  bio              : "반갑습니다 :)"
-  #location         : "Seoul, South Korea"
+  name             : "Your Name"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "I am an **amazing** person."
+  location         : "Somewhere"
+  email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
