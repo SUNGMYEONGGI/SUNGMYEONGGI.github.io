@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Sung MyeongGi"
-  avatar           : "https://github.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io/blob/main/myimage.jpeg?raw=true"
+  avatar           : "https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io/main/myimage.jpg"
   bio              : "ML/DL Engineer 희망 취준생입니다 :)"
   #location         : "Seoul, South Korea"
   links:
