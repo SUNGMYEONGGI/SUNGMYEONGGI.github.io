@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "dark" # "default"  "air", "aqua", "contrast", , "dir
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : " 📜 Tech Blog : 기술을 기록으로 남기다 📜 "
+title                    : " 📜 Tech Blog : 기술을 기록으로 남기다 📜 " 
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Sung MyeongGi"
