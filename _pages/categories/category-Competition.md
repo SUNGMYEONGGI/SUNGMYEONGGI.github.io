@@ -1,7 +1,7 @@
 ---
 title: "AI Competition"
 layout: archive
-permalink: /categories/Competition
+permalink: /categories/competition
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.Competition %}
+{% assign posts = site.categories.competition %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

@@ -1,7 +1,7 @@
 ---
 title: "DeepLearning"
 layout: archive
-permalink: /categories/DL
+permalink: /categories/dl
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.DeepLearning %}
+{% assign posts = site.categories.dl %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
