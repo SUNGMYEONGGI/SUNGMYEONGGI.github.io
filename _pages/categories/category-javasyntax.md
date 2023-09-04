@@ -1,7 +1,7 @@
 ---
 title: "Java 기초문법"
 layout: archive
-permalink: categories/javasyntax
+permalink: categories/JavaSyntax
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.javasyntax %}
+{% assign posts = site.categories.JavaSyntax %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

@@ -1,7 +1,7 @@
 ---
 title: "Baekjoon Online Judge"
 layout: archive
-permalink: /categories/baekjoon
+permalink: /categories/BaekJoon
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.baekjoon %}
+{% assign posts = site.categories.BaekJoon %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

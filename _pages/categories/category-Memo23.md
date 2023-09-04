@@ -1,7 +1,7 @@
 ---
 title: "2023년 회고록"
 layout: archive
-permalink: /categories/memo23
+permalink: /categories/Memo23
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.memo23 %}
+{% assign posts = site.categories.Memo23 %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

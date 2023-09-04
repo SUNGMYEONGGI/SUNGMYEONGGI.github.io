@@ -1,7 +1,7 @@
 ---
 title: "Development Environment"
 layout: archive
-permalink: /categories/devenv
+permalink: /categories/DevEnv
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.devenv %}
+{% assign posts = site.categories.DevEnv %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

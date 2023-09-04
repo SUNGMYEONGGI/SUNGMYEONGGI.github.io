@@ -1,7 +1,7 @@
 ---
 title: "2022년 회고록"
 layout: archive
-permalink: /categories/memo22
+permalink: /categories/Memo22
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.memo22 %}
+{% assign posts = site.categories.Memo22 %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

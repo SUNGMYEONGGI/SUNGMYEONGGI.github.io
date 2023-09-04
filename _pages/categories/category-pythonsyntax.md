@@ -1,7 +1,7 @@
 ---
 title: "Python 기초문법"
 layout: archive
-permalink: categories/pythonsyntax
+permalink: categories/PythonSyntax
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.pythonsyntax %}
+{% assign posts = site.categories.PythonSyntax %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
