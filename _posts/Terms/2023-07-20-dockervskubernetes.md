@@ -1,20 +1,20 @@
 ---
-title:  "2023년 회고록"
-excerpt: "2023년 회고록"
+title:  "Docker vs Kubernetes"
+excerpt: "Docker와 Kubernetes에 대해 알아보자."
 
 categories:
-  - Memo23
+  - Terms
 tags:
-  - [Memo23]
+  - [Docker, Kubernetes]
 
 toc: true
 toc_sticky: true
  
-date: 2021-12-30
-last_modified_at: 2021-12-30
+date: 2023-07-20
+last_modified_at: 2023-07-20
 ---
 
-<h1>2023년을 마무리하면서</h1>
+### Docker vs Kubernetes
 
 
 ***

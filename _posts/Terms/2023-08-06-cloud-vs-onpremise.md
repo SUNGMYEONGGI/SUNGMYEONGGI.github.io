@@ -1,20 +1,20 @@
 ---
-title:  "2023년 회고록"
-excerpt: "2023년 회고록"
+title:  "Cloud vs On-Premise"
+excerpt: "클ㄹ라우드와 온프레미스에 대해 알아보자"
 
 categories:
-  - Memo23
+  - Terms
 tags:
-  - [Memo23]
+  - [Cloud, On-premise]
 
 toc: true
 toc_sticky: true
  
-date: 2021-12-30
-last_modified_at: 2021-12-30
+date: 2023-08-06
+last_modified_at: 2023-08-06
 ---
 
-<h1>2023년을 마무리하면서</h1>
+### On-premise vs Cloud
 
 
 ***
