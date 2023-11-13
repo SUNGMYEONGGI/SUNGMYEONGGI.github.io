@@ -7,16 +7,6 @@
       <li>
             📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
-      <li>
-        <span class="nav__sub-title">IT Terms</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Terms" %}
-                        <li><a href="/categories/Terms" class="">Terms ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-      </li>
 
       <li>
         <span class="nav__sub-title">Algorithm</span>
@@ -74,24 +64,6 @@
                 {% for category in site.categories %}
                     {% if category[0] == "PythonSyntax" %}
                         <li><a href="/categories/PythonSyntax" class="">Syntax ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-      </li>
-
-      <li>
-        <span class="nav__sub-title">Java</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "JavaSyntax" %}
-                        <li><a href="/categories/JavaSyntax" class="">Syntax ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Spring" %}
-                        <li><a href="/categories/Spring" class="">Spring ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
