@@ -3,12 +3,7 @@
 ---
 
 <!doctype html>
-<!--
-  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
-  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
-  Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
--->
+<!-- FOOTER 부분 광고 안보이게 레이아웃 바꿈-->
 <html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
   <head>
     <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
@@ -37,8 +32,6 @@
           width:12px;height:12px;background:transparent;
       }  
 
-      
-      
     </style>
   </head>
 
@@ -48,21 +41,14 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
-      {{ content }}
-    </div>
+        {{ content }}
+      </div>
 
     {% if site.search == true %}
       <div class="search-content">
         {% include_cached search/search_form.html %}
       </div>
     {% endif %}
-
-    <div id="footer" class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
 
     <aside class="sidebar__top">
       <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
