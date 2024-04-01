@@ -13,14 +13,14 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "BaekJoon" %}
-                        <li><a href="/categories/BaekJoon" class="">BaekJoon ({{category[1].size}})</a></li>
+                        <li><a href="/categories/BaekJoon" class="">백준 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/Programmers" class="">Programmers ({{category[1].size}})</a></li>
+                        <li><a href="/categories/Programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -50,7 +50,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "DevEnv" %}
-                        <li><a href="/categories/DevEnv" class="">DevEnv ({{category[1].size}})</a></li>
+                        <li><a href="/categories/DevEnv" class="">개발환경 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

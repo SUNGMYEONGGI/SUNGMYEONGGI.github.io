@@ -1,5 +1,5 @@
 ---
-title: "Programmers Coding Test"
+title: "프로그래머스"
 layout: archive
 permalink: /categories/Programmers
 author_profile: true

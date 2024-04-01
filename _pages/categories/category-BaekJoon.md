@@ -1,5 +1,5 @@
 ---
-title: "Baekjoon Online Judge"
+title: "백준 알고리즘"
 layout: archive
 permalink: /categories/BaekJoon
 author_profile: true
