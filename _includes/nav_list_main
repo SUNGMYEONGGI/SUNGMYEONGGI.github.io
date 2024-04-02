@@ -38,13 +38,6 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Memo23" %}
-                        <li><a href="/categories/Memo23" class="">2023년 회고록 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
                     {% if category[0] == "AiLab" %}
                         <li><a href="/categories/AiLab" class="">부트캠프 ({{category[1].size}})</a></li>
                     {% endif %}
