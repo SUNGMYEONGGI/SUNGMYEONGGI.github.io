@@ -1,5 +1,5 @@
 ---
-title: "Upside AI Lab 3기"
+title: "Upstage AI Lab 3기"
 layout: archive
 permalink: /categories/AiLab
 author_profile: true
