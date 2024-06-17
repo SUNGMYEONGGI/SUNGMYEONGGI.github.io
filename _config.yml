@@ -19,8 +19,8 @@ locale                   : "ko-KR"
 title                    : " 📜 Tech Blog : 기술을 기록으로 남기다 📜 "
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Sung MyeongGi"
-description              : "공부 & 취미 블로그"
+name                     : "Seong MyeongGi"
+description              : "개발 & 공부 블로그"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "SUNGMYEONGGI/SUNGMYEONGGI.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -93,10 +93,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Sung MyeongGi"
+  name             : "Seong MyeongGi"
   avatar           : "https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io/main/myimage.jpg"
-  bio              : "ML/DL Engineer 희망 취준생입니다 :)"
-  #location         : "Seoul, South Korea"
+  bio              : "Data Scientist 희망 취준생입니다 :)"
+  location         : "Seoul, South Korea"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
