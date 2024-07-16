@@ -1,5 +1,5 @@
 ---
-title: "Selenium"
+title: "Selenium 라이브러리 공부를 기록합니다."
 layout: archive
 permalink: /categories/Selenium
 author_profile: true

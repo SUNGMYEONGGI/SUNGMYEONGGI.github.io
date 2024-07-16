@@ -1,7 +1,7 @@
 ---
-title: "Grammer"
+title: "딥러닝 관련 공부내용을 기록합니다."
 layout: archive
-permalink: /categories/Grammer
+permalink: /categories/DeepLearning
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.Grammer %}
+{% assign posts = site.categories.DeepLearning %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

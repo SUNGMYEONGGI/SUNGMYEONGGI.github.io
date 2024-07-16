@@ -1,5 +1,5 @@
 ---
-title: "프로그래머스"
+title: "프로그래머스 문제풀이를 기록합니다."
 layout: archive
 permalink: /categories/Programmers
 author_profile: true

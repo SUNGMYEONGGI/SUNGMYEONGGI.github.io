@@ -1,5 +1,5 @@
 ---
-title: "Upstage AI Lab 3기"
+title: "Upstage AI Lab 3기에서 공부한 내용들을 정리합니다."
 layout: archive
 permalink: /categories/AiLab
 author_profile: true

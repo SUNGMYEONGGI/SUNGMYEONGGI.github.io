@@ -1,7 +1,7 @@
 ---
-title: "개발환경에 대한 내용을 기록합니다."
+title: "Pytorch 프레임워크 공부를 기록합니다."
 layout: archive
-permalink: /categories/DevEnv
+permalink: /categories/Pytorch
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.DevEnv %}
+{% assign posts = site.categories.Pytorch %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

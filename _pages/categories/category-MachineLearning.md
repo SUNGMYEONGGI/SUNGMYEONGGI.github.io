@@ -1,7 +1,7 @@
 ---
-title: "개발환경에 대한 내용을 기록합니다."
+title: "머신러닝 관련 공부내용을 기록합니다."
 layout: archive
-permalink: /categories/DevEnv
+permalink: /categories/MachineLearning
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.DevEnv %}
+{% assign posts = site.categories.MachineLearning %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}
