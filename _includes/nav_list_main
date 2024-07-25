@@ -35,30 +35,6 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Pytorch" %}
-                        <li><a href="/categories/Pytorch" class="">파이토치 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-      </li>
-      <li>
-        <span class="nav__sub-title">Artificial Intelligence</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "MachineLearning" %}
-                        <li><a href="/categories/MachineLearning" class="">머신러닝 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "DeepLearning" %}
-                        <li><a href="/categories/DeepLearning" class="">딥러닝 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
       </li>
       
       <li>
