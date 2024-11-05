@@ -45,7 +45,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: AyAPqZSWjh1QqqT0tcWNgw3YgCxVsO88uvGorWmoR3g # fill in your Google verification code
+  google: # fill in your Google verification code
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
@@ -58,9 +58,9 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: G-XGMWR2ZV55 # fill in your Google Analytics ID
+    id: # fill in your Google Analytics ID
   goatcounter:
-    id: bluemiv # fill in your GoatCounter ID
+    id: # fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -72,7 +72,7 @@ analytics:
 
 # Pageviews settings
 pageviews:
-  provider: goatcounter # now only supports 'goatcounter'
+  provider: # now only supports 'goatcounter'
 
 # Prefer color scheme setting.
 #
