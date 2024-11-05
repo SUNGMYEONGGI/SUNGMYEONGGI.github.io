@@ -1,0 +1,1477 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--폰트 : "Cafe24Oneprettynight"-->
+    
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>EDA 팀 프로젝트 수행 후기 및 느낀점 -  📜 Tech Blog : 기술을 기록으로 남기다 📜</title>
+<meta name="description" content="EDA 팀 프로젝트 수행 후기 및 느낀점 ">
+
+
+  <meta name="author" content="Seong MyeongGi">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" 📜 Tech Blog : 기술을 기록으로 남기다 📜 ">
+<meta property="og:title" content="EDA 팀 프로젝트 수행 후기 및 느낀점">
+<meta property="og:url" content="http://localhost:4000/ailab/9/">
+
+
+  <meta property="og:description" content="EDA 팀 프로젝트 수행 후기 및 느낀점 ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/myimage.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-05-16T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2024-05-16T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ailab/9/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Seong MyeongGi",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" 📜 Tech Blog : 기술을 기록으로 남기다 📜  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="icon" type="image/png" sizes="36x36" href="/assets/favicon.ico/android-icon-36x36.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon.ico/android-icon-48x48.png">
+<link rel="icon" type="image/png" sizes="72x72" href="/assets/favicon.ico/android-icon-72x72.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.ico/android-icon-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144" href="/assets/favicon.ico/android-icon-144x144.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon.ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon.ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- insert google analytics code here -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+     crossorigin="anonymous"></script> -->
+
+<!-- end custom head snippets -->
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #a9adaa;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent;
+      }  
+
+      
+      
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           📜 Tech Blog : 기술을 기록으로 남기다 📜 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#ailab" itemprop="item"><span itemprop="name">Ailab</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">EDA 팀 프로젝트 수행 후기 및 느낀점</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io/main/myimage.jpg" alt="Seong MyeongGi" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Seong MyeongGi</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Data Scientist 희망 취준생입니다 :)</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:smgsmg226@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/SUNGMYEONGGI" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/ii.ruatnec/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">76</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BaekJoon" class="">백준 (48)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Python</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Selenium" class="">셀레니움 (1)</a></li>
+                    
+                
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Memoir</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Memo22" class="">2022년 회고록 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/AiLab" class="">부트캠프 (18)</a></li>
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/DevEnv" class="">개발환경 (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSUNGMYEONGGI&count_bg=%23BABABA&title_bg=%23000000&icon=github.svg&icon_color=%23BABABA&title=Blog+Visitor&edge_flat=false">
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="EDA 팀 프로젝트 수행 후기 및 느낀점">
+    <meta itemprop="description" content="EDA 팀 프로젝트 수행 후기 및 느낀점">
+    <meta itemprop="datePublished" content="2024-05-16T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2024-05-16T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">EDA 팀 프로젝트 수행 후기 및 느낀점
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Date:</strong> <time datetime="2024-05-16T00:00:00+09:00">2024.05.16</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-05-16">2024.05.16</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#eda-팀-프로젝트-수행-후기-및-느낀점">EDA 팀 프로젝트 수행 후기 및 느낀점</a>
+    <ul>
+      <li><a href="#️-20240429--20240514">🗓️ 2024.04.29 ~ 2024.05.14</a></li>
+      <li><a href="#데이터-셋-선택">데이터 셋 선택</a></li>
+      <li><a href="#eda-진행">EDA 진행</a>
+        <ul>
+          <li><a href="#지역별-고객-분포">지역별 고객 분포</a></li>
+          <li><a href="#지역별-판매자-분포">지역별 판매자 분포</a></li>
+          <li><a href="#지역별-매출액">지역별 매출액</a></li>
+          <li><a href="#카테고리별-주문건수">카테고리별 주문건수</a></li>
+          <li><a href="#매출액-추이">매출액 추이</a></li>
+          <li><a href="#월별-매출액">월별 매출액</a></li>
+          <li><a href="#시간대별-매출액">시간대별 매출액</a></li>
+        </ul>
+      </li>
+      <li><a href="#folium을-활용한-지도-시각화">folium을 활용한 지도 시각화</a>
+        <ul>
+          <li><a href="#고객-위치-시각화">고객 위치 시각화</a></li>
+          <li><a href="#판매자-위치-시각화">판매자 위치 시각화</a></li>
+          <li><a href="#주별-평균-배송비">주별 평균 배송비</a></li>
+          <li><a href="#배송-시간별-고객과-판매자-간-평균-거리">배송 시간별 고객과 판매자 간 평균 거리</a></li>
+          <li><a href="#지역별-평균-배송비">지역별 평균 배송비</a></li>
+        </ul>
+      </li>
+      <li><a href="#인사이트">인사이트</a></li>
+      <li><a href="#느낀점">느낀점</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="eda-팀-프로젝트-수행-후기-및-느낀점">EDA 팀 프로젝트 수행 후기 및 느낀점</h1>
+<h2 id="️-20240429--20240514">🗓️ 2024.04.29 ~ 2024.05.14</h2>
+<p>약 2주간 진행된 Python EDA 팀 프로젝트를 수행하고 나서의 후기를 작성해보려고 한다. 이번 프로젝트는 데이터 분석에서 필요한 numpy, pandas, Matplotlib, seaborn 라이브러리에 대해서 크게 다루었다. 또 CSV파일 데이터를 활용하여 EDA를 진행하고 데이터 분석을 통한 인사이트를 얻는 시간이 되었다. 우선 EDA(Exploratory Data Analysis)는 데이터를 분석하기 위한 첫 번째 단계로 데이터를 분석하면서 데이터의 특성을 파악하고, 데이터의 분포를 확인하고, 데이터의 결측치를 확인하고, 데이터의 이상치를 확인하는 등의 과정을 통해 데이터를 분석하는 것을 말한다.</p>
+
+<h2 id="데이터-셋-선택">데이터 셋 선택</h2>
+<p>이번 프로젝트에서는 E-commerce 도메인을 중심으로 <a href="https://www.kaggle.com/">Kaggle</a>에서 제공하는 <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce">데이터셋</a>를 선택하여 EDA를 진행하였다. 데이터셋은 Brazilian E-Commerce Public Dataset by Olist 데이터셋으로, 9개의 데이터셋으로 구성되어 있어 데이터셋 간의 관계를 파악하고 분석하는 것이 주요 목표였다.
+<img src="https://velog.velcdn.com/images/thisk336/post/70c881f4-2307-4397-8ec8-416076d1376c/image.png" width="650" height="400" /></p>
+
+<h2 id="eda-진행">EDA 진행</h2>
+<h3 id="지역별-고객-분포">지역별 고객 분포</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">customer_region_data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'customer_region'</span><span class="p">).</span><span class="n">size</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%A7%80%EC%97%AD%EB%B3%84%20%EA%B3%A0%EA%B0%9D%EB%B6%84%ED%8F%AC.png" width="650" height="400" /></p>
+
+<h3 id="지역별-판매자-분포">지역별 판매자 분포</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">seller_region_data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'seller_region'</span><span class="p">).</span><span class="n">size</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%ED%8C%90%EB%A7%A4%EC%9E%90%20%EC%A7%80%EC%97%AD%EB%B6%84%ED%8F%AC.png" width="650" height="400" /></p>
+
+<h3 id="지역별-매출액">지역별 매출액</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fig</span><span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">olist_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">'customer_region'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">'total_price'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Total Sales by Region'</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker_color</span><span class="o">=</span><span class="s">'rgb(158,202,225)'</span><span class="p">,</span> <span class="n">marker_line_color</span><span class="o">=</span><span class="s">'rgb(8,48,107)'</span><span class="p">,</span> <span class="n">marker_line_width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%A7%80%EC%97%AD%EB%B3%84%20%EB%A7%A4%EC%B6%9C%EC%95%A1.png" width="650" height="600" /></p>
+
+<h3 id="카테고리별-주문건수">카테고리별 주문건수</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">category_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'product_category_name_english'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">category_df</span> <span class="o">=</span> <span class="n">category_df</span><span class="p">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">category_df</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'카테고리'</span><span class="p">,</span> <span class="s">'주문건수'</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">category_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">'카테고리'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">'주문건수'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'카테고리별 주문 건수'</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">autosize</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1400</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EB%B3%84%20%EC%A3%BC%EB%AC%B8%EA%B1%B4%EC%88%98.png" width="650" height="400" /></p>
+
+<h3 id="매출액-추이">매출액 추이</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># order_purchase_timestamp 컬럼을 활용하여 연도, 월, 일, 요일, 시간 컬럼 추가
+</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">])</span>
+<span class="n">olist_data</span><span class="p">[</span><span class="s">'purchase_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">date</span>
+<span class="n">olist_data</span><span class="p">[</span><span class="s">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">year</span>
+<span class="n">olist_data</span><span class="p">[</span><span class="s">'month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">month</span>
+<span class="n">olist_data</span><span class="p">[</span><span class="s">'day'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">day</span>
+<span class="n">olist_data</span><span class="p">[</span><span class="s">'hour'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_purchase_timestamp'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%H:%M:%S'</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EB%A7%A4%EC%B6%9C%EC%95%A1%20%EC%B6%94%EC%9D%B4.png" width="650" height="400" /></p>
+
+<h3 id="월별-매출액">월별 매출액</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 월별 매출액의 합계 피벗테이블 생성
+</span><span class="n">month_purchase_pt</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">,</span>
+                                   <span class="n">index</span> <span class="o">=</span> <span class="s">'month'</span><span class="p">,</span>
+                                   <span class="n">values</span> <span class="o">=</span> <span class="s">'payment_value'</span><span class="p">,</span>
+                                   <span class="n">aggfunc</span> <span class="o">=</span> <span class="s">'sum'</span><span class="p">).</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="c1"># 월별 주문 건수 피벗테이블 생성
+</span><span class="n">month_purchase_pt2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">,</span> 
+                                  <span class="n">index</span> <span class="o">=</span> <span class="s">'month'</span><span class="p">,</span>
+                                  <span class="n">values</span> <span class="o">=</span> <span class="s">'payment_value'</span><span class="p">,</span>
+                                  <span class="n">aggfunc</span> <span class="o">=</span> <span class="s">'count'</span><span class="p">).</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%9B%94%EB%B3%84%20%EB%A7%A4%EC%B6%9C%EC%95%A1.png" width="650" height="400" /></p>
+
+<h3 id="시간대별-매출액">시간대별 매출액</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 시간대별 매출액
+</span><span class="n">hour_purchase_pt</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">,</span>
+                                  <span class="n">index</span> <span class="o">=</span> <span class="s">'hour'</span><span class="p">,</span> <span class="c1"># 00:00:00 포매팅
+</span>                                  <span class="n">values</span> <span class="o">=</span> <span class="s">'payment_value'</span><span class="p">,</span>
+                                  <span class="n">aggfunc</span> <span class="o">=</span> <span class="s">'sum'</span><span class="p">).</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%8B%9C%EA%B0%84%EB%8C%80%EB%B3%84%20%EB%A7%A4%EC%B6%9C%EC%95%A1.png" width="650" height="400" /></p>
+
+<h2 id="folium을-활용한-지도-시각화">folium을 활용한 지도 시각화</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">MarkerCluster</span>
+
+<span class="k">def</span> <span class="nf">to_map</span><span class="p">(</span><span class="n">data_set</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">popup_column</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">"Map"</span><span class="p">):</span>
+    <span class="n">sample_data</span> <span class="o">=</span> <span class="n">data_set</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">14.235004</span><span class="p">,</span> <span class="o">-</span><span class="mf">51.92528</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">marker_cluster</span> <span class="o">=</span> <span class="n">MarkerCluster</span><span class="p">().</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sample_data</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">folium</span><span class="p">.</span><span class="n">Marker</span><span class="p">(</span>
+            <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lat'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lng'</span><span class="p">]],</span>
+            <span class="n">popup</span><span class="o">=</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">popup_column</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">popup_column</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="p">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">)</span>
+        <span class="p">).</span><span class="n">add_to</span><span class="p">(</span><span class="n">marker_cluster</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">m</span>
+</code></pre></div></div>
+<h3 id="고객-위치-시각화">고객 위치 시각화</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">to_map</span><span class="p">(</span><span class="n">geo_customer_data</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="s">"customer_id"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EA%B3%A0%EA%B0%9D%20%EC%9C%84%EC%B9%98.png" width="650" height="400" /></p>
+
+<h3 id="판매자-위치-시각화">판매자 위치 시각화</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">to_map</span><span class="p">(</span><span class="n">geo_seller_data</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="s">"seller_id"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%ED%8C%90%EB%A7%A4%EC%9E%90%20%EC%9C%84%EC%B9%98.png" width="650" height="400" /></p>
+
+<h3 id="주별-평균-배송비">주별 평균 배송비</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># - 고객의 위치에 따른 배송시간(배송일 - 배송시작일)을 계산하여 folium을 이용하여 지도로 표시
+</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_customer_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_customer_date'</span><span class="p">])</span> <span class="c1"># 배송일
+</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_carrier_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_carrier_date'</span><span class="p">])</span> <span class="c1"># 배송시작일
+</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'delivery_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_customer_date'</span><span class="p">]</span> <span class="o">-</span> <span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'order_delivered_carrier_date'</span><span class="p">]</span> <span class="c1"># 배송시간
+</span>
+<span class="c1"># 배송시간을 .day로 변경(소수점 제거)
+</span><span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'delivery_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">geo_customer_order_data</span><span class="p">[</span><span class="s">'delivery_time'</span><span class="p">].</span><span class="n">dt</span><span class="p">.</span><span class="n">days</span>
+<span class="n">geo_customer_order_data</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%A3%BC%EB%B3%84%20%ED%8F%89%EA%B7%A0%20%EB%B0%B0%EC%86%A1%EC%8B%9C%EA%B0%84.png" width="650" height="400" /></p>
+
+<h3 id="배송-시간별-고객과-판매자-간-평균-거리">배송 시간별 고객과 판매자 간 평균 거리</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 필요한 모듈 불러오기
+</span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># 위도와 경도를 통해 거리(단위 : km)를 계산하는 함수 정의
+</span><span class="k">def</span> <span class="nf">haversine_distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">):</span>
+    <span class="c1"># 지구의 반지름 (평균 반지름은 약 6,371 km)
+</span>    <span class="n">R</span> <span class="o">=</span> <span class="mf">6371.0</span>
+    
+    <span class="c1"># 위도 및 경도를 라디안으로 변환
+</span>    <span class="n">lat1</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="c1"># 구매자 위도
+</span>    <span class="n">lon1</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon1</span><span class="p">)</span> <span class="c1"># 구매자 경도
+</span>    <span class="n">lat2</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="c1"># 판매자 위도
+</span>    <span class="n">lon2</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">radians</span><span class="p">(</span><span class="n">lon2</span><span class="p">)</span> <span class="c1"># 판매자 경도
+</span>    
+    <span class="c1"># 위도 및 경도의 차이
+</span>    <span class="n">dlat</span> <span class="o">=</span> <span class="n">lat2</span> <span class="o">-</span> <span class="n">lat1</span>
+    <span class="n">dlon</span> <span class="o">=</span> <span class="n">lon2</span> <span class="o">-</span> <span class="n">lon1</span>
+    
+    <span class="c1"># Haversine 공식을 사용하여 거리 계산
+</span>    <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlat</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat2</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dlon</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="p">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">c</span>
+
+    <span class="k">return</span> <span class="n">distance</span>
+
+<span class="c1"># 각 행에 대해 거리를 계산하는 함수 정의
+</span><span class="k">def</span> <span class="nf">calculate_distance</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">lat1</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lat_customer'</span><span class="p">]</span>  <span class="c1"># 구매자 위도
+</span>    <span class="n">lon1</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lng_customer'</span><span class="p">]</span>  <span class="c1"># 구매자 경도
+</span>    <span class="n">lat2</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lat_seller'</span><span class="p">]</span>    <span class="c1"># 판매자 위도
+</span>    <span class="n">lon2</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'geolocation_lng_seller'</span><span class="p">]</span>    <span class="c1"># 판매자 경도
+</span>    
+    <span class="c1"># haversine_distance 함수를 호출하여 거리 계산
+</span>    <span class="n">distance</span> <span class="o">=</span> <span class="n">haversine_distance</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># 소수점 3번째 자리에서 반올림
+</span>
+<span class="c1"># 배송시간이 15일 이상 걸린 경우의 데이터프레임 생성
+</span><span class="n">long_delivery_data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'delivery_time'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">long_delivery_data</span><span class="p">[</span><span class="s">'distance'</span><span class="p">]</span> <span class="o">=</span> <span class="n">long_delivery_data</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">calculate_distance</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">long_delivery_mean_distance</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">long_delivery_data</span><span class="p">[</span><span class="s">'distance'</span><span class="p">].</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 배송시간이 15일 미만 걸린 경우의 데이터프레임 생성
+</span><span class="n">short_delivery_data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'delivery_time'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">short_delivery_data</span><span class="p">[</span><span class="s">'distance'</span><span class="p">]</span> <span class="o">=</span> <span class="n">short_delivery_data</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="n">calculate_distance</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">short_delivery_mean_distance</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">short_delivery_data</span><span class="p">[</span><span class="s">'distance'</span><span class="p">].</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="https://github.com/SUNGMYEONGGI/image/blob/main/%EB%B0%B0%EC%86%A1%20%EC%8B%9C%EA%B0%84%EB%B3%84%20%EA%B3%A0%EA%B0%9D%EA%B3%BC%ED%8C%90%EB%A7%A4%EC%9E%90%20%EA%B0%84%20%ED%8F%89%EA%B7%A0%EA%B1%B0%EB%A6%AC.png?raw=true" width="650" height="400" /></p>
+
+<h3 id="지역별-평균-배송비">지역별 평균 배송비</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># olist_data에서 배송비 계산
+</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'delivery_fee'</span><span class="p">]</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'freight_value'</span><span class="p">]</span> <span class="o">/</span> <span class="n">olist_data</span><span class="p">[</span><span class="s">'order_item_id'</span><span class="p">]</span>
+
+<span class="c1"># 배송비가 0보다 큰 데이터만 추출
+</span><span class="n">delivery_fee_data</span> <span class="o">=</span> <span class="n">olist_data</span><span class="p">[</span><span class="n">olist_data</span><span class="p">[</span><span class="s">'delivery_fee'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 지역별 평균 배송비 계산
+</span><span class="n">state_delivery_fee</span> <span class="o">=</span> <span class="n">delivery_fee_data</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'customer_state'</span><span class="p">)[</span><span class="s">'delivery_fee'</span><span class="p">].</span><span class="n">mean</span><span class="p">().</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">state_delivery_fee</span><span class="p">[</span><span class="s">'delivery_fee'</span><span class="p">]</span> <span class="o">=</span> <span class="n">state_delivery_fee</span><span class="p">[</span><span class="s">'delivery_fee'</span><span class="p">].</span><span class="nb">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># 평균 배송비를 소수점 둘째 자리까지 반올림하여 저장
+</span>
+<span class="c1"># 지도 생성
+</span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">14.235004</span><span class="p">,</span> <span class="o">-</span><span class="mf">51.92528</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Choropleth 레이어 추가
+</span><span class="n">folium</span><span class="p">.</span><span class="n">Choropleth</span><span class="p">(</span>
+    <span class="n">geo_data</span><span class="o">=</span><span class="s">'geojson'</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">'choropleth'</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">state_delivery_fee</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'customer_state'</span><span class="p">,</span> <span class="s">'delivery_fee'</span><span class="p">],</span>
+    <span class="n">key_on</span><span class="o">=</span><span class="s">'feature.properties.sigla'</span><span class="p">,</span>
+    <span class="n">fill_color</span><span class="o">=</span><span class="s">'BuPu'</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">line_opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">legend_name</span><span class="o">=</span><span class="s">'Average Delivery Fee'</span>
+<span class="p">).</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div></div>
+<p><img src="https://raw.githubusercontent.com/SUNGMYEONGGI/image/main/%EC%A7%80%EC%97%AD%EB%B3%84%20%ED%8F%89%EA%B7%A0%20%EB%B0%B0%EC%86%A1%EB%B9%84.png" width="650" height="400" /></p>
+
+<h2 id="인사이트">인사이트</h2>
+<ul>
+  <li><strong>고객과 판매자의 위치에 따른 배송 시간과 거리의 상관관계</strong>
+    <ul>
+      <li>배송 시간이 15일 이상 걸린 경우의 평균 거리는 1,000km 이상으로, 배송 시간이 길어질수록 거리가 멀어지는 경향이 있다.</li>
+      <li>반면, 배송 시간이 15일 미만 걸린 경우의 평균 거리는 500km 이하로, 배송 시간이 짧을수록 거리가 가까워지는 경향이 있다.</li>
+      <li>배송 시간이 15일 차이가 나면 최소 평균 거리는 500km 이상 차이가 나는 것으로 보아, 배송 시간과 거리는 상관관계가 있다고 볼 수 있다.</li>
+    </ul>
+  </li>
+  <li><strong>지역별 평균 배송비</strong>
+    <ul>
+      <li>지역별 평균 배송비는 상이하며, 평균 배송비가 높은 지역은 SP, RJ, MG 등이다.</li>
+      <li>반면, 평균 배송비가 낮은 지역은 RR, AP, AC 등이다.</li>
+    </ul>
+  </li>
+  <li><strong>매출액</strong>
+    <ul>
+      <li>2017년 10월부터 2018년 8월까지 매출액이 증가하는 추세를 보이다가 2018년 9월부터 2018년 12월까지 매출액이 감소하는 추세를 보인다.</li>
+      <li>시간대별 매출액은 10시부터 16시까지 매출액이 가장 높은 것으로 나타났으며 사람들이 보통 낮 시간대에 많이 구매하는 것으로 보인다.</li>
+    </ul>
+  </li>
+  <li><strong>고객과 판매자 위치</strong>
+    <ul>
+      <li>고객과 판매자의 위치를 지도로 시각화한 결과, 고객과 판매자의 위치가 서로 다른 지역에 위치한 경우가 많았다.</li>
+      <li>고객과 판매자의 위치가 서로 다른 경우 배송 시간이 길어지는 경향이 있었다.</li>
+      <li>판매자는 보통 상파울루, 미나스제라이스, 리우데자네이루 등의 지역에 많이 위치해 있었으며, 고객은 상파울루, 리우데자네이루, 미나스제라이스 등의 지역에 많이 위치해 있었다.</li>
+      <li>판매자가 많이 모여 있는 지역은 공항 근처에 위치해 있었으며, 고객이 많이 모여 있는 지역은 시내 중심부에 위치해 있었다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="느낀점">느낀점</h2>
+<p>이번 프로젝트를 통해 데이터 분석을 통한 인사이트 도출과 시각화에 대한 중요성을 깨달았다. 데이터를 분석하고 시각화하는 과정에서 데이터의 특성을 파악하고, 데이터의 분포를 확인하고, 데이터의 결측치를 확인하고, 데이터의 이상치를 확인하는 등의 과정을 통해 데이터를
+분석하는 것이 중요하다는 것을 알게 되었다.</p>
+
+<p>하지만, 짧은 시간에 Python EDA를 배우면서 E-commerce 도메인에 대한 호기심으로 시작해서 아무 것도 모르는 상태에서 팀원들과 E-commerce에 대해 공부하고 olist 데이터를 분석하면서 함께 배워나가며 알아가는 것이 좋았으며 E-coomerce에서는 어떤 결측치, 이상치를 처리해야 될지 잘 모르고 시작한 부분이 있어서 중간중간 데이터분석에서 이상하게 데이터가 분석되고 그래프가 이상하게 나온 것들이 많았지만 그래도 유의미한 데이터 분석을 할 수 있었고 온라인 수업 시간에 배우지는 않았지만
+folium 지도시각화를 활용하여 고객과 판매자 사이에 관계를 파악할 수 있었던 것이 유의미한 시간이었다. 다음에 데이터 분석을 할 기회가 된다면 결측치와 이상치를 잘 처리하고 데이터를 분석하는 것에 더 집중하고 싶다.</p>
+
+<hr />
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 
+언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄
+</code></pre></div></div>
+
+<p><a href="#" class="btn btn--primary align-right">맨 위로 이동하기</a></p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Coming Soon'; color:#fcd14f;">AiLab</span> <span style="font-family:'Cafe24Oneprettynight';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/baekjoon/2346/" class="pagination--pager" title="[BOJ Python] 2346번 풍선 터뜨리기
+">이전</a>
+    
+    
+      <a href="/ailab/10/" class="pagination--pager" title="AI 개발자 취업을 위한 코딩테스트 특강 후기
+">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/ailab/8/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>프로젝트 수행을 위한 EDA 수업 후기</a>
+    
+    
+      <a href="/ailab/10/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>AI 개발자 취업을 위한 코딩테스트 특강 후기</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+            crossorigin="anonymous"></script>
+        <!-- GitbBlog Display Ads -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-6434961637099601"
+            data-ad-slot="4939865945"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=EDA+%ED%8C%80+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%88%98%ED%96%89+%ED%9B%84%EA%B8%B0+%EB%B0%8F+%EB%8A%90%EB%82%80%EC%A0%90%20http%3A%2F%2Flocalhost%3A4000%2Failab%2F9%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Failab%2F9%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Failab%2F9%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/18/">[Dialogue Summarization] 일상 대화 요약 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.09.24
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/17/">Computer Vision Basic, Advanced, Generation 강의 학습 회고록</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.08.21
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/16/">[Computer Vision Project] 문서 타입 분류 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.08.14
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/15/">[ML Regression Project] 아파트 실거래가 예측 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.25
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/14/">Upstage AI Lab 3기 중간 과정 회고 학습 블로그</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/13/">Deep Learning & Pytorch 강의 마무리 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/12/">ML 팀 프로젝트 마무리 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.06.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/11/">ML 프로젝트 기본 이론(머신러닝) 강의 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.06.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/10/">AI 개발자 취업을 위한 코딩테스트 특강 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.05.21
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/baekjoon/2346/">[BOJ Python] 2346번 풍선 터뜨리기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.05.02
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#baekjoon" class="page__taxonomy-item-category" rel="tag">BaekJoon</a>
+                    
+                    
+                    <a href="/tags/#deque" class="page__taxonomy-item-tag" rel="tag">Deque</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+     crossorigin="anonymous"></script>
+<!-- GitbBlog Display Ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6434961637099601"
+     data-ad-slot="4939865945"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/SUNGMYEONGGI" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 Seong MyeongGi. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'SUNGMYEONGGI/SUNGMYEONGGI.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>

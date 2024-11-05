@@ -1,8 +1,1 @@
-User-agent: *
-
-Disallow: /norobots/
-Disallow: /tags/
-
 Sitemap: http://localhost:4000/sitemap.xml
-
-#DaumWebMasterTool:723c398ab07c8bce7a728fb97acb3474cd056c4b061d3761199e9a7e8a52cdd3:e2oWQUCuWqFnhyrO2S7qdQ==

@@ -1,0 +1,74 @@
+{% assign sum = site.posts | size %}
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Algorithm</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "BaekJoon" %}
+                        <li><a href="/categories/BaekJoon" class="">백준 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Programmers" %}
+                        <li><a href="/categories/Programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Python</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Selenium" %}
+                        <li><a href="/categories/Selenium" class="">셀레니움 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Memoir</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Memo22" %}
+                        <li><a href="/categories/Memo22" class="">2022년 회고록 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "AiLab" %}
+                        <li><a href="/categories/AiLab" class="">부트캠프 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Etc</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "DevEnv" %}
+                        <li><a href="/categories/DevEnv" class="">개발환경 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSUNGMYEONGGI&count_bg=%23BABABA&title_bg=%23000000&icon=github.svg&icon_color=%23BABABA&title=Blog+Visitor&edge_flat=false">
+      </li>
+  </ul>
+</nav>
+

@@ -1,0 +1,1281 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <!--폰트 : "Nanum Gothic Coding", "Coming Soon"-->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Nanum+Gothic+Coding&display=swap">
+    
+    <!--폰트 : "Iropke Batang"-->
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css">
+
+    <!--폰트 : "Cafe24Oneprettynight"-->
+    
+    <!--main.scss 조금이라도 빨리 로드 되길.. preload-->
+    <link rel="preload" as="style" href="/assets/css/main.css">
+
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[BOJ Python] 10798번 세로읽기 -  📜 Tech Blog : 기술을 기록으로 남기다 📜</title>
+<meta name="description" content="백준 온라인 저지 문제 풀이 ">
+
+
+  <meta name="author" content="Seong MyeongGi">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content=" 📜 Tech Blog : 기술을 기록으로 남기다 📜 ">
+<meta property="og:title" content="[BOJ Python] 10798번 세로읽기">
+<meta property="og:url" content="http://localhost:4000/baekjoon/10798/">
+
+
+  <meta property="og:description" content="백준 온라인 저지 문제 풀이 ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/myimage.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-01-08T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2024-01-08T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/baekjoon/10798/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Seong MyeongGi",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" 📜 Tech Blog : 기술을 기록으로 남기다 📜  Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="icon" type="image/png" sizes="36x36" href="/assets/favicon.ico/android-icon-36x36.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon.ico/android-icon-48x48.png">
+<link rel="icon" type="image/png" sizes="72x72" href="/assets/favicon.ico/android-icon-72x72.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.ico/android-icon-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144" href="/assets/favicon.ico/android-icon-144x144.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon.ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon.ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- insert google analytics code here -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+     crossorigin="anonymous"></script> -->
+
+<!-- end custom head snippets -->
+
+    <!-- 스크롤바 커스터마이징 -->
+    <style> 
+      ::-webkit-scrollbar{width: 16px;}
+      ::-webkit-scrollbar-track {background-color:#4b4f52; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb {background-color:#5e6265; border-radius: 16px;}
+      ::-webkit-scrollbar-thumb:hover {background: #a9adaa;}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:12px;height:12px;background:transparent;
+      }  
+
+      
+      
+    </style>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+           📜 Tech Blog : 기술을 기록으로 남기다 📜 
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">카테고리 Click</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#baekjoon" itemprop="item"><span itemprop="name">Baekjoon</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[BOJ Python] 10798번 세로읽기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="https://raw.githubusercontent.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io/main/myimage.jpg" alt="Seong MyeongGi" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Seong MyeongGi</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Data Scientist 희망 취준생입니다 :)</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:smgsmg226@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/SUNGMYEONGGI" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/ii.ruatnec/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">카테고리 Click</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">76</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BaekJoon" class="">백준 (48)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (6)</a></li>
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+
+      <li>
+        <span class="nav__sub-title">Python</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/Selenium" class="">셀레니움 (1)</a></li>
+                    
+                
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Memoir</span>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Memo22" class="">2022년 회고록 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/AiLab" class="">부트캠프 (18)</a></li>
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      
+      <li>
+        <span class="nav__sub-title">Etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/DevEnv" class="">개발환경 (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSUNGMYEONGGI&count_bg=%23BABABA&title_bg=%23000000&icon=github.svg&icon_color=%23BABABA&title=Blog+Visitor&edge_flat=false">
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[BOJ Python] 10798번 세로읽기">
+    <meta itemprop="description" content="백준 온라인 저지 문제 풀이">
+    <meta itemprop="datePublished" content="2024-01-08T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2024-01-08T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[BOJ Python] 10798번 세로읽기
+</h1>
+          
+            <p class="page__meta"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Date:</strong> <time datetime="2024-01-08T00:00:00+09:00">2024.01.08</time>&nbsp&nbsp&nbsp<strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-08">2024.01.08</time></p>
+          
+          
+            
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#baekjoon" class="page__taxonomy-item-category" rel="tag">BaekJoon</a>
+    
+    </span>
+  </p>
+
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#string" class="page__taxonomy-item-tag" rel="tag">String</a><span class="sep"> </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item-tag" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#세로읽기">세로읽기</a>
+    <ul>
+      <li><a href="#-문제">📃 문제</a></li>
+      <li><a href="#-입력">📬 입력</a></li>
+      <li><a href="#-출력">📭 출력</a></li>
+      <li><a href="#️-문제-답안">🙆🏻‍♂️ 문제 답안</a></li>
+      <li><a href="#-좋은-답안">📝 좋은 답안</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="세로읽기">세로읽기</h1>
+<h2 id="-문제">📃 문제</h2>
+<p>아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다.</p>
+
+<p>이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다. 영석이는 칠판에 글자들을 수평으로 일렬로 붙여서 단어를 만든다. 다시 그 아래쪽에 글자들을 붙여서 또 다른 단어를 만든다. 이런 식으로 다섯 개의 단어를 만든다. 아래 그림 1은 영석이가 칠판에 붙여 만든 단어들의 예이다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A A B C D D
+a f z z
+0 9 1 2 1
+a 8 E W g 6
+P 5 h 3 k x
+</code></pre></div></div>
+
+<p>&lt;그림 1&gt;</p>
+
+<p>한 줄의 단어는 글자들을 빈칸 없이 연속으로 나열해서 최대 15개의 글자들로 이루어진다. 또한 만들어진 다섯 개의 단어들의 글자 개수는 서로 다를 수 있다.</p>
+
+<p>심심해진 영석이는 칠판에 만들어진 다섯 개의 단어를 세로로 읽으려 한다. 세로로 읽을 때, 각 단어의 첫 번째 글자들을 위에서 아래로 세로로 읽는다. 다음에 두 번째 글자들을 세로로 읽는다. 이런 식으로 왼쪽에서 오른쪽으로 한 자리씩 이동 하면서 동일한 자리의 글자들을 세로로 읽어 나간다. 위의 그림 1의 다섯 번째 자리를 보면 두 번째 줄의 다섯 번째 자리의 글자는 없다. 이런 경우처럼 세로로 읽을 때 해당 자리의 글자가 없으면, 읽지 않고 그 다음 글자를 계속 읽는다. 그림 1의 다섯 번째 자리를 세로로 읽으면 D1gk로 읽는다.</p>
+
+<p>그림 1에서 영석이가 세로로 읽은 순서대로 글자들을 공백 없이 출력하면 다음과 같다:</p>
+
+<p>Aa0aPAf985Bz1EhCz2W3D1gkD6x</p>
+
+<p>칠판에 붙여진 단어들이 주어질 때, 영석이가 세로로 읽은 순서대로 글자들을 출력하는 프로그램을 작성하시오.</p>
+
+<h2 id="-입력">📬 입력</h2>
+<p>총 다섯줄의 입력이 주어진다. 각 줄에는 최소 1개, 최대 15개의 글자들이 빈칸 없이 연속으로 주어진다. 주어지는 글자는 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’ 중 하나이다. 각 줄의 시작과 마지막에 빈칸은 없다.</p>
+
+<h2 id="-출력">📭 출력</h2>
+<p>영석이가 세로로 읽은 순서대로 글자들을 출력한다. 이때, 글자들을 공백 없이 연속해서 출력한다.</p>
+
+<h2 id="️-문제-답안">🙆🏻‍♂️ 문제 답안</h2>
+
+<ul>
+  <li>내가 제출한 답
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+  <span class="n">lenth</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">lenth</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+          <span class="n">lenth</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">!=</span> <span class="n">lenth</span><span class="p">:</span>
+          <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenth</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">)):</span>
+              <span class="n">j</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+  <span class="n">answer</span> <span class="o">=</span> <span class="s">''</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenth</span><span class="p">):</span>
+      <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+          <span class="n">answer</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+
+  <span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="-좋은-답안">📝 좋은 답안</h2>
+<ul>
+  <li><a href="https://wondytyahng.tistory.com/entry/%EB%B0%B1%EC%A4%80-10798-%EC%84%B8%EB%A1%9C%EC%9D%BD%EA%B8%B0">우당턍탕 개발 일기</a></li>
+</ul>
+
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우 
+   비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️
+</code></pre></div></div>
+
+<p><a href="#" class="btn btn--primary align-right">맨 위로 이동하기</a></p>
+
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <p></p>
+        <h4 class="page__meta-title"><span style="font-family:'Coming Soon'; color:#fcd14f;">BaekJoon</span> <span style="font-family:'Cafe24Oneprettynight';">카테고리 내 다른 글 보러가기</span></h4>
+        <!--
+
+  <nav class="pagination">
+    
+      <a href="/programmers/181872/" class="pagination--pager" title="[Programmers Python] Lv.0 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+">이전</a>
+    
+    
+      <a href="/baekjoon/4659/" class="pagination--pager" title="[BOJ Python] 4659번 비밀번호 발음하기
+">다음</a>
+    
+  </nav>
+
+-->
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+
+  <nav class="pagination_prev_next">
+    
+      <a href="/baekjoon/1181/" class="pagination_prev_next--pager"><span class="prev_next">이전 글  &nbsp</span>[BOJ Python] 1181번 단어 정렬</a>
+    
+    
+      <a href="/baekjoon/4659/" class="pagination_prev_next--pager"><span class="prev_next">다음 글  &nbsp  </span>[BOJ Python] 4659번 비밀번호 발음하기</a>
+    
+  </nav>
+
+
+<!--
+
+
+
+-->
+
+
+
+        <p></p>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+            crossorigin="anonymous"></script>
+        <!-- GitbBlog Display Ads -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-6434961637099601"
+            data-ad-slot="4939865945"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <footer class="page__meta">
+        
+        <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BBOJ+Python%5D+10798%EB%B2%88+%EC%84%B8%EB%A1%9C%EC%9D%BD%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fbaekjoon%2F10798%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fbaekjoon%2F10798%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fbaekjoon%2F10798%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      </footer>
+    </div>
+
+    
+
+  </article>
+
+  
+  
+    <div class="page__related"> <!--site.data.ui-text[site.locale].related_label-->
+      <h4 class="page__related-title">최근 글 10 개 :)</h4>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/18/">[Dialogue Summarization] 일상 대화 요약 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.09.24
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/17/">Computer Vision Basic, Advanced, Generation 강의 학습 회고록</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.08.21
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/16/">[Computer Vision Project] 문서 타입 분류 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.08.14
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/15/">[ML Regression Project] 아파트 실거래가 예측 Report</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.25
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/14/">Upstage AI Lab 3기 중간 과정 회고 학습 블로그</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.15
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/13/">Deep Learning & Pytorch 강의 마무리 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.07.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/12/">ML 팀 프로젝트 마무리 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.06.17
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/11/">ML 프로젝트 기본 이론(머신러닝) 강의 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.06.03
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/10/">AI 개발자 취업을 위한 코딩테스트 특강 후기</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.05.21
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+          <div class="list__item">
+    <article class="archive-item">
+        <div>
+            <span>
+              <a href="/ailab/9/">EDA 팀 프로젝트 수행 후기 및 느낀점</a>
+            </span>
+            <small> 
+              <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"> </i> 2024.05.16
+              <!--Archive page 용-: (post -> page)-->
+<!--page__taxonomy.html에서 가져 옴-->
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#ailab" class="page__taxonomy-item-category" rel="tag">AiLab</a>
+                    
+                    
+                    <a href="/tags/#upstageailab-%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90" class="page__taxonomy-item-tag" rel="tag">UpstageAILab#국비지원</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">업스테이지패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4ai%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스AI부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지부트캠프</a><span class="sep"> </span>
+                
+                    
+                    
+                    <a href="/tags/#%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4%EC%97%85%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EB%9E%A9" class="page__taxonomy-item-tag" rel="tag">패스트캠퍼스업스테이지에이아이랩</a>
+                
+            </span>
+        </span>
+            </small>
+        </div>
+      </article>
+</div>
+        
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6434961637099601"
+     crossorigin="anonymous"></script>
+<!-- GitbBlog Display Ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6434961637099601"
+     data-ad-slot="4939865945"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/SUNGMYEONGGI" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 Seong MyeongGi. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'SUNGMYEONGGI/SUNGMYEONGGI.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+  
+
+
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+  </body>
+</html>
