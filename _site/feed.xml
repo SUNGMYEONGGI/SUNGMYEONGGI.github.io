@@ -1,0 +1,153 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>MYEONGGI</title>
+  <subtitle>IT 및 프로그래밍 관련된 글을 작성하는 개발 중심의 블로그입니다.</subtitle>
+  <updated>2024-11-05T14:57:34+09:00</updated>
+  <author>
+    <name>SUNGMYEONGGI</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
+  <rights> © 2024 SUNGMYEONGGI </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>일상 대화 요약 프로젝트 회고록</title>
+    <link href="http://localhost:4000/posts/18/" rel="alternate" type="text/html" title="일상 대화 요약 프로젝트 회고록" />
+    <published>2024-09-24T23:18:57+09:00</published>
+  
+    <updated>2024-09-24T23:18:57+09:00</updated>
+  
+    <id>http://localhost:4000/posts/18/</id>
+    <content src="http://localhost:4000/posts/18/" />
+    <author>
+      <name>SUNGMYEONGGI</name>
+    </author>
+
+  
+    
+    <category term="AI" />
+    
+    <category term="BootCamp" />
+    
+  
+
+  <summary>해당 글에서는 일상 대화 요약 프로젝트 회고록에 대해 소개합니다.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Computer Vision Basic, Advanced, Generation 강의 학습 회고록</title>
+    <link href="http://localhost:4000/posts/17/" rel="alternate" type="text/html" title="Computer Vision Basic, Advanced, Generation 강의 학습 회고록" />
+    <published>2024-08-21T20:35:27+09:00</published>
+  
+    <updated>2024-08-21T20:35:27+09:00</updated>
+  
+    <id>http://localhost:4000/posts/17/</id>
+    <content src="http://localhost:4000/posts/17/" />
+    <author>
+      <name>SUNGMYEONGGI</name>
+    </author>
+
+  
+    
+    <category term="AI" />
+    
+    <category term="BootCamp" />
+    
+  
+
+  <summary>해당 글에서는 Computer Vision Basic, Advanced, Generation 강의 학습 회고록에 대해 소개합니다.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>문서 타입 분류 프로젝트 회고록</title>
+    <link href="http://localhost:4000/posts/16/" rel="alternate" type="text/html" title="문서 타입 분류 프로젝트 회고록" />
+    <published>2024-08-14T16:00:05+09:00</published>
+  
+    <updated>2024-08-14T16:00:05+09:00</updated>
+  
+    <id>http://localhost:4000/posts/16/</id>
+    <content src="http://localhost:4000/posts/16/" />
+    <author>
+      <name>SUNGMYEONGGI</name>
+    </author>
+
+  
+    
+    <category term="AI" />
+    
+    <category term="BootCamp" />
+    
+  
+
+  <summary>해당 글에서는 문서 타입 분류 Report에 대해 소개합니다.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>아파트 실거래가 예측 프로젝트 회고록</title>
+    <link href="http://localhost:4000/posts/15/" rel="alternate" type="text/html" title="아파트 실거래가 예측 프로젝트 회고록" />
+    <published>2024-07-25T11:03:15+09:00</published>
+  
+    <updated>2024-07-25T11:03:15+09:00</updated>
+  
+    <id>http://localhost:4000/posts/15/</id>
+    <content src="http://localhost:4000/posts/15/" />
+    <author>
+      <name>SUNGMYEONGGI</name>
+    </author>
+
+  
+    
+    <category term="AI" />
+    
+    <category term="BootCamp" />
+    
+  
+
+  <summary>해당 글에서는 아파트 실거래가 예측 Report에 대해 소개합니다.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Upstage AI Lab 3기 중간 과정 회고 학습 블로그</title>
+    <link href="http://localhost:4000/posts/14/" rel="alternate" type="text/html" title="Upstage AI Lab 3기 중간 과정 회고 학습 블로그" />
+    <published>2024-07-15T21:43:55+09:00</published>
+  
+    <updated>2024-07-15T21:43:55+09:00</updated>
+  
+    <id>http://localhost:4000/posts/14/</id>
+    <content src="http://localhost:4000/posts/14/" />
+    <author>
+      <name>SUNGMYEONGGI</name>
+    </author>
+
+  
+    
+    <category term="AI" />
+    
+    <category term="BootCamp" />
+    
+  
+
+  <summary>해당 글에서는 Upstage AI Lab 3기 중간 과정 회고 학습 블로그에 대해 소개합니다.</summary>
+
+  </entry>
+
+</feed>
+
+

@@ -1,0 +1,1126 @@
+[
+  
+  {
+    "title": "일상 대화 요약 프로젝트 회고록",
+    "url": "/posts/18/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-09-24 23:18:57 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트 개요개요Dialogue Summarization 경진대회는 주어진 데이터를 활용하여 일상 대화에 대한 요약을 효과적으로 생성하는 모델을 개발하는 대회이다.일상생활에서 ‘대화’는 항상 이루어지고 있다. 회의나 토의는 물론이고, 사소한 일상 대화 중에도 서로 다양한 주제와 입장들을 주고 받는다. 나누는 대화를 녹음해두더라도 대화 전체를 항상 다시...",
+    "content": "프로젝트 개요개요Dialogue Summarization 경진대회는 주어진 데이터를 활용하여 일상 대화에 대한 요약을 효과적으로 생성하는 모델을 개발하는 대회이다.일상생활에서 ‘대화’는 항상 이루어지고 있다. 회의나 토의는 물론이고, 사소한 일상 대화 중에도 서로 다양한 주제와 입장들을 주고 받는다. 나누는 대화를 녹음해두더라도 대화 전체를 항상 다시 들을 수는 없기 때문에 요약이 필요하고, 이를 위한 통화 비서와 같은 서비스들도 등장하고 있다.그러나 하나의 대화에서도 관점, 주제별로 정리하면 수 많은 요약을 만들 수 있다. 대화를 하는 도중에 이를 요약하게 되면 대화에 집중할 수 없으며, 대화 이후에 기억에 의존해 요약하게 되면 오해나 누락이 추가되어 주관이 많이 개입되게 된다.이를 돕기 위해, 우리는 이번 대회에서 일상 대화를 바탕으로 요약문을 생성하는 모델을 구축하려고 한다.참가자들은 대회에서 제공된 데이터셋을 기반으로 모델을 학습하고, 대화의 요약문을 생성하는데 중점을 둡니다. 이를 위해 다양한 구조의 자연어 모델을 구축할 수 있습니다. 제공되는 데이터셋은 오직 “대화문과 요약문”입니다. 회의, 일상 대화 등 다양한 주제를 가진 대화문과, 이에 대한 요약문을 포함하고 있습니다. 참가자들은 이러한 비정형 텍스트 데이터를 고려하여 모델을 훈련하고, 요약문의 생성 성능을 높이기 위한 최적의 방법을 찾아야 합니다.본 대회는 결과물 csv 확장자 파일을 제출하게 됩니다.  input : 249개의 대화문output : 249개의 대화 요약문데이터주어진 데이터는 다음과 같았으며, 각 column의 설명은 다음과 같다.  frame : 대화 고유 번호. 중복되는 번호가 없음.  dialogue : 최소 2명에서 최대 7명이 등장하여 나누는 대화 내용이다. 각각의 발화자를 구분하기 위해 #Person”N”#: 을 사용하며, 발화자의 대화가 끝나면 ‘\\n’ 으로 구분한다. 이 구분자를 기준으로 하여 대화에 몇 명의 사람이 등장하는지 확인해보는 부분은 EDA 에서 다루고 있다.프로젝트 팀 구성 및 역할팀 구성프로젝트 팀원으로 배정된 인원은 총 5명이며, 팀원들은 다음과 같다.역할 분담  데이터 전처리 및 EDA(Data Preprocessing and Exploratory Data Analysis)  기계번역, 클러스터링, 토크나이즈(Machine Translation, Clustering, Tokenization)  모델링 및 파라미터 튜닝(Modeling and Parameter Tuning)  결과 정리 및 보고서 작성(Summarization of Results and Report Writing)모든 팀원이 위 Task를 수행했지만 각자 전문적인 역할을 수행하였다. 특히, 나는 데이터 전처리 및 EDA와 모델링에 비중을 크게 두고 프로젝트에 참여하였다.프로젝트 진행 과정우리 팀의 Rouge Score를 높여가는 자세한 Code 및 발표자료는 Github에서 확인할 수 있다.결과  final score자체 평가 의견잘했던 점  나의 생각대로 다양한 EDA(오타수정, 삭제)를 진행하였다.  trainer 파라미터를 미세조정하면서 점수가 오르는 과정을 진행하였다.  wandb를 통해 팀원들의 모델 학습 결과를 실시간으로 확인하며 피드백하는 방식으로 진행하였다.시도 했으나 잘 되지 않았던 것들다양한 모델을 시도해보고 싶었으나 서버 용량 이슈로 인해 중간에 서버가 여러번 끊기는 현상이 발생하였다. 대회가 끝난 직후에 LLM을 사용할 때 양자화라는 것을 하면 메모리를 좀 덜 잡아먹는 다는 것을 알게 되었다.아쉬웠던 점들멘토링을 대회가 종료된 후에 받아서 매우 아쉬웠다. 특히, 대회 발표에서 상위 등수에 있는 사람들이 LLM과 언어모델 API를 사용하는 것을 보면서 좋은 아이디어라고 생각하였는데 멘토링에서 LLM과 API를 사용해봤으면 좋았을 것 같다는 피드백에 대회 중에 멘토링을 진행했다면 우리팀도 높은 상위권에 들지 않았을까 하는 아쉬움이 있었다. 또, 팀원 대부분은 인공지능관련 혹은 비전공자이다 보니 대회를 진행하면서 강의를 겸했던 부분에서 다른 팀에 비해 프로젝트에 시간을 많이 할애하지 못한 점이 많이 아쉽다.프로젝트를 통해 배운 점 또는 시사점  단순히 NLP 강의를 들을 때는 이론적인 부분이 많아서 단순 노이즈로만 들렸는데, 프로젝트를 진행하면서 NLP의 프로세스를 알게 되었다.  자연어 처리 중 ‘요약’이라는 태스크를 처음 겪어보면서 모델과 데이터를 어떻게 잘 만들어야 하는 지 알게 되었다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "Computer Vision Basic, Advanced, Generation 강의 학습 회고록",
+    "url": "/posts/17/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-08-21 20:35:27 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Computer Vision Basic, Advanced, Generation 강의 학습 회고록Comuputer Vision BasicComputer Vision Basic 강의에서는 컴퓨터비전에 대해 소개하고 CV 알고리즘의 기초가 되는 CNN(Convolution Neural Network)에 대해 학습했다. 이후 CNN Layer 구성 요소인 C...",
+    "content": "Computer Vision Basic, Advanced, Generation 강의 학습 회고록Comuputer Vision BasicComputer Vision Basic 강의에서는 컴퓨터비전에 대해 소개하고 CV 알고리즘의 기초가 되는 CNN(Convolution Neural Network)에 대해 학습했다. 이후 CNN Layer 구성 요소인 Convolution, Pooling, Fully Connected Layer 실습을 진행해보았다. 컴퓨터비전 태스크로 Image Classification, Object Detection, Semantics Segmentation에 대해 배웠다. 특히, 대학교 시절 YoLOv5를 활용해 프로젝트를 한 경험이 있어 Object Detection 태스크에서 YoLo 알고리즘에 대해 배우는 것이 재미있었다.Computer Vision AdvancedComputer Vision Advanced 강의에서는 각 태스크별 심화 알고리즘에 대해 배우게 되었다. CNN 부분에서는 Transformer 알고리즘을 컴퓨터비전에 적용한 Vision Transformer(VIT)에 대해 학습 및 실습을 하였으며, Object Detection 부분에서는 DETR이라는 알고리즘을 학습 및 실습하였다.Computer Vision GenerationComputer Vision Generation 강의에서는 생성형 인공지능의 기초 알고리즘인 Auto Encoder에 대해 이론 학습을 진행하였다. Auto Encoder는 인코더와 디코더로 구성되어 있으며, 인코더는 입력 데이터를 압축하여 저차원의 벡터로 변환하고, 디코더는 저차원의 벡터를 입력 데이터와 유사한 형태로 복원하는 역할을 한다. 이후, Auto Encoder를 활용한 생성형 인공지능 알고리즘인 적대적 생성 신경망에 대해 배우고 Pix2Pix, CycleGAN, StyleGAN 알고리즘을 실습하였다.📜 컴퓨터비전에 대한 전반적인 후기이번 컴퓨터 비전 강의는 기초부터 고급 알고리즘까지 체계적으로 학습할 수 있는 좋은 기회였습니다. Computer Vision Basic 강의에서는 컴퓨터 비전의 기본 개념과 CNN(Convolutional Neural Network)의 구조를 이해하며, Convolution, Pooling, Fully Connected Layer 등 각 구성 요소를 실습을 통해 직접 구현해보는 경험이 매우 유익했습니다. 특히, Image Classification, Object Detection, Semantic Segmentation과 같은 주요 태스크에 대한 이해도를 높일 수 있었습니다. 특히, 이전에 YOLOv5를 활용한 프로젝트 경험이 있어, Object Detection에서 YOLO 알고리즘을 배우는 과정이 흥미로웠습니다.Computer Vision Advanced 강의에서는 Vision Transformer(VIT)와 DETR 등 최신 알고리즘을 학습하며 CNN 기반 모델의 한계를 극복하는 방법을 알게 되었고, 실습을 통해 이론을 더욱 깊이 있게 이해할 수 있었습니다. 이를 통해 다양한 컴퓨터 비전 태스크에서 성능을 극대화하는 방법을 체득할 수 있었습니다.마지막으로, Computer Vision Generation 강의에서는 Auto Encoder와 같은 생성형 인공지능의 기초 알고리즘을 학습한 후, Pix2Pix, CycleGAN, StyleGAN과 같은 모델들을 실습하며 생성형 AI의 가능성과 응용 방안을 탐구할 수 있었습니다. 전반적으로, 컴퓨터 비전에 대한 이해를 심화하고, 최신 기술을 실습을 통해 체득할 수 있었던 유익한 과정이었습니다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "문서 타입 분류 프로젝트 회고록",
+    "url": "/posts/16/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-08-14 16:00:05 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트 개요개요이번 대회는 computer vision domain에서 가장 중요한 태스크인 이미지 분류 대회입니다.이미지 분류란 주어진 이미지를 여러 클래스 중 하나로 분류하는 작업입니다. 이러한 이미지 분류는 의료, 패션, 보안 등 여러 현업에서 기초적으로 활용되는 태스크입니다. 딥러닝과 컴퓨터 비전 기술의 발전으로 인한 뛰어난 성능을 통해 현업...",
+    "content": "프로젝트 개요개요이번 대회는 computer vision domain에서 가장 중요한 태스크인 이미지 분류 대회입니다.이미지 분류란 주어진 이미지를 여러 클래스 중 하나로 분류하는 작업입니다. 이러한 이미지 분류는 의료, 패션, 보안 등 여러 현업에서 기초적으로 활용되는 태스크입니다. 딥러닝과 컴퓨터 비전 기술의 발전으로 인한 뛰어난 성능을 통해 현업에서 많은 가치를 창출하고 있습니다.그 중, 이번 대회는 문서 타입 분류를 위한 이미지 분류 대회입니다. 문서 데이터는 금융, 의료, 보험, 물류 등 산업 전반에 가장 많은 데이터이며, 많은 대기업에서 디지털 혁신을 위해 문서 유형을 분류하고자 합니다. 이러한 문서 타입 분류는 의료, 금융 등 여러 비즈니스 분야에서 대량의 문서 이미지를 식별하고 자동화 처리를 가능케 할 수 있습니다.데이터이번 대회에 사용될 데이터는 총 17개 종의 문서로 분류되어 있습니다. 1570장의 학습 이미지를 통해 3140장의 평가 이미지를 예측하게 됩니다. 특히, 현업에서 사용하는 실 데이터를 기반으로 대회를 제작하여 대회와 현업의 갭을 최대한 줄였습니다. 또한 현업에서 생길 수 있는 여러 문서 상태에 대한 이미지를 구축하였습니다.이번 대회를 통해서 문서 타입 데이터셋을 이용해 이미지 분류를 모델을 구축합니다. 주어진 문서 이미지를 입력 받아 17개의 클래스 중 정답을 예측하게 됩니다. computer vision에서 중요한 backbone 모델들을 실제 활용해보고, 좋은 성능을 가지는 모델을 개발할 수 있습니다. 그 밖에 학습했던 여러 테크닉들을 적용해 볼 수 있습니다.본 대회는 결과물 csv 확장자 파일을 제출하게 됩니다.  input : 3140개의 이미지  output : 주어진 이미지의 클래스프로젝트 팀 구성 및 역할팀 구성프로젝트 팀원으로 배정된 인원은 총 5명이며, 팀원들은 다음과 같다.역할 분담  데이터 확인 및 수집(Data Verification and Collection)  데이터 전처리 및 EDA(Data Preprocessing and Exploratory Data Analysis)  모델링 및 파라미터 튜닝(Modeling and Parameter Tuning)  결과 정리 및 보고서 작성(Summarization of Results and Report Writing)모든 팀원이 위 Task를 수행했지만 각자 전문적인 역할을 수행하였다. 특히, 나는 데이터 전처리 및 EDA와 모델링 및 파라미터 튜닝에 비중을 크게 두고 프로젝트에 참여하였다.프로젝트 진행 과정우리 팀의 F1 Score를 높여가는 자세한 Code 및 발표자료는 Github에서 확인할 수 있다.결과  public score  private score자체 평가 의견잘했던 점  스크럼 시간을 충분히 활용하여 각자의 다양한 인사이트와 아이디어를 공유했고, 서로의 아이디어를 존중하면서 프로젝트를 진행했다.시도 했으나 잘 되지 않았던 것들  Test Time Augmentation(TTA) 기법을 적용해보려 했으나, 예측 결과에 제대로 반영되지 않았다. 급하게 Dacon과 Kaggle에서 코드를 가져와 사용했는데, 이로 인해 문제가 발생한 점이 아쉬웠다. 다음에 Computer Vision 관련 대회에 참가하게 된다면, 추론 단계에서 TTA를 꼭 적용하여 성능을 향상시키고 싶다.아쉬웠던 점들  초기에 Augmentation을 통해 Baseline 점수(0.38)에서 0.87까지 급격히 상승한 것을 보고, 데이터 증강만으로도 좋은 점수를 얻을 수 있을 거라 안일하게 생각했다. 그러나 그 점수가 한계였다는 것을 늦게 깨닫고, 급하게 Test 데이터셋의 디노이징, 모델 하이퍼파라미터 조정 등을 시도했던 점이 아쉬웠다.프로젝트를 통해 배운 점 또는 시사점  초기에는 Test 데이터셋을 수정하면 안 된다고 생각했으나, 멘토링을 통해 디노이징이나 디블러링 등의 기법이 있다는 것을 알게 되었다.  프로젝트 진행에 있어 시간 배분을 잘하는 것이 중요하다는 것을 깨닫게 되었다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "아파트 실거래가 예측 프로젝트 회고록",
+    "url": "/posts/15/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-07-25 11:03:15 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트 개요개요본 대회는 House Price Prediction 경진대회는 주어진 데이터를 활용하여 서울의 아파트 실거래가를 효과적으로 예측하는 모델을 개발하는 대회이다.데이터  국토교통부에서 제공하는 아파트 실거래가 데이터(아파트 위치, 크기, 건축년도, 주변시설 및 교통 편의성 등)  서울시에서 제공하는 지하철역 데이터  서울시에서 제공하는 버...",
+    "content": "프로젝트 개요개요본 대회는 House Price Prediction 경진대회는 주어진 데이터를 활용하여 서울의 아파트 실거래가를 효과적으로 예측하는 모델을 개발하는 대회이다.데이터  국토교통부에서 제공하는 아파트 실거래가 데이터(아파트 위치, 크기, 건축년도, 주변시설 및 교통 편의성 등)  서울시에서 제공하는 지하철역 데이터  서울시에서 제공하는 버스정류장 데이터  평가 데이터(최종 모델 성능에 대한 검증을 위해 사용)          input : 9,272개의 아파트 특징 및 거래정보      output : 9,272개의 input에 대한 예상 아파트 거래금액      프로젝트 팀 구성 및 역할팀 구성프로젝트 팀원으로 배정된 인원은 총 5명이며, 팀원들은 다음과 같다.                                                      안재영      박주연      이아윤      성명기      서혜교              팀장      팀원      팀원      팀원      팀원      역할 분담  데이터 확인 및 수집(Data Verification and Collection)  데이터 전처리 및 EDA(Data Preprocessing and Exploratory Data Analysis)  모델링 및 파라미터 튜닝(Modeling and Parameter Tuning)  결과 정리 및 보고서 작성(Summarization of Results and Report Writing)모든 팀원이 위 Task를 수행했지만 각자 전문적인 역할을 수행하였다. 특히, 나는 모델링 및 파라미터 튜닝(Modeling and Parameter Tuning)에 비중을 크게 두고 프로젝트에 참여하였다.프로젝트 진행 과정우리 팀의 RMSE를 줄여나가는 자세한 Code 및 발표자료는 Github에서 확인할 수 있다.RMSE 20000점 대우선적으로 부동산 도메인과 관련된 외부데이터들 수집이 가장 중요하다고 생각하여 데이터를 수집하였다.- 서울시 지하철역 데이터- 서울시 버스정류장 데이터- 서울시 교육환경 데이터(초중고, 학군) - 서울시 문화 및 상관 데이터(대형소매점 판매액지수, 문화기반 시설 수)- 사회통합지표(합계출산율, 취업률)- 경제지표(기본금리, 회사채, CD금리)모델링각자 외부데이터를 하나씩 도맡아 수집하였고, 결측치가 100만개 이상인 컬럼변수들을 전부 drop하였다. 여기서 결측치가 남은 범주형 변수들을 ‘0’으로 채워주고 LabelEncoding을 진행하였다. 외부 데이터와 기존데이터와 전부 병합한 데이터에서 target값과 가장 상관관계가 높은 전용면적 컬럼을 면적단위로 나누어서 XGBRegressor 모델을 사용하여 학습을 진행하였다.RMSE 점수를 올리는데 있어 가장 중요했던 파생변수 생성 부분에서는 코로나 이후인 ‘2020년’ 이후 데이터를 활용하여 코로나 이후의 부동산 시장의 특성만을 반영하는 것이 가장 좋다고 판단하였으며, 서울시 집값 중 가장 비싸고 투기성이 가장 높은 강남구 주변지역을 따로 묵어 강남여부라는 파생변수를 생성하였다. 이외에도 탑급아파트, 아파트연식, 로얄층 등의 파생변수를 생성하였다.결과RMSE 19000점 대RMSE 20000점대 달성 이후, 다양한 방법으로 RMSE를 줄이기 위해 노력하였다. 하지만 성능이 생각보다 좋아지지 않았고, 의외로 모델이 중요하지 않고 데이터에 문제가 있을 것이라는 생각이 들엇다.모델링데이터에 문제가 있을 것이라는 생각이 든 이후, Correlation Matrix를 통해 음의 상관관계가 높은 변수들을 전부 제거하였고, 결측치가 6~70% 이상 존재하는 모든 컬럼변수들을 임의로 전부 drop하였다.파생변수 부분에서는 이전 20000점대에서 생성한 파생변수들을 그대로 사용하였다. 여기서 19000점대로 갈 수 있게 해준 것은 강남여부 파생변수였다. 강남여부 파생변수가 target값과 상관관계가 생각보다 높아서 우리팀은 여기서 많은 힌트를 얻었다.그렇다면 구별로 나누어서 학습을 진행한다면 어떨까? 라는 생각이 들어서 구별로 나누어서 학습을 진행하였다.결과는 Public Score 19000점대로 나왔고, Private Score는 14000점대로 나왔다.결과  public score  private score자체 평가 의견잘했던 점  AutoML 같은 편리한 라이브러리가 있지만 직접 모델링을 진행하면서 모델의 성능을 높이는 방법에 대해 더 많은 고민을 할 수 있었다.  많은 스크럼시간을 통해 각자의 다양한 인사이트와 아이디어를 공유하고, 서로의 아이디어를 존중하며 프로젝트를 진행하였다.시도 했으나 잘 되지 않았던 것들  데이터 무조건 많으면 성능이 잘 나온다는 생각으로 외부데이터를 많이 모아서 사용하였지만, 결국에는 데이터의 퀄리티가 중요하다는 것을 깨달았다. 이후 기본 데이터의 퀄리티를 높이기 위해 EDA, Feature Engineering을 통해 어떤 것이 중요한 지 알게되고데이터 성능을 높이기 시작하였다. 처음부터 무작정 데이터 수집을 하며 시간을 허비했던 부분이 잘 되지 않아 아쉬웠다.아쉬웠던 점들  생각보다 시간이 부족하여 더 많은 시간을 투자하지 못한 것이 아쉬웠다.  업스테이지 서버가 자주 끊기면서 모델 학습 중 끊기며 처음부터 다시해야하는 경우도 많아서 주최측에 약간의 아쉬움이 있다.프로젝트를 통해 배운 점 또는 시사점  EDA와 Feature Engineering이 인공지능분야에서 90%를 차지한다는 것을 깨달았다.  협업 스킬이 더 향상 되었다.  프로젝트 진행에 있어 시간 배분을 잘하는 것이 중요하다는 것을 깨닫게 되었다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "Upstage AI Lab 3기 중간 과정 회고 학습 블로그",
+    "url": "/posts/14/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-07-15 21:43:55 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Upstage AI Lab 3기 중간 과정 회고 학습 블로그Upstage AI Lab 3기 과정이 4월 1일에 시작해서 어느덧 4개월이 지났다. 중간 과정 회고를 통해 지금까지의 과정을 되돌아보고 아쉬웠던 점과 앞으로의 계획을 세워 보고자 한다.1. 중간 과정 회고Upstage AI Lab 3기는 4개월 동안 2개의 프로젝트를 진행하며 AI 개발자로 ...",
+    "content": "Upstage AI Lab 3기 중간 과정 회고 학습 블로그Upstage AI Lab 3기 과정이 4월 1일에 시작해서 어느덧 4개월이 지났다. 중간 과정 회고를 통해 지금까지의 과정을 되돌아보고 아쉬웠던 점과 앞으로의 계획을 세워 보고자 한다.1. 중간 과정 회고Upstage AI Lab 3기는 4개월 동안 2개의 프로젝트를 진행하며 AI 개발자로 성장하는 과정이다. 첫 번째 프로젝트는 ‘파이썬 크롤링 프로젝트’로, 웹 크롤링을 토왜 데이터를 수집하고 분석하는 과정을 배웠다. 두 번째 프로젝트는 ‘EDA 프로젝트’로 데이터를 분석하고 시각화하는 과정을 배웠다. 세 번째 프로젝트는 ‘머신러닝 프로젝트’로, 머신러닝 알고리즘을 활용하여 데이터를 분석하고 예측하는 과정을 배웠다.2. 아쉬웠던 점  첫 번째 프로젝트에서는 웹 크롤링을 통해 데이터를 수집하고 분석하는 과정에서 어려움을 겪었다. 웹 크롤링을 통해 데이터를 수집하는 과정에서 웹 사이트의 구조를 분석하고 데이터를 추출하는 방법을 배웠지만, 실제로 데이터를 수집하고 분석하는 과정에서 많은 시간이 소요되었다.  두 번째 프로젝트에서는 EDA(탐색적 데이터 분석)를 통해 데이터를 분석하고 시각화하는 과정에서 어려움을 겪었다. EDA를 통해 데이터의 특성을 파악하고 시각화하는 과정에서 다양한 라이브러리와 기술을 활용하였지만, 데이터의 특성을 파악하는 과정에서 어려움을 겪었다.  세 번째 프로젝트에서는 머신러닝 알고리즘을 활용하여 데이터를 분석하고 예측하는 과정에서 어려움을 겪었다. 머신러닝 알고리즘을 활용하여 데이터를 분석하고 예측하는 과정에서 다양한 알고리즘을 활용하였지만, 데이터의 특성을 파악하고 모델을 구축하는 과정에서 어려움을 겪었다.3. 앞으로의 계획  앞으로의 과정에서는 더 많은 프로젝트를 경험하고, 다양한 머신러닝 알고리즘을 활용하여 실력을 향상시키고 싶다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "Deep Learning & Pytorch 강의 마무리 후기",
+    "url": "/posts/13/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-07-03 19:24:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Deep Learning &amp; Pytorch 강의 마무리 후기최근 Deep Learning 및 PyTorch 강의를 마치고, 이 강의에 대한 나의 경험과 평가를 공유하고자 한다. 이 강의는 나에게 많은 것을 가르쳐주었으며, 나의 개발 역량을 한 단계 끌어올리는 데 큰 도움이 되었다.강의 내용강의는 Deep Learning의 기본 개념부터 시작하여...",
+    "content": "Deep Learning &amp; Pytorch 강의 마무리 후기최근 Deep Learning 및 PyTorch 강의를 마치고, 이 강의에 대한 나의 경험과 평가를 공유하고자 한다. 이 강의는 나에게 많은 것을 가르쳐주었으며, 나의 개발 역량을 한 단계 끌어올리는 데 큰 도움이 되었다.강의 내용강의는 Deep Learning의 기본 개념부터 시작하여 PyTorch를 이용한 실습까지 포괄적으로 다뤘다. 초기에는 신경망의 구조와 작동 원리에 대해 깊이 있는 설명을 들었고, 그 후에는 PyTorch를 사용하여 다양한 실습을 통해 실질적인 능력 향상을 이끌어 냈다. 특히, CNN(Convolutional Neural Network)과 RNN(Recurrent Neural Network) 등 다양한 신경망 유형을 구현하고 학습하는 과정에서 많은 도움을 받았다.강의의 장점      구체적인 예제와 실습: 강의는 이론뿐만 아니라 구체적인 예제와 실습을 통해 실질적인 프로그래밍 경험을 제공했다. 이를 통해 이론을 바탕으로 실제 문제를 해결하는 방법을 배울 수 있었다.        PyTorch에 대한 깊이 있는 이해: PyTorch는 Deep Learning 프레임워크 중 하나로, 이 강의를 통해 PyTorch의 주요 개념과 사용 방법을 체계적으로 학습할 수 있었다. 특히, Autograd 및 GPU 가속화와 같은 PyTorch의 핵심 기능에 대해 깊이 있는 이해를 할 수 있었다.        실전 프로젝트 경험: 강의의 마지막 부분에서는 실전 프로젝트를 진행하며 배운 내용을 활용해볼 수 있는 기회를 제공했다. 이를 통해 팀 협업과 문제 해결 능력을 함께 기를 수 있었다.  종합 평가이 강의는 Deep Learning과 PyTorch를 배우고자 하는 사람들에게 매우 유익한 자원이 될 것이다. 강의의 구성과 내용은 전문성이 높으며, 실습을 통해 실제로 배운 것을 활용할 수 있는 기회를 제공한다. 개선할 점이 있지만, 전반적으로 매우 만족스러운 학습 경험이었다.마지막으로, 이 강의를 통해 나는 Deep Learning 분야에서의 실력을 크게 향상시킬 수 있었으며, 앞으로의 개발 경로에서도 이 강의에서 배운 지식을 활용할 계획이다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "ML 팀 프로젝트 마무리 후기",
+    "url": "/posts/12/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-06-17 18:24:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "ML 팀 프로젝트 마무리 후기프로젝트 소개ML 팀 프로젝트는 약 2주간 진행되었으며 예전 Kaggle Competition에서 열렸던 American Express - Default Prediction 대회의 데이터를 활용하여 진행되었다. American Express에서 신용 불량자를 예측하는 대회로 구매, 연체율, 잔액, 신용 불량 위험지수 등의 ...",
+    "content": "ML 팀 프로젝트 마무리 후기프로젝트 소개ML 팀 프로젝트는 약 2주간 진행되었으며 예전 Kaggle Competition에서 열렸던 American Express - Default Prediction 대회의 데이터를 활용하여 진행되었다. American Express에서 신용 불량자를 예측하는 대회로 구매, 연체율, 잔액, 신용 불량 위험지수 등의 컬럼값으로 구성 되어 있으며 AMEX Metric Score를 통해 평가가 이루어졌다.대회 설명American Express는 글로벌 통합 결제 회사이며 세계 최대의 결제 카드 발급사인 이 회사는 고객에게 삶을 풍요롭게 하고 비즈니스 성공을 구축하는 제품, 인사이트, 경험을 제공한다.이번 대회에서는 머신러닝 기술을 활용하여 신용 불량을 예측하는 과제를 수행하게 됩니다. 특히, 산업 규모의 데이터 세트를 활용하여 현재 운영 중인 모델에 도전하는 머신러닝 모델을 구축해야 합니다. 훈련, 검증 및 테스트 데이터 세트에는 시계열 행동 데이터와 익명화된 고객 프로필 정보가 포함됩니다. 기능 생성부터 모델 내에서 보다 유기적인 방식으로 데이터를 사용하는 것까지, 가장 강력한 모델을 만들기 위한 모든 기술을 자유롭게 탐색할 수 있습니다.AMEX Metric Score Codedef amex_metric(y_true: pd.DataFrame, y_pred: pd.DataFrame) -&gt; float:    def top_four_percent_captured(y_true: pd.DataFrame, y_pred: pd.DataFrame) -&gt; float:        df = (pd.concat([y_true, y_pred], axis='columns')              .sort_values('prediction', ascending=False))        df['weight'] = df['target'].apply(lambda x: 20 if x==0 else 1)        four_pct_cutoff = int(0.04 * df['weight'].sum())        df['weight_cumsum'] = df['weight'].cumsum()        df_cutoff = df.loc[df['weight_cumsum'] &lt;= four_pct_cutoff]        return (df_cutoff['target'] == 1).sum() / (df['target'] == 1).sum()            def weighted_gini(y_true: pd.DataFrame, y_pred: pd.DataFrame) -&gt; float:        df = (pd.concat([y_true, y_pred], axis='columns')              .sort_values('prediction', ascending=False))        df['weight'] = df['target'].apply(lambda x: 20 if x==0 else 1)        df['random'] = (df['weight'] / df['weight'].sum()).cumsum()        total_pos = (df['target'] * df['weight']).sum()        df['cum_pos_found'] = (df['target'] * df['weight']).cumsum()        df['lorentz'] = df['cum_pos_found'] / total_pos        df['gini'] = (df['lorentz'] - df['random']) * df['weight']        return df['gini'].sum()    def normalized_weighted_gini(y_true: pd.DataFrame, y_pred: pd.DataFrame) -&gt; float:        y_true_pred = y_true.rename(columns={'target': 'prediction'})        return weighted_gini(y_true, y_pred) / weighted_gini(y_true, y_true_pred)    g = normalized_weighted_gini(y_true, y_pred)    d = top_four_percent_captured(y_true, y_pred)    return 0.5 * (g + d)🗓️ 2024.06.03 ~ 2024.06.05 (1주차)1주차에는 우선 데이터를 가지고 분석하고 Feature Engineering을 진행을 하였다. EDA에서 우선 어떤 컬럼들 끼리 상관관계가 있는지 알아보기 위해 Heatmap을 그려보았다. 또, 데이터의 결측치를 확인해보았다. 여기서 AMEX Dataset은 결측치가 99% 이상을 넘기는 컬럼들이 몇 개 있었기 때문에 이 부분을 주의 하면서 데이터를 분석하였다.🗓️ 2024.06.10 ~ 2024.06.14 (2주차)2주차에는 1주차에 분석한 데이터를 바탕으로XGBoost 모델로 데이터 학습  2주차에는 모델을 구축하고, 모델을 평가하고, 최종 결과를 도출했습니다.  모델을 구축하면서 어떤 하이퍼파라미터를 사용할지, 어떤 모델을 사용할지 등을 논의했습니다.CatBoost 모델로 데이터 학습  2주차에는 모델을 구축하고, 모델을 평가하고, 최종 결과를 도출했습니다.  모델을 구축하면서 어떤 하이퍼파라미터를 사용할지, 어떤 모델을 사용할지 등을 논의했습니다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "ML 프로젝트 기본 이론(머신러닝) 강의 후기",
+    "url": "/posts/11/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-06-03 19:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "ML 프로젝트 기본 이론(머신러닝) 강의 후기기초 지식앞서 머신러닝 강의를 듣기 위해서는 최소한 머신러닝 강의를 들으며 관련한 지식 그리고 어려운 단어들을 이해하고 있어야 한다.  파이썬 문법  데이터 분석(EDA)  통계학, 선형대수학, 미적분학머신러닝 강의이번 강의는 머신러닝 프로젝트를 진행하기 위한 기본적인 이론들에 대해 다루었다. ML 강사님으...",
+    "content": "ML 프로젝트 기본 이론(머신러닝) 강의 후기기초 지식앞서 머신러닝 강의를 듣기 위해서는 최소한 머신러닝 강의를 들으며 관련한 지식 그리고 어려운 단어들을 이해하고 있어야 한다.  파이썬 문법  데이터 분석(EDA)  통계학, 선형대수학, 미적분학머신러닝 강의이번 강의는 머신러닝 프로젝트를 진행하기 위한 기본적인 이론들에 대해 다루었다. ML 강사님으로 이종혁 강사님이 출강을 해주셨고 강의는 약 2주간에 걸쳐 진행되었다. 강의는 주로 이론적인 내용과 실습을 병행하여 진행되었으며, 강사님께서는 이론적인 내용을 설명하신 후 실습을 진행하면서 이론을 바로바로 적용할 수 있도록 도와주셨다. 또한, 강의를 들으면서 머신러닝 프로젝트를 진행할 때 어떤식으로 데이터를 전처리하고, 어떤식으로 모델을 구축하고, 어떤식으로 모델을 평가하는지에 대한 방법론을 배울 수 있었다.솔직히 아직은 어떤 데이터가 주어졌을 때 어떤 최적의 기법을 사용하여 좋은 모델을 적용해야 할지 감이 잘 오지 않는다. 이제 3일(월)부터 시작하는 프로젝트를 통해 실제 데이터를 다뤄보면서 머신러닝 모델을 적용하는 방법에 대해 더욱 깊게 이해할 수 있을 것 같다.배운 내용Supervised Learning(회귀)  Lasso  Ridge  ElasticNet  model evaluation(평가지표)          MAE, MSE, RMSE, R2      Supervised Learning(분류)  Decision Tree  Ensemble          Random Forest      Gradient Boosting      AdaBoost      XGBoost      GBM      LightGBM        model evaluation(평가지표)          Accuracy, Precision, Recall, F1, ROC-AUC      Unsupervised Learning  Clustering          K-means      DBSCAN      Hierarchical Clustering        DBSCAN  HDSCAN  model evaluation(평가지표)          Silhouette Score, Elbow Method      패스트 캠퍼스 LMS강의 추가내용  Gini Index  Feature Importance  Gradient Descent  Hyperparameter Tuning  Scaling          StandardScaler      MinMaxScaler      🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "AI 개발자 취업을 위한 코딩테스트 특강 후기",
+    "url": "/posts/10/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-05-21 19:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "AI 개발자 취업을 위한 코딩테스트 특강 후기🗓️ 2024.05.16 ~ 2024.05.203일간 노정호 강사님의 코딩테스트 특강을 들었다. 코딩테스트는 취업을 위해 거의 반 필수적인 요소이기 때문에 이번 기회에 열심히 들어보기로 했다. 특히, AI 개발자로 취업을 목표로 하고 있는 나에게는 더욱 중요한 요소이기 때문이다. 3일동안 DFS, DFS, ...",
+    "content": "AI 개발자 취업을 위한 코딩테스트 특강 후기🗓️ 2024.05.16 ~ 2024.05.203일간 노정호 강사님의 코딩테스트 특강을 들었다. 코딩테스트는 취업을 위해 거의 반 필수적인 요소이기 때문에 이번 기회에 열심히 들어보기로 했다. 특히, AI 개발자로 취업을 목표로 하고 있는 나에게는 더욱 중요한 요소이기 때문이다. 3일동안 DFS, DFS, HeapQ, Dijkstra, 완전탐색, Graph에 대해 다루었다. 수업방식은 강사님께서 간단히 이론설명을 해주셨고 관련된 알고리즘 문제를 LeetCode 혹은 프로그래머스에서 풀어보는 방식이었다. 사실 3일만에 다양한 자료구조와 알고리즘을 전부 흡수하기에는 어려웠지만, 강사님께서 알고리즘을 풀 때 어떤식으로 접근해야 하는지에 대한 방향성을 제시해주셔서 많은 도움이 되었다. 또한, 알고리즘을 풀 때 어떤식으로 코드를 작성해야 하는지에 대한 방법론을 배웠다.1. twosum 문제twosum 코드 구현(반복문)class Solution:    def twoSum(self, nums, target):        n = len(nums)        for i in range(n):            for j in range(i+1, n):                if nums[i]+nums[j] == target:                    return [i, j]twosum 코드 구현(재귀)class Solution:    def twoSum(self, nums, target):        n = len(nums)        def find(start, value):            for i in range(start+1, n):                if nums[i] == value:                    return i            return -1        for i in range(n):            idx = find(i, target-nums[i])            if idx != -1:                return [i, idx]2. combination 조합(재귀)def solution(n, k):    ans = []    def recur(start, comb):        if len(comb) == 2:            ans.append(comb[:])            return                for i in range(start, n+1):            comb.append(i)            recur(i+1, comb)            comb.pop()    recur(1, [])    return ans3. 올바른 괄호def solution(s):    stack = []    for p in s:        if p == '(':            stack.append(p)        else:            if not stack:                return False            stack.pop()    return not stack4. keys and roomsfrom collections import dequeclass Solution:    def canVisitAllRooms(self, rooms):        n = len(rooms)        visited = [False] * n        def bfs(graph, start_v):            # BFS코드 작성하기                        # visited[cur_v] = True        bfs(rooms, start_v=0)        return all(visited)class Solution:    def canVisitAllRooms(self, rooms):        n = len(rooms)        visited = [False] * n                def dfs(cur_v):            visited[cur_v] = True            for next_v in rooms[cur_v]:                if not visited[next_v]:                    dfs(next_v)        dfs(cur_v=0)        print(visited)        return all(visited)s = Solution()s.canVisitAllRooms(rooms= [[1,3], [2,4], [0], [4], [ ], [3,4] ])    5. 암시적 그래프 DFSdef dfs(r, c):    visited[r][c] = True    print((r,c), end=' ')    for i in range(4):        next_r = r + dr[i]        next_c = c + dc[i]        if 0 &lt;= next_r &lt; row_len and 0 &lt;= next_c &lt; col_len:            if grid[next_r][next_c] == 1:                if not visited[next_r][next_c]:                    dfs(next_r, next_c)grid = [   [1, 1, 1, 1],   [0, 1, 0, 1],   [0, 1, 0, 1],   [1, 0, 1, 1],]row_len, col_len = len(grid), len(grid[0])visited = [[False] * col_len for _ in range(row_len)]dr = [0, 1, 0, -1]dc = [1, 0, -1, 0]dfs(0, 0)6. 암시적 그래프 BFSfrom collections import dequedef bfs(r, c):    q = deque()    q.append((r,c))    visited[r][c] = True    while q:        cur_r, cur_c = q.popleft()        print((cur_r, cur_c), end ='-&gt;')        for i in range(8):            next_r = cur_r + dr[i]            next_c = cur_c + dc[i]            if 0 &lt;= next_r &lt; row_len and 0 &lt;= next_c &lt; col_len:                if grid[next_r][next_c] == 1:                    if not visited[next_r][next_c]:                        q.append((next_r, next_c))                        visited[next_r][next_c] = Truegrid = [   [1, 1, 1, 1],   [0, 1, 0, 1],   [0, 1, 0, 1],   [1, 0, 1, 1],]row_len, col_len = len(grid), len(grid[0])visited = [[False] * col_len for _ in range(row_len)]dr = [0, 1, 0, -1, 1, 1, -1, -1]dc = [1, 0, -1, 0, 1, -1, 1, -1]bfs(0, 0)7. number of islandsBFSfrom collections import dequeclass Solution:    def numIslands(self, grid):        row_len, col_len = len(grid), len(grid[0])        visited = [[False] * col_len for _ in range(row_len)]        cnt = 0        dr = [0, 1, 0, -1]        dc = [1, 0, -1, 0]        def bfs(r, c):            q = deque()            q.append((r,c))            visited[r][c] = True            while q:                cur_r, cur_c = q.popleft()                for i in range(4):                    next_r = cur_r + dr[i]                    next_c = cur_c + dc[i]                    if 0 &lt;= next_r &lt; row_len and 0 &lt;= next_c &lt; col_len:                        if grid[next_r][next_c] == '1':                            if not visited[next_r][next_c]:                                q.append((next_r,next_c))                                visited[next_r][next_c] = True        for i in range(row_len):            for j in range(col_len):                if grid[i][j] == \"1\" and not visited[i][j]:                    bfs(i,j)                    cnt += 1        return cntgrid = [    [\"1\", \"1\", \"0\", \"0\", \"0\"],    [\"1\", \"1\", \"0\", \"0\", \"0\"],    [\"0\", \"0\", \"1\", \"1\", \"0\"],    [\"0\", \"0\", \"0\", \"1\", \"1\"],]s=Solution()print(s.numIslands(grid))DFSfrom collections import dequeclass Solution:    def numIslands(self, grid):        row_len, col_len = len(grid), len(grid[0])        visited = [[False] * col_len for _ in range(row_len)]        cnt = 0        dr = [0, 1, 0, -1]        dc = [1, 0, -1, 0]        def dfs(cur_r,cur_c):            visited[cur_r][cur_c] = True            for i in range(4):                next_r = cur_r + dr[i]                next_c = cur_c + dc[i]                if 0 &lt;= next_r &lt; row_len and 0 &lt;= next_c &lt; col_len:                    if grid[next_r][next_c] == '1':                        if not visited[next_r][next_c]:                            dfs(next_r, next_c)        for i in range(row_len):            for j in range(col_len):                if grid[i][j] == \"1\" and not visited[i][j]:                    dfs(i,j)                    cnt += 1        return cntgrid = [    [\"1\", \"1\", \"0\", \"0\", \"0\"],    [\"1\", \"1\", \"0\", \"0\", \"0\"],    [\"0\", \"0\", \"1\", \"1\", \"0\"],    [\"0\", \"0\", \"0\", \"1\", \"1\"],]s=Solution()print(s.numIslands(grid))8. shortest path in binary matrixfrom collections import dequeclass Solution:    def shortestPathBinaryMatrix(self, grid):        if grid[0][0]==1:            return -1        # BFS 초기세팅        q = deque()        # q.append(start_r, start_c, start_distance)        q.append((0, 0, 1))        # vististed = 초기화        row_len, col_len = len(grid), len(grid[0])        visited = [[False] * col_len for _ in range(row_len)]        visited[0][0] = True        dr = [1,1,1,0,0,-1,-1,-1]        dc = [0,-1,1,1,-1,1,-1,0]        while q:            cur_r, cur_c, cur_d = q.popleft()            if cur_r == row_len -1 and cur_c == col_len-1:                return cur_d            for i in range(8):                next_r,next_c = cur_r+ dr[i],cur_c + dc[i]                if 0 &lt;=next_r &lt;row_len and 0 &lt;= next_c &lt; col_len:                    if grid[next_r][next_c] == 0 and not visited[next_r][next_c]:                        q.append([next_r,next_c,cur_d+1])                        visited[next_r][next_c] = True            # 현재 노드 방문                        # 다음 노드 예약            # q.append((next_r, next_c, cur_d+1))        return -1 🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "EDA 팀 프로젝트 수행 후기 및 느낀점",
+    "url": "/posts/9/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-05-16 19:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "EDA 팀 프로젝트 수행 후기 및 느낀점🗓️ 2024.04.29 ~ 2024.05.14약 2주간 진행된 Python EDA 팀 프로젝트를 수행하고 나서의 후기를 작성해보려고 한다. 이번 프로젝트는 데이터 분석에서 필요한 numpy, pandas, Matplotlib, seaborn 라이브러리에 대해서 크게 다루었다. 또 CSV파일 데이터를 활용하여 E...",
+    "content": "EDA 팀 프로젝트 수행 후기 및 느낀점🗓️ 2024.04.29 ~ 2024.05.14약 2주간 진행된 Python EDA 팀 프로젝트를 수행하고 나서의 후기를 작성해보려고 한다. 이번 프로젝트는 데이터 분석에서 필요한 numpy, pandas, Matplotlib, seaborn 라이브러리에 대해서 크게 다루었다. 또 CSV파일 데이터를 활용하여 EDA를 진행하고 데이터 분석을 통한 인사이트를 얻는 시간이 되었다. 우선 EDA(Exploratory Data Analysis)는 데이터를 분석하기 위한 첫 번째 단계로 데이터를 분석하면서 데이터의 특성을 파악하고, 데이터의 분포를 확인하고, 데이터의 결측치를 확인하고, 데이터의 이상치를 확인하는 등의 과정을 통해 데이터를 분석하는 것을 말한다.데이터 셋 선택이번 프로젝트에서는 E-commerce 도메인을 중심으로 Kaggle에서 제공하는 데이터셋를 선택하여 EDA를 진행하였다. 데이터셋은 Brazilian E-Commerce Public Dataset by Olist 데이터셋으로, 9개의 데이터셋으로 구성되어 있어 데이터셋 간의 관계를 파악하고 분석하는 것이 주요 목표였다.EDA 진행지역별 고객 분포customer_region_data = olist_data.groupby('customer_region').size()지역별 판매자 분포seller_region_data = olist_data.groupby('seller_region').size()지역별 매출액fig= px.bar(olist_data, x='customer_region', y='total_price', title='Total Sales by Region')fig.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)fig.show()카테고리별 주문건수category_df = pd.DataFrame(olist_data['product_category_name_english'].value_counts())category_df = category_df.reset_index()category_df.columns = ['카테고리', '주문건수']fig = px.bar(category_df, x='카테고리', y='주문건수', title='카테고리별 주문 건수')fig.update_layout(    autosize=False,    width=1400,    height=600,)fig.show()매출액 추이# order_purchase_timestamp 컬럼을 활용하여 연도, 월, 일, 요일, 시간 컬럼 추가olist_data['order_purchase_timestamp'] = pd.to_datetime(olist_data['order_purchase_timestamp'])olist_data['purchase_date'] = olist_data['order_purchase_timestamp'].dt.dateolist_data['year'] = olist_data['order_purchase_timestamp'].dt.yearolist_data['month'] = olist_data['order_purchase_timestamp'].dt.montholist_data['day'] = olist_data['order_purchase_timestamp'].dt.dayolist_data['hour'] = olist_data['order_purchase_timestamp'].dt.strftime('%H:%M:%S')월별 매출액# 월별 매출액의 합계 피벗테이블 생성month_purchase_pt = pd.pivot_table(data = olist_data,                                   index = 'month',                                   values = 'payment_value',                                   aggfunc = 'sum').reset_index()# 월별 주문 건수 피벗테이블 생성month_purchase_pt2 = pd.pivot_table(data = olist_data,                                   index = 'month',                                  values = 'payment_value',                                  aggfunc = 'count').reset_index()시간대별 매출액# 시간대별 매출액hour_purchase_pt = pd.pivot_table(data = olist_data,                                  index = 'hour', # 00:00:00 포매팅                                  values = 'payment_value',                                  aggfunc = 'sum').reset_index()folium을 활용한 지도 시각화import foliumfrom folium.plugins import MarkerClusterdef to_map(data_set, num_samples, popup_column, width=1200, height=800, title: str = \"Map\"):    sample_data = data_set.sample(n=num_samples)    m = folium.Map(location=[-14.235004, -51.92528], zoom_start=4)    marker_cluster = MarkerCluster().add_to(m)    for index, row in sample_data.iterrows():        folium.Marker(            location=[row['geolocation_lat'], row['geolocation_lng']],            popup=f\"{popup_column}: {row[popup_column]}\",            icon=folium.Icon(color='blue')        ).add_to(marker_cluster)    return m고객 위치 시각화to_map(geo_customer_data, 3000, \"customer_id\")판매자 위치 시각화to_map(geo_seller_data, 3000, \"seller_id\")주별 평균 배송비# - 고객의 위치에 따른 배송시간(배송일 - 배송시작일)을 계산하여 folium을 이용하여 지도로 표시geo_customer_order_data['order_delivered_customer_date'] = pd.to_datetime(geo_customer_order_data['order_delivered_customer_date']) # 배송일geo_customer_order_data['order_delivered_carrier_date'] = pd.to_datetime(geo_customer_order_data['order_delivered_carrier_date']) # 배송시작일geo_customer_order_data['delivery_time'] = geo_customer_order_data['order_delivered_customer_date'] - geo_customer_order_data['order_delivered_carrier_date'] # 배송시간# 배송시간을 .day로 변경(소수점 제거)geo_customer_order_data['delivery_time'] = geo_customer_order_data['delivery_time'].dt.daysgeo_customer_order_data배송 시간별 고객과 판매자 간 평균 거리# 필요한 모듈 불러오기import math# 위도와 경도를 통해 거리(단위 : km)를 계산하는 함수 정의def haversine_distance(lat1, lon1, lat2, lon2):    # 지구의 반지름 (평균 반지름은 약 6,371 km)    R = 6371.0        # 위도 및 경도를 라디안으로 변환    lat1 = math.radians(lat1) # 구매자 위도    lon1 = math.radians(lon1) # 구매자 경도    lat2 = math.radians(lat2) # 판매자 위도    lon2 = math.radians(lon2) # 판매자 경도        # 위도 및 경도의 차이    dlat = lat2 - lat1    dlon = lon2 - lon1        # Haversine 공식을 사용하여 거리 계산    a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))    distance = R * c    return distance# 각 행에 대해 거리를 계산하는 함수 정의def calculate_distance(row):    lat1 = row['geolocation_lat_customer']  # 구매자 위도    lon1 = row['geolocation_lng_customer']  # 구매자 경도    lat2 = row['geolocation_lat_seller']    # 판매자 위도    lon2 = row['geolocation_lng_seller']    # 판매자 경도        # haversine_distance 함수를 호출하여 거리 계산    distance = haversine_distance(lat1, lon1, lat2, lon2)    return round(distance, 3)  # 소수점 3번째 자리에서 반올림# 배송시간이 15일 이상 걸린 경우의 데이터프레임 생성long_delivery_data = olist_data[olist_data['delivery_time'] &gt;= 15]long_delivery_data['distance'] = long_delivery_data.apply(calculate_distance, axis=1)long_delivery_mean_distance = round(long_delivery_data['distance'].mean(), 3)# 배송시간이 15일 미만 걸린 경우의 데이터프레임 생성short_delivery_data = olist_data[olist_data['delivery_time'] &lt; 15]short_delivery_data['distance'] = short_delivery_data.apply(calculate_distance, axis=1)short_delivery_mean_distance = round(short_delivery_data['distance'].mean(), 3)지역별 평균 배송비import foliumimport pandas as pd# olist_data에서 배송비 계산olist_data['delivery_fee'] = olist_data['freight_value'] / olist_data['order_item_id']# 배송비가 0보다 큰 데이터만 추출delivery_fee_data = olist_data[olist_data['delivery_fee'] &gt; 0]# 지역별 평균 배송비 계산state_delivery_fee = delivery_fee_data.groupby('customer_state')['delivery_fee'].mean().reset_index()state_delivery_fee['delivery_fee'] = state_delivery_fee['delivery_fee'].round(2)  # 평균 배송비를 소수점 둘째 자리까지 반올림하여 저장# 지도 생성m = folium.Map(location=[-14.235004, -51.92528], zoom_start=4)# Choropleth 레이어 추가folium.Choropleth(    geo_data='geojson',    name='choropleth',    data=state_delivery_fee,    columns=['customer_state', 'delivery_fee'],    key_on='feature.properties.sigla',    fill_color='BuPu',    fill_opacity=0.7,    line_opacity=0.2,    legend_name='Average Delivery Fee').add_to(m)인사이트  고객과 판매자의 위치에 따른 배송 시간과 거리의 상관관계          배송 시간이 15일 이상 걸린 경우의 평균 거리는 1,000km 이상으로, 배송 시간이 길어질수록 거리가 멀어지는 경향이 있다.      반면, 배송 시간이 15일 미만 걸린 경우의 평균 거리는 500km 이하로, 배송 시간이 짧을수록 거리가 가까워지는 경향이 있다.      배송 시간이 15일 차이가 나면 최소 평균 거리는 500km 이상 차이가 나는 것으로 보아, 배송 시간과 거리는 상관관계가 있다고 볼 수 있다.        지역별 평균 배송비          지역별 평균 배송비는 상이하며, 평균 배송비가 높은 지역은 SP, RJ, MG 등이다.      반면, 평균 배송비가 낮은 지역은 RR, AP, AC 등이다.        매출액          2017년 10월부터 2018년 8월까지 매출액이 증가하는 추세를 보이다가 2018년 9월부터 2018년 12월까지 매출액이 감소하는 추세를 보인다.      시간대별 매출액은 10시부터 16시까지 매출액이 가장 높은 것으로 나타났으며 사람들이 보통 낮 시간대에 많이 구매하는 것으로 보인다.        고객과 판매자 위치          고객과 판매자의 위치를 지도로 시각화한 결과, 고객과 판매자의 위치가 서로 다른 지역에 위치한 경우가 많았다.      고객과 판매자의 위치가 서로 다른 경우 배송 시간이 길어지는 경향이 있었다.      판매자는 보통 상파울루, 미나스제라이스, 리우데자네이루 등의 지역에 많이 위치해 있었으며, 고객은 상파울루, 리우데자네이루, 미나스제라이스 등의 지역에 많이 위치해 있었다.      판매자가 많이 모여 있는 지역은 공항 근처에 위치해 있었으며, 고객이 많이 모여 있는 지역은 시내 중심부에 위치해 있었다.      느낀점이번 프로젝트를 통해 데이터 분석을 통한 인사이트 도출과 시각화에 대한 중요성을 깨달았다. 데이터를 분석하고 시각화하는 과정에서 데이터의 특성을 파악하고, 데이터의 분포를 확인하고, 데이터의 결측치를 확인하고, 데이터의 이상치를 확인하는 등의 과정을 통해 데이터를분석하는 것이 중요하다는 것을 알게 되었다.하지만, 짧은 시간에 Python EDA를 배우면서 E-commerce 도메인에 대한 호기심으로 시작해서 아무 것도 모르는 상태에서 팀원들과 E-commerce에 대해 공부하고 olist 데이터를 분석하면서 함께 배워나가며 알아가는 것이 좋았으며 E-coomerce에서는 어떤 결측치, 이상치를 처리해야 될지 잘 모르고 시작한 부분이 있어서 중간중간 데이터분석에서 이상하게 데이터가 분석되고 그래프가 이상하게 나온 것들이 많았지만 그래도 유의미한 데이터 분석을 할 수 있었고 온라인 수업 시간에 배우지는 않았지만folium 지도시각화를 활용하여 고객과 판매자 사이에 관계를 파악할 수 있었던 것이 유의미한 시간이었다. 다음에 데이터 분석을 할 기회가 된다면 결측치와 이상치를 잘 처리하고 데이터를 분석하는 것에 더 집중하고 싶다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2346번 풍선 터뜨리기",
+    "url": "/posts/2346/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2346번, 풍선 터뜨리기, 파이썬",
+    "date": "2024-05-02 17:36:05 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "풍선 터뜨리기📃 문제1번부터 N번까지 N개의 풍선이 원형으로 놓여 있고. i번 풍선의 오른쪽에는 i+1번 풍선이 있고, 왼쪽에는 i-1번 풍선이 있다. 단, 1번 풍선의 왼쪽에 N번 풍선이 있고, N번 풍선의 오른쪽에 1번 풍선이 있다. 각 풍선 안에는 종이가 하나 들어있고, 종이에는 -N보다 크거나 같고, N보다 작거나 같은 정수가 하나 적혀있다. ...",
+    "content": "풍선 터뜨리기📃 문제1번부터 N번까지 N개의 풍선이 원형으로 놓여 있고. i번 풍선의 오른쪽에는 i+1번 풍선이 있고, 왼쪽에는 i-1번 풍선이 있다. 단, 1번 풍선의 왼쪽에 N번 풍선이 있고, N번 풍선의 오른쪽에 1번 풍선이 있다. 각 풍선 안에는 종이가 하나 들어있고, 종이에는 -N보다 크거나 같고, N보다 작거나 같은 정수가 하나 적혀있다. 이 풍선들을 다음과 같은 규칙으로 터뜨린다.우선, 제일 처음에는 1번 풍선을 터뜨린다. 다음에는 풍선 안에 있는 종이를 꺼내어 그 종이에 적혀있는 값만큼 이동하여 다음 풍선을 터뜨린다. 양수가 적혀 있을 경우에는 오른쪽으로, 음수가 적혀 있을 때는 왼쪽으로 이동한다. 이동할 때에는 이미 터진 풍선은 빼고 이동한다.예를 들어 다섯 개의 풍선 안에 차례로 3, 2, 1, -3, -1이 적혀 있었다고 하자. 이 경우 3이 적혀 있는 1번 풍선, -3이 적혀 있는 4번 풍선, -1이 적혀 있는 5번 풍선, 1이 적혀 있는 3번 풍선, 2가 적혀 있는 2번 풍선의 순서대로 터지게 된다.📬 입력첫째 줄에 자연수 N(1 ≤ N ≤ 1,000)이 주어진다. 다음 줄에는 차례로 각 풍선 안의 종이에 적혀 있는 수가 주어진다. 종이에 0은 적혀있지 않다.📭 출력첫째 줄에 터진 풍선의 번호를 차례로 나열한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  n = int(sys.stdin.readline())  balloon = enumerate(map(int, sys.stdin.readline().split()))  queue = deque(balloon)  data = []  while True:      if len(queue) == 0:          break      cnt, num = queue.popleft()      data.append(cnt+1)      if num &gt; 0:          queue.rotate(-(num-1))      elif num &lt; 0:          queue.rotate(-num)  print(*data)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "프로젝트 수행을 위한 EDA 수업 후기",
+    "url": "/posts/8/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-30 13:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트 수행을 위한 EDA 수업 후기🗓️ 2024.04.26 ~ 2024.04.305일간 진행된 ‘프로젝트 수행을 위한 EDA’ 수업을 듣고 나서의 후기를 작성해보려고 한다. 이번 수업은 데이터 분석에서 필요한 numpy, pandas, Matplotlib, seaborn 라이브러리에 대해서 크게 다루었다. 또 CSV파일 데이터를 활용하여 EDA를 ...",
+    "content": "프로젝트 수행을 위한 EDA 수업 후기🗓️ 2024.04.26 ~ 2024.04.305일간 진행된 ‘프로젝트 수행을 위한 EDA’ 수업을 듣고 나서의 후기를 작성해보려고 한다. 이번 수업은 데이터 분석에서 필요한 numpy, pandas, Matplotlib, seaborn 라이브러리에 대해서 크게 다루었다. 또 CSV파일 데이터를 활용하여 EDA를 진행하고 데이터 분석을 통한 인사이트를 얻는 시간이 되었다. 우선 EDA(Exploratory Data Analysis)는 데이터를 분석하기 위한 첫 번째 단계로 데이터를 분석하면서 데이터의 특성을 파악하고, 데이터의 분포를 확인하고, 데이터의 결측치를 확인하고, 데이터의 이상치를 확인하는 등의 과정을 통해 데이터를 분석하는 것을 말한다.NumpyNumpy는 파이썬에서 수치 계산을 위한 라이브러리로 다차원 배열을 효과적으로 처리할 수 있게 해준다.Numpy 시간에는 numpy의 다차원 배열을 생성하는 방법과 array의 shape, dtype, size, ndim, reshape, indexing, slicing, broadcasting, axis 등의 다양한 기능을 배웠다. numpy의 다양한 메서드들을 활용하여 다양한 데이터 분석과 계산을 효과적으로 수행할 수 있게 되었다.# numpy 실습 예시import numpy as npdata = [1, 2, 3, 4]np.array(data) # array([1, 2, 3, 4])np.zeros(10) # array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])np.ones((3, 5)) # array([[1., 1., 1., 1., 1.],                #        [1., 1., 1., 1., 1.],                #        [1., 1., 1., 1., 1.]])np.arange(0, 20, 2) # array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18])np.linspace(0, 1, 5) # array([0.  , 0.25, 0.5 , 0.75, 1.  ])v1 = np.array((1, 2, 3))v2 = np.array((4, 5, 6))v1 + v2 # array([5, 7, 9])v1 - v2 # array([-3, -3, -3])v1 * v2 # array([ 4, 10, 18])v1 / v2 # array([0.25, 0.4 , 0.5 ])np.random.seed(42)   # set seed numbermat1 = np.random.randn(5, 3) # 5x3 matrixPandasPandas는 데이터 분석을 위한 라이브러리로 데이터를 다루기 위한 자료구조와 데이터 분석 도구를 제공한다.Pandas 시간에는 pandas의 Series, DataFrame, Index, MultiIndex, Selection, Filtering, Sorting, Grouping, Pivot Table, Merge, Join, Reshape 등의 다양한 기능을 배웠다. Pandas 그래프 시각화를 위해 머신러닝 데이터 중 유명한 타이타닉 데이터셋을 활용하여 시각화를 연습해보는 시간을 가졌다.# pandas 실습 예시import pandas as pd# Q1. 여성 승객들의 평균 나이를 계산해보세요.#np.mean(titanic.loc[titanic.Sex == 'female', 'Age'])titanic.loc[titanic.Sex == 'female', 'Age'].mean()# Q2. 1등석에 탑승한 승객 중 최대 요금을 낸 사람의 이름을 찾아주세요.temp = titanic.loc[titanic.Pclass == 1, ['Name', 'Fare']]temp.loc[temp.Fare == temp.Fare.max(), \"Name\"]# Q3. 1등석에 탑승한 승객 중 승선한 곳이 Queenstown인 사람들의 수는?#temp2 = titanic[titanic.Pclass == 1]#temp2[temp2.Embarked == 'Q']## mask &amp; mask : 두 조건을 둘 다 만족하는 mask.   (AND)## mask | mask : 두 조건중 하나 이상 만족하는 mask. (OR)## ~mask : 조건을 반전. (NOT)titanic[(titanic.Pclass == 1) &amp; (titanic.Embarked == 'Q')].shape[0]# Q4. 승선한 곳이 \"S\"인 사람들의 생존자 수는?titanic.loc[titanic.Embarked.isin(['S']), 'Survived'].sum()# Q5. 미혼 여성중에 나이를 모르는 사람의 수는?titanic.loc[titanic.Name.str.contains('Miss.'), 'Age'].isnull() #.sum()Matplotlib &amp; SeabornMatplotlib는 데이터 시각화를 위한 라이브러리로 다양한 그래프를 그릴 수 있게 해주며 Seaborn은 Matplotlib을 기반으로 다양한 시각화 기능을 제공하는 라이브러리로 Matplotlib보다 간단하게 사용할 수 있다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1835번 카드",
+    "url": "/posts/1835/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1835번, 카드, 파이썬",
+    "date": "2024-04-27 08:21:41 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "카드📃 문제1부터 N까지의 숫자가 적힌 카드가 있다. 찬유는 이 카드를 가지고 마술을 하려 한다. 마술을 하는 순서는 다음과 같다.먼저 1부터 N까지의 숫자가 적힌 카드에서 첫 번째 카드를 가장 뒤로 옮긴다. 그러고 나서 첫 번째 카드를 책상 위에 올려놓는다. 그런데 그 카드는 1이 되어야 한다.그리고 남은 카드 중에서 첫 번째 카드를 가장 뒤로 옮기...",
+    "content": "카드📃 문제1부터 N까지의 숫자가 적힌 카드가 있다. 찬유는 이 카드를 가지고 마술을 하려 한다. 마술을 하는 순서는 다음과 같다.먼저 1부터 N까지의 숫자가 적힌 카드에서 첫 번째 카드를 가장 뒤로 옮긴다. 그러고 나서 첫 번째 카드를 책상 위에 올려놓는다. 그런데 그 카드는 1이 되어야 한다.그리고 남은 카드 중에서 첫 번째 카드를 가장 뒤로 옮기고, 또 가장 앞에 있는 카드를 가장 뒤로 옮긴다.(2번 반복) 그리고 가장 앞에 있는 카드를 책상 위에 올려놓는다. 그런데 그 카드는 2가 되어야 한다.또 남은 카드 중에서 첫 번째 카드를 가장 뒤로 옮기고… (3번 반복) 그리고 가장 앞에 있는 카드를 책상위에 올려놓는데 그것은 3이 된다.또 남은 카드 중에서 첫 번째 카드를 가장 뒤로 옮기고.. (4번 반복) 그리고 가장 앞에 있는 카드를 책상 위에 올려놓는데 그것은 4이다.위 과정을 계속 반복하여 N번 카드만 남을 때 까지 반복한다.위와 같은 카드를 하려면 미리 카드의 순서를 알고 있어야 한다. 카드의 개수 N이 주어져 있을 때 위의 마술을 하기 위한 카드의 초기 순서를 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 카드의 개수 N이 주어진다. (1 ≤ N ≤ 1000)📭 출력첫 번째 줄부터 N번째 줄까지 차례로 카드의 순서를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  n = int(sys.stdin.readline().rstrip())  queue = deque()  for i in reversed(range(1, n+1)):      queue.appendleft(i)      if len(queue) &gt; 1:          cnt = 0          while True:              if cnt == i:                  break              queue.appendleft(queue[-1])              # print(queue)              queue.pop()              # print(queue)                          cnt += 1      elif len(queue) == 1:          continue  print(*queue)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "프로젝트 수행을 위한 Statistics 수업 후기",
+    "url": "/posts/7/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-26 13:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트 수행을 위한 Statistics 수업 후기🗓️ 2024.04.23 ~ 2024.04.253일간 진행된 ‘프로젝트 수행을 위한 Statistics’ 수업을 듣고 나서의 후기를 작성해보려고 한다. 솔직히 아직 프로젝트를 데이터분석 프로젝트를 직접적으로 경험 해보지 않아서 통계학이 필요가 있을까? 라는 생각이 들기도 했다. 이 수업으로 (조건부확률...",
+    "content": "프로젝트 수행을 위한 Statistics 수업 후기🗓️ 2024.04.23 ~ 2024.04.253일간 진행된 ‘프로젝트 수행을 위한 Statistics’ 수업을 듣고 나서의 후기를 작성해보려고 한다. 솔직히 아직 프로젝트를 데이터분석 프로젝트를 직접적으로 경험 해보지 않아서 통계학이 필요가 있을까? 라는 생각이 들기도 했다. 이 수업으로 (조건부확률, 베이즈 정리, 확률변수, 확률분포, 통계적 추정, 가설검정, 회귀분석, 분산분석, 시계열분석) 등의 내용을 배웠는데, 이 내용들이 어떻게 프로젝트에 적용될지는 아직 감이 잡히지 않는다. 그래도 이 수업을 들으면서 통계학의 기본적인 개념들을 다시 한번 복습할 수 있었고, 이론적인 부분을 다시 한번 공부할 수 있어서 좋았다.뒷 부분으로 넘어갈 수록 이해하기 어렵고 복잡한 수학식이 많이 나와 이해하기 어려웠다. 이번 수업에서는 통계학의 전반적인 수업을 듣고 나서, 이론적인 부분을 다시 한번 복습하고, 실제 프로젝트를 진행하면서 어떻게 적용할 수 있을지에 대해서 생각해보는 시간을 가지는 시간이라고 생각하였다. 솔직히 3일만에 통계학을 전부 완성한다는 것은 불가능하다고 생각하고, 이 수업을 듣고 나서도 계속해서 공부를 해야겠다는 생각이 들었으며 Statistics 수업을 끝이 아닌 앞으로 Dacon이나 Kaggle 대회를 통해 대회에서 필요한 통계적 지식을 그때그때 공부하면서 적용해보는 것이 중요하다고 생각한다.Upstage AI Lab에 약 60명 정도의 수강생들이 있는데 다들 이해를 한 것일까? 라는 생각이 들었다. 나만 이해를 못한 것일까? 라는 생각이 들었다. 솔직히 바로바로 질문을 하는 것이 좋긴하지만 나는 이해하는데 시간이 걸리고 학습에 있어 반복이 중요하다고 생각하기 때문에 패스트캠퍼스에서 제공해준 강의와 앞으로 다가올 Python EDA 프로젝트를 진행하면서 통계학 지식을 적용해보면서 이해를 하고 모르는 부분이나 궁금한 부분은 부트캠프 내에 소통공간인 Slack을 통해 질문하면서 공부해보려고 한다. 열심히 하자 …🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "프로젝트를 위한 git 수업정리",
+    "url": "/posts/6/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-22 13:00:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트를 위한 git 수업 정리하기프로젝트 fork 하기팀 oranization에서 repository 하나를 fork 한 뒤 내 repository에 clone을 한다.$ git clone https://github.com/SUNGMYEONGGI/'repository name'.git$ cd ../'repository name'Branch 만들기$...",
+    "content": "프로젝트를 위한 git 수업 정리하기프로젝트 fork 하기팀 oranization에서 repository 하나를 fork 한 뒤 내 repository에 clone을 한다.$ git clone https://github.com/SUNGMYEONGGI/'repository name'.git$ cd ../'repository name'Branch 만들기$ git branch 'branch name'$ git checkout 'branch name'프로젝트 수정하기Monty Hall Problem Simulation이라는 게임 프로젝트를 만들어서 repository에 .py파일을 추가한다.$ touch monty_hall.py$ vi monty_hall.py # 코드 작성$ git add monty_hall.py$ git commit # 커밋 메시지 작성$ git push -u origin 'branch name'PR(Pull Request) 보내기커밋을 정상적으로 완료하였다면 team-git이라는 branch로부터 push가 있다는 메시지가 뜨게 된다.확인을 하였다면 Compare &amp; pull request를 눌러서 PR을 보낸다.Compare &amp; pull request를 누르면 PR을 보내는 창이 뜨게 되는데 PR을 보내는 이유와 내용을 작성하고 Create pull request를 눌러서 PR을 보낸다.PR(Pull Request) 확인하기PR을 받은 사람은 PR을 확인하고 Merge pull request를 눌러서 PR을 Merge한다.원래는 다른 사람의 검수나 리뷰를 받아야 하지만 혼자서 PR을 보내고 Merge를 진행하였다.원래 repository에 PR이 Merge되었는지 확인하기fork한 repository에서 제작한 .py 파일이 잘 Merge되었는지 확인한다.프로젝트를 위한 git 수업 후기나는 전공자이고 학교에서 진행하거나 개인적으로 학습하는 것들을 기존에 git을 활용하여 기록하고 있어서 크게 어렵지는 않았지만 git을 처음 사용해보는 사람들에게는 다소 어려울 수 있을 것 같다. 하지만 git만 배우는 것이 아니라 vi 사용법이나 bash 사용법에 대해서도 다루는 점이 매우 좋았던 것 같다.지금까지 git, github을 혼자 기록용을 commit만 해왔지만 이번 git 수업을 통해 협업에서 github을 어떤 식으로 사용하면 되는지를 배웠고 평소 궁금했던 github repository fork 사용법에 대해서도 다루어서 좋았다. 코드를 복제하고 수정하고 PR을 보내고 Merge하는 전반적인 과정을 배울 수 있어서 앞으로 프로젝트에서 유용하게 사용할 수 있을 것 같다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "Python 개발 프로젝트 과제 후기",
+    "url": "/posts/5/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-18 17:00:03 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Python 개발 프로젝트 과제 후기후기9일부터 16일 진행된 Python 개발 프로젝트 과제를 수행하면서 느낀 점을 정리해보았다.부트캠프에서 처음 진행한 Python 수업에서 파이썬 문법, Selenium, FastAPI, 자동화 등을 배우면서 이를 토대로 프로젝트를 진행하였다. 나는 수업에서 배운 내용을 토대로 자율주제를 택하여 ‘채용 정보 사이트...",
+    "content": "Python 개발 프로젝트 과제 후기후기9일부터 16일 진행된 Python 개발 프로젝트 과제를 수행하면서 느낀 점을 정리해보았다.부트캠프에서 처음 진행한 Python 수업에서 파이썬 문법, Selenium, FastAPI, 자동화 등을 배우면서 이를 토대로 프로젝트를 진행하였다. 나는 수업에서 배운 내용을 토대로 자율주제를 택하여 ‘채용 정보 사이트 크롤링을 통한 채용 지도 만들기’ 프로젝트를 진행하였다. 놀랍게도 나와 같은 프로젝트를 하고 싶어하는 교육생이 있었고 그 교육생과 함께 나를 포함한 3명이서 프로젝트를 진행하게 되었다.처음에는 크롤링을 한 이후에 어떤 콘텐츠를 제공을 할지 아이디어부분에 있어 고민이 많아서 채용 플랫폼(잡코리아, 사람인, 원티드)에서 크롤링을 하면서 이틀을 보냈다. 이후 팀원들과 스크럼회의를 통해 크롤링한 데이터를 활용하여 Streamlit이라는 파이썬 시각화 웹 프레임워크를 통해 채용 정보를 제공하는 웹을 만들기로 하였다.Streamlit에서 map 메서드와 Pydeck을 통해 지도 시각화를 하고, 지도 위에 Google Map API 중 Geocoding API를 통해 주소를 위도, 경도로 변환하여 마커를 찍는 것을 구현하였다. 마커의 활용은 채용 플랫폼에서 회사 상세주소를 크롤링하여 상세주소를 API에 반환하여 위도, 경도로 변환해서 마커로 찍는 로직으로 활용하였다. 또, 한가지 더 구현한 부분에서는 채용 정보에서 최근에는 어떤 기술스택, 필수/우대사항, 인재상 등이 요구가 되는 지를 한눈에 보기 위해 WordCloud를 활용하여 구현하였다.이번 프로젝트에서 팀장을 자원하게 되면서 대략 일주일간의 Python 프로젝트를 진행하면서 팀원들과의 협업과 소통이 중요하다는 것을 느꼈고, 프로젝트를 진행하면서 발생하는 문제점을 해결하는 것이 중요하고 문제점을 소통을 통해 풀고 기록하는 습관이 중요하다는 것을 느꼈다. 다음 프로젝트로 Python EDA 프로젝트가 기다리고 있는데 이번 프로젝트에서 잘한점과 부족한점을 안고 다음 프로젝트에 임하고 싶다.프로젝트 결과물GitHub Link : 채용 정보 사이트 크롤링을 통한 채용 지도 만들기우수작품 선정🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "프로젝트를 위한 파이썬 강의 후기",
+    "url": "/posts/4/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-10 17:10:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "프로젝트를 위한 파이썬 강의 후기🗓️ 2024.04.03파이썬 강의 첫날에는 파이썬의 기본적인 문법과 Selenium이라는 웹 크롤링 라이브러리에 대해서 배웠다. 기본 문법에서는 변수, 자료형, 연산자, 조건문, 반복문, 내장함수 등 파이썬의 기본적인 문법을 배웠다. 기본적인 문법이라 지루해질 타이밍에 Selenium을 통해 YES24에서 베스트셀러 ...",
+    "content": "프로젝트를 위한 파이썬 강의 후기🗓️ 2024.04.03파이썬 강의 첫날에는 파이썬의 기본적인 문법과 Selenium이라는 웹 크롤링 라이브러리에 대해서 배웠다. 기본 문법에서는 변수, 자료형, 연산자, 조건문, 반복문, 내장함수 등 파이썬의 기본적인 문법을 배웠다. 기본적인 문법이라 지루해질 타이밍에 Selenium을 통해 YES24에서 베스트셀러 책 데이터를 크롤링하는 것을 배웠다. 크롤링한 데이터를 Pandas를 통해 데이터프레임으로 만들고 CSV 파일로 저장하는 것을 배웠다.🗓️ 2024.04.05파이썬 강의 둘째 날에는 웹 크롤링 배운 것에 이어서 ‘SRT 기차 자동 예매’, ‘구글 뉴스데이터 크롤링’ 등을 실습해 보았다. 이번 실습에서는 Selenium에 상세한 메서드를 통해 text를 가져오고 자동으로 클릭하는 방법을 배웠다. SRT 기차 자동 예매는 Selenium을 통해 SRT 홈페이지에 접속하여 자동으로 로그인하고 특정 시간에 예매하는 것을 배웠다. 하지만 아쉽게도 결제 시스템 부분에서는 완전 자동화를 할 수 없다는 사실을 강사님께서 알려주셔서 아쉬웠다. 두 번째 실습으로 구글 뉴스데이터 크롤링은 Selenium을 통해 구글 뉴스에 접속하여 특정 키워드로 검색한 뉴스 데이터를 가져오고 Pandas를 사용해서 CSV 파일로 저장하여 키워드 데이터를 분석하는 것을 배웠다.🗓️ 2024.04.09마지막 날에는 강사님께서 주신 과제를 리뷰하고 FastAPI에 대해서 배웠다.FastAPI 실습(이미지 올리고 분류하기)# main.pyfrom fastapi import FastAPI,UploadFile, File from PIL import Imagefrom io import BytesIOapp = FastAPI()@app.get(\"/\")def index():    return {\"Hello\":\"World!\"}from predict import predict@app.post(\"/predict/image\")async def predict_api(file: UploadFile = File(...)):    extension = file.filename.split(\".\")[-1] in (\"jpg\", \"jpeg\", \"png\")    if not extension:        return \"Image must be jpg or png format!\"    image = Image.open(BytesIO(await file.read()))    prediction = predict(image)    return predictionif __name__ == \"__main__\": # python main.py    import uvicorn    uvicorn.run(\"main:app\", reload=True)#model_loader.py#import tensorflow as tfdef load_model():    model = tf.keras.applications.MobileNetV2(weights=\"imagenet\")    print(\"Model loaded\")    return modelmodel = load_model()#predict.pyfrom PIL.Image import Imageimport numpy as npfrom tensorflow.keras.applications.imagenet_utils import decode_predictionsfrom model_loader import model# 이미지를 예측해서 결과를 알려주는 함수def predict(image: Image):    image = np.asarray(image.resize((224, 224)))[..., :3] # RGB    image = np.expand_dims(image, 0)    image = image / 127.5 - 1.0 # -1~1사이의 숫자로 바뀌는데 -&gt; Scaler(정규화)    result = decode_predictions(model.predict(image), 3)[0] # 2: 상위 2개의 결과 반환    result_list = []    for res in result:        print(res)        result_list.append({\"class\": res[1], \"confidence\": f\"{res[2]*100:0.2f} %\"})    return result_list예측 결과Selenium과 FastAPI를 활용하여 파이썬 백엔드에 간단히 다루어 보았다. 딥한 백엔드는 아니지만, 서버라는 개념이 낯설어서 새로운 경험이었고 어려웠다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "파이썬 베이직 과제 수행",
+    "url": "/posts/3/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-08 14:00:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "파이썬 베이직 과제 수행1️⃣ 기초 문법문제 1. 별 찍기 문제 1# 문제 1cnt = int(input())for i in reversed(range(cnt+1)):    print('*' * i)    cnt -= 1문제 2. 별 찍기 문제 2cnt = int(input())if cnt % 2 == 0:    start = 2else:    sta...",
+    "content": "파이썬 베이직 과제 수행1️⃣ 기초 문법문제 1. 별 찍기 문제 1# 문제 1cnt = int(input())for i in reversed(range(cnt+1)):    print('*' * i)    cnt -= 1문제 2. 별 찍기 문제 2cnt = int(input())if cnt % 2 == 0:    start = 2else:    start = 1for i in range(start, cnt+1, 2):    print(' ' * (cnt // 2) + (i*'*') + ' ' * (cnt // 2))    cnt -= 2문제 3. 별 찍기 문제 3cnt = int(input())empty = 0if cnt % 2 == 0:    start = 2else:    start = 1for i in reversed(range(start, cnt + 1, 2)):    print(' ' * empty + (i * '*') + ' ' * empty)    empty += 1문제 4. 별 찍기 문제 4cnt = int(input())empty = 0for i in reversed(range(1, cnt+1, 2)):    print(' ' * empty + (i*'*') + ' ' * empty)    empty += 1for i in range(3, cnt+1, 2):    if cnt % 2 == 0:        print(' ' * (cnt // 2 - 2) + (i*'*') + ' ' * (cnt // 2 - 2))    else:        print(' ' * (cnt // 2 - 1) + (i*'*') + ' ' * (cnt // 2 - 1))    cnt -= 22️⃣ 크롤링 (문법 정리), method를 사용      셀레늄을 사용하여 웹 페이지를 어떻게 로드할 수 있나요?    from selenium import webdriverdriver = webdriver.Chrome('chromedriver')driver.get('링크 주소')            셀레늄으로 웹페이지에서 특정 요소를 어떻게 찾을 수 있나요? 요소를 찾을 수 있는 함수는 어떤 것들이 있나요?    # id로 찾기driver.find_element(By.ID, 'id')# class로 찾기driver.find_element(By.CLASS_NAME, 'class')# tag로 찾기driver.find_element(By.TAG_NAME, 'tag')# XPATH로 찾기driver.find_element(By.XPATH, 'xpath')            셀레늄으로 찾은 요소의 텍스트를 가져오려면 어떻게 해야 하나요?    driver.find_element(By.CLASS_NAME, 'class명').text        text라는 속성을 사용하면 찾은 요소의 텍스트를 가져올 수 있습니다.        셀레늄에서 특정 텍스트를 입력하고 엔터 키를 누르는 방법은 무엇인가요?    driver.find_element(By.CLASS_NAME, 'class명').send_keys('입력할 텍스트')driver.find_element(By.CLASS_NAME, 'class명').send_keys(Keys.RETURN)        send_keys 함수를 사용하여 텍스트를 입력하고, Keys.RETURN을 사용하여 엔터키를 누를 수 있습니다.        셀레늄으로 찾은 요소의 속성값을 가져오려면 어떻게 해야 하나요?    driver.find_element(By.CLASS_NAME, 'class명').get_attribute('속성명')        get_attribute 함수를 사용하여 찾은 요소의 속성값을 가져올 수 있습니다.        셀레늄으로 웹 페이지를 스크롤하는 방법은 무엇인가요?    # 700픽셀 만큼 스크롤driver.execute_script(\"window.scrollTo(0, 700)\")        execute_script 함수를 사용하여 자바스크립트 코드를 실행할 수 있으며 window.scrollTo를 사용하여 스크롤을 할 수 있습니다.        셀레늄으로 특정 요소를 클릭하는 방법은 무엇인가요?    driver.find_element(By.CLASS_NAME, 'class명').click()            셀레늄으로 웹 페이지에서 페이지(이전, 다음)를 이동하는 방법은 무엇인가요?    driver.back() # 이전driver.forward() # 다음            셀레늄의 Implicit Waits와 Explicit Waits의 차이점은 무엇인가요?          뻥뚫리는 파이썬 코드 모음      차밍이      🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "부트캠프 진행 각오",
+    "url": "/posts/2/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-02 19:06:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Upstage AI Lab 3기 진행 각오각오 5가지  최대한 결석하지않고 끝까지 수료할 것.  꾸준히 공부하고 복습할 것.  포기하지 않고 끝까지 열심히 할 것.  다른 사람들과 소통하고 협업하며 배울 것.  잘 수료 후 취업을 목표로 할 것.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감...",
+    "content": "Upstage AI Lab 3기 진행 각오각오 5가지  최대한 결석하지않고 끝까지 수료할 것.  꾸준히 공부하고 복습할 것.  포기하지 않고 끝까지 열심히 할 것.  다른 사람들과 소통하고 협업하며 배울 것.  잘 수료 후 취업을 목표로 할 것.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "OT 진행 후기",
+    "url": "/posts/1/",
+    "categories": "AI, BootCamp",
+    "tags": "패스트캠퍼스, 패스트캠퍼스AI부트캠프, 업스테이지패스트캠퍼스, UpstageAILab#국비지원, 패스트캠퍼스업스테이지에이아이랩, 패스트캠퍼스업스테이지부트캠프",
+    "date": "2024-04-01 18:56:46 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Upstage AI Lab 3기 OT 진행 후기신청하게 된 이유나는 2024년도 2월에 AI 소프트웨어전공을 졸업하였다. 대학교 1학년 때 처음 파이썬 프로그래밍을 처음 접하게 되었고 2학년 때부터 데이터 분석과 머신러닝에 대해 강의를 들으면서 흥미를 가지게 되었다. 그러던 중, 3학년 겨울방학 때 YOLOv5를 활용한 CV 관련 프로젝트를 하면서 A...",
+    "content": "Upstage AI Lab 3기 OT 진행 후기신청하게 된 이유나는 2024년도 2월에 AI 소프트웨어전공을 졸업하였다. 대학교 1학년 때 처음 파이썬 프로그래밍을 처음 접하게 되었고 2학년 때부터 데이터 분석과 머신러닝에 대해 강의를 들으면서 흥미를 가지게 되었다. 그러던 중, 3학년 겨울방학 때 YOLOv5를 활용한 CV 관련 프로젝트를 하면서 AI에 대한 이해와 관심을 깊게 가지게 되었다. 졸업 이후에 ‘데이터사이언티스트’라는 포지션에 관심을 가지게 되어 관련한 정보와 로드맵을 찾아보던 중 패스트캠퍼스가 운영하는 Upstage AI Lab을 찾게 되었다. 이를 통해 AI에 대한 전문적인 지식을 습득하고 싶어서 신청하게 되었다.지원자격 및 선정과정🙆🏻‍♂ 지원자격  국비지원사업으로 내일배움카드를 보유하고 있어야한다.  출석체크 관련 문제 때문에 해외가 아닌 국내에 거주해야 한다.🙅🏻‍♂️ 선별과정선별 과정에서 자기소개서 제출에서는 지원자의 자기소개, 지원동기, 프로젝트 경험에 대해 작성하였다. 이후 AI-Tech Test는 지원자가 파이썬에 대해 얼마나 알고 있는지를 테스트해 보는 과정이었다. 비대면 녹화 면접은 자기소개서를 기반으로 비대면 녹화 면접을 진행하게 된다. 나는 개인적으로 알고리즘에 자신이 없어서 선별 과정에서 코딩테스트가 없는 것이 다행이라고 생각했다.🎉 합격OTOT 진행 후기4월 1일 첫 부트캠프가 시작되었고 오늘은 OT이다. OT는 강사님의 소개와 교육과정 소개, 교육과정의 목표와 방향성등에 대해 설명해주셨다. 또한, Slack 사용법, HRD-NET  출결 주의할 점 등에 대해 설명해 주셨고 Q&amp;A 시간을 통해 궁금한 점을 질문할 수 있었다.이번 교육과정을 통해 AI에 대한 전문적인 지식을 습득하고 싶어서 신청하게 되었고, 누군가 시킨 것이 아닌 자발적으로 신청한 만큼 열정적으로 열심히 배워서 좋은 결과를 얻고 싶다.🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10866번 덱",
+    "url": "/posts/10866/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10866번, 덱, 파이썬",
+    "date": "2024-03-05 23:08:11 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "덱📃 문제정수를 저장하는 덱(Deque)를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여덟 가지이다.  push_front X: 정수 X를 덱의 앞에 넣는다.  push_back X: 정수 X를 덱의 뒤에 넣는다.  pop_front: 덱의 가장 앞에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수...",
+    "content": "덱📃 문제정수를 저장하는 덱(Deque)를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여덟 가지이다.  push_front X: 정수 X를 덱의 앞에 넣는다.  push_back X: 정수 X를 덱의 뒤에 넣는다.  pop_front: 덱의 가장 앞에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.  pop_back: 덱의 가장 뒤에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.  size: 덱에 들어있는 정수의 개수를 출력한다.  empty: 덱이 비어있으면 1을, 아니면 0을 출력한다.  front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.  back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.📬 입력첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다. 주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.📭 출력출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  n = int(sys.stdin.readline())  queue = deque()  for _ in range(n):      data = sys.stdin.readline().split()      if data[0] == 'push_front':          queue.appendleft(int(data[1]))      elif data[0] == 'push_back':          queue.append(int(data[1]))      elif data[0] == 'pop_front':          if len(queue) &gt; 0:              tmp = queue[0]              queue.popleft()              print(tmp)          else:              print(-1)      elif data[0] == 'pop_back':          if len(queue) &gt; 0:              tmp = queue[-1]              queue.pop()              print(tmp)          else:              print(-1)      elif data[0] == 'size':          print(len(queue))      elif data[0] == 'empty':          if len(queue) &gt; 0:              print(0)          else:              print(1)      elif data[0] == 'front':          if len(queue) &gt; 0:              print(queue[0])          else:              print(-1)      elif data[0] == 'back':          if len(queue) &gt; 0:              print(queue[-1])          else:              print(-1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "28279번 덱2",
+    "url": "/posts/28779/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 28279번, 덱2, 파이썬",
+    "date": "2024-03-05 12:48:11 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "덱2📃 문제정수를 저장하는 덱을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여덟 가지이다.  1 X: 정수 X를 덱의 앞에 넣는다. (1 ≤ X ≤ 100,000)  2 X: 정수 X를 덱의 뒤에 넣는다. (1 ≤ X ≤ 100,000)  3: 덱에 정수가 있다면 맨 앞의 정수를 빼고 출력한다. 없다면 -1을 대신...",
+    "content": "덱2📃 문제정수를 저장하는 덱을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여덟 가지이다.  1 X: 정수 X를 덱의 앞에 넣는다. (1 ≤ X ≤ 100,000)  2 X: 정수 X를 덱의 뒤에 넣는다. (1 ≤ X ≤ 100,000)  3: 덱에 정수가 있다면 맨 앞의 정수를 빼고 출력한다. 없다면 -1을 대신 출력한다.  4: 덱에 정수가 있다면 맨 뒤의 정수를 빼고 출력한다. 없다면 -1을 대신 출력한다.  5: 덱에 들어있는 정수의 개수를 출력한다.  6: 덱이 비어있으면 1, 아니면 0을 출력한다.  7: 덱에 정수가 있다면 맨 앞의 정수를 출력한다. 없다면 -1을 대신 출력한다.  8: 덱에 정수가 있다면 맨 뒤의 정수를 출력한다. 없다면 -1을 대신 출력한다.📬 입력첫째 줄에 명령의 수 N이 주어진다. (1 ≤ N ≤ 1,000,000)둘째 줄부터 N개 줄에 명령이 하나씩 주어진다.출력을 요구하는 명령은 하나 이상 주어진다.📭 출력출력을 요구하는 명령이 주어질 때마다 명령의 결과를 한 줄에 하나씩 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  n = int(sys.stdin.readline())  queue = deque()  for _ in range(n):      data = sys.stdin.readline().split()      if data[0] == '1':          queue.appendleft(int(data[1]))      elif data[0] == '2':          queue.append(int(data[1]))      elif data[0] == '3':          if len(queue) &gt; 0:              tmp = queue[0]              queue.popleft()              print(tmp)          else:              print(-1)      elif data[0] == '4':          if len(queue) &gt; 0:              tmp = queue[-1]              queue.pop()              print(tmp)          else:              print(-1)      elif data[0] == '5':          print(len(queue))      elif data[0] == '6':          if len(queue) &gt; 0:              print(0)          else:              print(1)      elif data[0] == '7':          if len(queue) &gt; 0:              print(queue[0])          else:              print(-1)      elif data[0] == '8':          if len(queue) &gt; 0:              print(queue[-1])          else:              print(-1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1769번 3의 배수",
+    "url": "/posts/1769/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1769번, 3의 배수, 파이썬",
+    "date": "2024-02-20 13:28:19 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "3의 배수📃 문제문제가 잘 풀리지 않을 때, 문제를 바라보는 시각을 조금만 다르게 가지면 문제가 쉽게 풀리는 경험을 종종 해 보았을 것이다. 여러 가지 방법이 있지만 그 중 하나로 우리가 풀고 싶은 문제를 좀 더 쉬운 문제로 바꾸어 풀어 보는 방법이 있다.소위 “다른 문제로 바꾸어 풀기”라는 이 방법은, 아래와 같은 과정으로 이루어진다.  풀고자 하는...",
+    "content": "3의 배수📃 문제문제가 잘 풀리지 않을 때, 문제를 바라보는 시각을 조금만 다르게 가지면 문제가 쉽게 풀리는 경험을 종종 해 보았을 것이다. 여러 가지 방법이 있지만 그 중 하나로 우리가 풀고 싶은 문제를 좀 더 쉬운 문제로 바꾸어 풀어 보는 방법이 있다.소위 “다른 문제로 바꾸어 풀기”라는 이 방법은, 아래와 같은 과정으로 이루어진다.  풀고자 하는 문제를 다른 문제로 변환한다.  변환된 문제의 답을 구한다.  구한 답을 원래 문제의 답으로 삼는다.이를 보다 쉽게 이해하기 위해서, 다음의 초등학교 수학 수준의 예를 들어 보자.문제 1. “양의 정수 X는 3의 배수인가?”이 문제를 아래와 같이 변환하는데, X의 각 자리의 수를 단순히 더한 수 Y를 만든다. 예를 들어 X가 1107이었다면, Y는 1+1+0+7=9가 된다. 그리고 Y에 대해서, 아래와 같은 문제를 생각한다.문제 2. “Y는 3의 배수인가?”위의 문제 1의 답은 아래의 문제 2의 대답과 일치한다. 위의 예의 경우, Y=9는 3의 배수이므로 X=1107 역시 3의 배수가 되는 것이다. 214는 각 자리수의 합 2+1+4=7이 3의 배수가 아니므로 3의 배수가 아니다.문제 1을 풀고 싶으면 문제 2로 변환을 해서 문제 2의 답을 문제 1의 답으로 삼으면 된다. 일반적으로 Y는 X보다 크기가 작으므로, 문제 2가 더 쉬운 문제가 된다.당신이 알고 있는 3의 배수는 한 자리 수밖에 없다고 가정하자. 즉, 문제 변환의 과정을 여러 번 거치다 보면 Y가 한 자리 수가 되는 순간이 있게 되는데, 그렇게 될 때까지 문제 변환을 반복한다는 뜻이다. 변환 후의 Y가 3, 6, 9 중 하나이면 원래의 수 X는 3의 배수이고, Y가 1, 2, 4, 5, 7, 8 중 하나이면 원래의 수 X는 3의 배수가 아니다.큰 수 X가 주어졌을 때, 앞에서 설명한 문제 변환의 과정을 몇 번 거쳐야 Y가 한 자리 수가 되어, X가 3의 배수인지 아닌지를 알 수 있게 될지를 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 큰 자연수 X가 주어진다. X는 1,000,000자리 이하의 수이다. 수는 0으로 시작하지 않는다.📭 출력첫째 줄에 문제 변환의 과정을 몇 번 거쳤는지를 출력한다. 이 수는 음이 아닌 정수가 되어야 한다. 둘째 줄에는 주어진 수가 3의 배수이면 YES, 아니면 NO를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      num = input()  cnt = 0  while len(num) &gt; 1:      cnt += 1      answer = 0      for i in num:          answer += int(i)      num = str(answer)      # print(f'{cnt}번 반복')      # print(f'{cnt}번째 num의 값: {num}')  # print(cnt)  num = int(num)  if num % 3 == 0:      print(cnt, 'YES', sep='\\n')  else:      print(cnt, 'NO', sep='\\n')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "4659번 비밀번호 발음하기",
+    "url": "/posts/4659/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 4659번, 비밀번호 발음하기, 파이썬",
+    "date": "2024-02-03 20:38:45 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "비밀번호 발음하기📃 문제좋은 패스워드를 만드는것은 어려운 일이다. 대부분의 사용자들은 buddy처럼 발음하기 좋고 기억하기 쉬운 패스워드를 원하나, 이런 패스워드들은 보안의 문제가 발생한다. 어떤 사이트들은 xvtpzyo 같은 비밀번호를 무작위로 부여해 주기도 하지만, 사용자들은 이를 외우는데 어려움을 느끼고 심지어는 포스트잇에 적어 컴퓨터에 붙여놓는...",
+    "content": "비밀번호 발음하기📃 문제좋은 패스워드를 만드는것은 어려운 일이다. 대부분의 사용자들은 buddy처럼 발음하기 좋고 기억하기 쉬운 패스워드를 원하나, 이런 패스워드들은 보안의 문제가 발생한다. 어떤 사이트들은 xvtpzyo 같은 비밀번호를 무작위로 부여해 주기도 하지만, 사용자들은 이를 외우는데 어려움을 느끼고 심지어는 포스트잇에 적어 컴퓨터에 붙여놓는다. 가장 이상적인 해결법은 ‘발음이 가능한’ 패스워드를 만드는 것으로 적당히 외우기 쉬우면서도 안전하게 계정을 지킬 수 있다.회사 FnordCom은 그런 패스워드 생성기를 만들려고 계획중이다. 당신은 그 회사 품질 관리 부서의 직원으로 생성기를 테스트해보고 생성되는 패스워드의 품질을 평가하여야 한다. 높은 품질을 가진 비밀번호의 조건은 다음과 같다.  모음(a,e,i,o,u) 하나를 반드시 포함하여야 한다.  모음이 3개 혹은 자음이 3개 연속으로 오면 안 된다.  같은 글자가 연속적으로 두번 오면 안되나, ee 와 oo는 허용한다.이 규칙은 완벽하지 않다;우리에게 친숙하거나 발음이 쉬운 단어 중에서도 품질이 낮게 평가되는 경우가 많이 있다.📬 입력입력은 여러개의 테스트 케이스로 이루어져 있다.각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 테스트할 패스워드가 주어진다.마지막 테스트 케이스는 end이며, 패스워드는 한글자 이상 20글자 이하의 문자열이다. 또한 패스워드는 대문자를 포함하지 않는다.📭 출력각 테스트 케이스를 ‘예제 출력’의 형태에 기반하여 품질을 평가하여라.🙆🏻‍♂️ 문제 답안  내가 제출한 답      # 1. 모음 존재를 확인  # 2. 모음과 자음이 3개 연속으로 오면 안됨  # 3. 같은 문자가 2개 이상오면 안되고 'ee', 'oo'는 허용  while True:      password = input()      if password == 'end':          break              stop_point = 0      lencnt = 0 # 1번 조건 password len개수만큼 채우면      Mcnt = 0 # 모음개수      Jcnt = 0 # 자음개수      lentemp = ''              for i in range(0, len(password)):          if password[i] in ('a', 'e', 'i', 'o', 'u'):              Mcnt += 1              Jcnt = 0              # print(password[i], Jcnt)              if Mcnt == 3:                  break              if lentemp != password[i]:                  lentemp = password[i]              elif lentemp == password[i]:                  if lentemp + password[i] == 'ee' or lentemp + password[i] == 'oo':                      stop_point -= 1                  stop_point += 1                  break          elif password[i] not in ('a', 'e', 'i', 'o', 'u'):              lencnt += 1              Jcnt += 1              Mcnt = 0              # print(password[i], Jcnt)              if lencnt == len(password):                  break              if lentemp != password[i]:                  lentemp = password[i]              elif lentemp == password[i]:                  stop_point += 1                  break              if Jcnt == 3:                  break      if Mcnt == 3 or Jcnt == 3:          print(f'&lt;{password}&gt; is not acceptable.')      elif stop_point == 1:          print(f'&lt;{password}&gt; is not acceptable.')      elif lencnt == len(password):          print(f'&lt;{password}&gt; is not acceptable.')      else:          print(f'&lt;{password}&gt; is acceptable.')      📝 좋은 답안다른 사람들의 풀이법을 찾아보니 보통 while문과 for문을 사용해서 해결하였는데, 그 중 정규표현식을 사용하여 해결한 몇몇 분들도 있었다.이 분은 re 라이브러리를 사용하여 정규표현식을 사용하여 문제를 해결하였다.  코딩하는 간호사  솜씨좋은장씨🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10798번 세로읽기",
+    "url": "/posts/10798/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10798번, 세로읽기, 파이썬",
+    "date": "2024-01-08 01:18:02 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "세로읽기📃 문제아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다.이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다. 영석이는 칠판에 글자들을 수평으로 일렬로 붙여서 단어를 만든다. 다시 그 아래쪽에 글자들을 붙여서 또 다른 단어를 ...",
+    "content": "세로읽기📃 문제아직 글을 모르는 영석이가 벽에 걸린 칠판에 자석이 붙어있는 글자들을 붙이는 장난감을 가지고 놀고 있다.이 장난감에 있는 글자들은 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’이다. 영석이는 칠판에 글자들을 수평으로 일렬로 붙여서 단어를 만든다. 다시 그 아래쪽에 글자들을 붙여서 또 다른 단어를 만든다. 이런 식으로 다섯 개의 단어를 만든다. 아래 그림 1은 영석이가 칠판에 붙여 만든 단어들의 예이다.A A B C D Da f z z0 9 1 2 1a 8 E W g 6P 5 h 3 k x&lt;그림 1&gt;한 줄의 단어는 글자들을 빈칸 없이 연속으로 나열해서 최대 15개의 글자들로 이루어진다. 또한 만들어진 다섯 개의 단어들의 글자 개수는 서로 다를 수 있다.심심해진 영석이는 칠판에 만들어진 다섯 개의 단어를 세로로 읽으려 한다. 세로로 읽을 때, 각 단어의 첫 번째 글자들을 위에서 아래로 세로로 읽는다. 다음에 두 번째 글자들을 세로로 읽는다. 이런 식으로 왼쪽에서 오른쪽으로 한 자리씩 이동 하면서 동일한 자리의 글자들을 세로로 읽어 나간다. 위의 그림 1의 다섯 번째 자리를 보면 두 번째 줄의 다섯 번째 자리의 글자는 없다. 이런 경우처럼 세로로 읽을 때 해당 자리의 글자가 없으면, 읽지 않고 그 다음 글자를 계속 읽는다. 그림 1의 다섯 번째 자리를 세로로 읽으면 D1gk로 읽는다.그림 1에서 영석이가 세로로 읽은 순서대로 글자들을 공백 없이 출력하면 다음과 같다:Aa0aPAf985Bz1EhCz2W3D1gkD6x칠판에 붙여진 단어들이 주어질 때, 영석이가 세로로 읽은 순서대로 글자들을 출력하는 프로그램을 작성하시오.📬 입력총 다섯줄의 입력이 주어진다. 각 줄에는 최소 1개, 최대 15개의 글자들이 빈칸 없이 연속으로 주어진다. 주어지는 글자는 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’ 중 하나이다. 각 줄의 시작과 마지막에 빈칸은 없다.📭 출력영석이가 세로로 읽은 순서대로 글자들을 출력한다. 이때, 글자들을 공백 없이 연속해서 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      data = [list(str(input())) for _ in range(5)]  lenth = len(data[0])  for i in data:      if lenth &lt; len(i):          lenth = len(i)  for j in data:      if len(j) != lenth:          for k in range(lenth-len(j)):              j.append('')  answer = ''  for i in range(lenth):      for j in range(5):          answer += data[j][i]  print(answer)      📝 좋은 답안  우당턍탕 개발 일기🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1181번 단어 정렬",
+    "url": "/posts/1181/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1181번, 단어 정렬, 파이썬",
+    "date": "2023-09-30 23:46:09 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "단어 정렬📃 문제알파벳 소문자로 이루어진 N개의 단어가 들어오면 아래와 같은 조건에 따라 정렬하는 프로그램을 작성하시오.  길이가 짧은 것부터  길이가 같으면 사전 순으로단, 중복된 단어는 하나만 남기고 제거해야 한다.📬 입력첫째 줄에 단어의 개수 N이 주어진다. (1 ≤ N ≤ 20,000) 둘째 줄부터 N개의 줄에 걸쳐 알파벳 소문자로 이루어진 단...",
+    "content": "단어 정렬📃 문제알파벳 소문자로 이루어진 N개의 단어가 들어오면 아래와 같은 조건에 따라 정렬하는 프로그램을 작성하시오.  길이가 짧은 것부터  길이가 같으면 사전 순으로단, 중복된 단어는 하나만 남기고 제거해야 한다.📬 입력첫째 줄에 단어의 개수 N이 주어진다. (1 ≤ N ≤ 20,000) 둘째 줄부터 N개의 줄에 걸쳐 알파벳 소문자로 이루어진 단어가 한 줄에 하나씩 주어진다. 주어지는 문자열의 길이는 50을 넘지 않는다.📭 출력조건에 따라 정렬하여 단어들을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답    n = int(input())data = []for _ in range(n):    data.append(input())dp = []for i, j in enumerate(range(len(data))):    dp.append((len(data[j]), data[i]))lendp1 = sorted(dp, key = lambda x : x[1])lendp2 = sorted(lendp1, key = lambda x : x[0])for k in range(0, len(lendp2)):    if k &gt; 0:        if lendp2[k][1] != lendp2[k-1][1]:            print(lendp2[k][1])    else:        print(lendp2[k][1])      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10841번 나이순 정렬",
+    "url": "/posts/10841/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10841번, 나이순 정렬, 파이썬",
+    "date": "2023-09-30 13:46:19 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "나이순 정렬📃 문제온라인 저지에 가입한 사람들의 나이와 이름이 가입한 순서대로 주어진다. 이때, 회원들을 나이가 증가하는 순으로, 나이가 같으면 먼저 가입한 사람이 앞에 오는 순서로 정렬하는 프로그램을 작성하시오.📬 입력첫째 줄에 온라인 저지 회원의 수 N이 주어진다. (1 ≤ N ≤ 100,000)둘째 줄부터 N개의 줄에는 각 회원의 나이와 이름이 ...",
+    "content": "나이순 정렬📃 문제온라인 저지에 가입한 사람들의 나이와 이름이 가입한 순서대로 주어진다. 이때, 회원들을 나이가 증가하는 순으로, 나이가 같으면 먼저 가입한 사람이 앞에 오는 순서로 정렬하는 프로그램을 작성하시오.📬 입력첫째 줄에 온라인 저지 회원의 수 N이 주어진다. (1 ≤ N ≤ 100,000)둘째 줄부터 N개의 줄에는 각 회원의 나이와 이름이 공백으로 구분되어 주어진다. 나이는 1보다 크거나 같으며, 200보다 작거나 같은 정수이고, 이름은 알파벳 대소문자로 이루어져 있고, 길이가 100보다 작거나 같은 문자열이다. 입력은 가입한 순서로 주어진다.📭 출력첫째 줄부터 총 N개의 줄에 걸쳐 온라인 저지 회원을 나이 순, 나이가 같으면 가입한 순으로 한 줄에 한 명씩 나이와 이름을 공백으로 구분해 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  data = []  for _ in range(n):      k = list(map(str, input().split()))      data.append(k)  agedata1 = sorted(data, key = lambda x : int(x[0]))  for i, j in agedata1:      print(int(i), j)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1316번 그룹 단어 체커",
+    "url": "/posts/1316/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1316번, 그룹 단어 체커, 파이썬",
+    "date": "2023-09-28 22:41:29 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "그룹 단어 체커📃 문제그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.단어 N개를 입력으로...",
+    "content": "그룹 단어 체커📃 문제그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 단어의 개수 N이 들어온다. N은 100보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 단어가 들어온다. 단어는 알파벳 소문자로만 되어있고 중복되지 않으며, 길이는 최대 100이다.📭 출력첫째 줄에 그룹 단어의 개수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  cnt = N  for i in range(N):      word = input()      for j in range(0, len(word)-1):          if word[j] == word[j+1]:              pass          elif word[j] in word[j+1:]:              cnt -= 1              break  print(cnt)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2161번 카드1",
+    "url": "/posts/2161/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2161번, 카드1, 파이썬",
+    "date": "2023-08-12 15:23:48 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "카드1📃 문제N장의 카드가 있다. 각각의 카드는 차례로 1부터 N까지의 번호가 붙어 있으며, 1번 카드가 제일 위에, N번 카드가 제일 아래인 상태로 순서대로 카드가 놓여 있다.이제 다음과 같은 동작을 카드가 한 장 남을 때까지 반복하게 된다. 우선, 제일 위에 있는 카드를 바닥에 버린다. 그 다음, 제일 위에 있는 카드를 제일 아래에 있는 카드 밑으...",
+    "content": "카드1📃 문제N장의 카드가 있다. 각각의 카드는 차례로 1부터 N까지의 번호가 붙어 있으며, 1번 카드가 제일 위에, N번 카드가 제일 아래인 상태로 순서대로 카드가 놓여 있다.이제 다음과 같은 동작을 카드가 한 장 남을 때까지 반복하게 된다. 우선, 제일 위에 있는 카드를 바닥에 버린다. 그 다음, 제일 위에 있는 카드를 제일 아래에 있는 카드 밑으로 옮긴다.예를 들어 N=4인 경우를 생각해 보자. 카드는 제일 위에서부터 1234 의 순서로 놓여있다. 1을 버리면 234가 남는다. 여기서 2를 제일 아래로 옮기면 342가 된다. 3을 버리면 42가 되고, 4를 밑으로 옮기면 24가 된다. 마지막으로 2를 버리고 나면, 버린 카드들은 순서대로 1 3 2가 되고, 남는 카드는 4가 된다.N이 주어졌을 때, 버린 카드들을 순서대로 출력하고, 마지막에 남게 되는 카드를 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 정수 N(1 ≤ N ≤ 1,000)이 주어진다.📭 출력첫째 줄에 버리는 카드들을 순서대로 출력한다. 제일 마지막에는 남게 되는 카드의 번호를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  n = int(sys.stdin.readline())  queue = deque()  data = []  for i in range(1, n+1):      queue.append(i)  while True:      if len(queue) == 1:          data.append(queue[0])          break      if len(queue) &gt; 1:          data.append(queue[0])          queue.popleft()          if len(queue) == 1:              data.append(queue[0])              break          tmp = queue[0]          queue.popleft()          queue.append(tmp)              print(*data)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10162번 전자레인지",
+    "url": "/posts/10162/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10162번, 전자레인지, 파이썬",
+    "date": "2023-08-11 18:13:48 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "전자레인지📃 문제3개의 시간조절용 버튼 A B C가 달린 전자레인지가 있다. 각 버튼마다 일정한 시간이 지정되어 있어 해당 버튼을 한번 누를 때마다 그 시간이 동작시간에 더해진다. 버튼 A, B, C에 지정된 시간은 각각 5분, 1분, 10초이다.냉동음식마다 전자레인지로 요리해야할 시간 T가 초단위로 표시되어 있다. 우리는 A, B, C 3개의 버튼을...",
+    "content": "전자레인지📃 문제3개의 시간조절용 버튼 A B C가 달린 전자레인지가 있다. 각 버튼마다 일정한 시간이 지정되어 있어 해당 버튼을 한번 누를 때마다 그 시간이 동작시간에 더해진다. 버튼 A, B, C에 지정된 시간은 각각 5분, 1분, 10초이다.냉동음식마다 전자레인지로 요리해야할 시간 T가 초단위로 표시되어 있다. 우리는 A, B, C 3개의 버튼을 적절히 눌러서 그 시간의 합이 정확히 T초가 되도록 해야 한다. 단 버튼 A, B, C를 누른 횟수의 합은 항상 최소가 되어야 한다. 이것을 최소버튼 조작이라고 한다.만일 요리시간이 100초라고 하면(T=100) B를 1번, C는 4번 누르면 된다. 이와 다르게 C를 10번 눌러도 100초가 되지만 이 경우 10번은 최소 횟수가 아니기 때문이 답이 될 수 없다. 이 경우 B 1번, C 4번, 총 5번이 최소버튼 조작이다. 그리고 T=234와 같이 3개의 버튼으로 시간을 정확히 맞출 수 없는 경우도 있다.여러분은 주어진 요리시간 T초를 맞추기 위한 최소버튼 조작 방법을 구하는 프로그램을 작성해야 한다.📬 입력첫 번째 줄에는 요리시간 T(초)가 정수로 주어져 있으며 그 범위는 1 ≤ T ≤ 10,000 이다.📭 출력여러분은 T초를 위한 최소버튼 조작의 A B C 횟수를 첫 줄에 차례대로 출력해야 한다. 각각의 횟수 사이에는 빈 칸을 둔다. 해당 버튼을 누르지 않는 경우에는 숫자 0을 출력해야한다. 만일 제시된 3개의 버튼으로 T초를 맞출 수 없으면 음수 -1을 첫 줄에 출력해야 한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      # 5분 ,1분, 10초  n = int(input())  n1, n2, n3 = 0, 0, 0  n1 = n//300  n = n%300  n2 = n//60  n = n%60  n3 = n//10  n = n%10  if n == 0:      print(n1, n2, n3)  elif n != 0:      print(-1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "9093번 단어 뒤집기",
+    "url": "/posts/9093/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 9093번, 단어 뒤집기, 파이썬",
+    "date": "2023-08-03 19:43:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "단어 뒤집기📃 문제문장이 주어졌을 때, 단어를 모두 뒤집어서 출력하는 프로그램을 작성하시오. 단, 단어의 순서는 바꿀 수 없다. 단어는 영어 알파벳으로만 이루어져 있다.📬 입력첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있으며, 문장이 하나 주어진다. 단어의 길이는 최대 20, 문장의 길이는 최대 1000이다....",
+    "content": "단어 뒤집기📃 문제문장이 주어졌을 때, 단어를 모두 뒤집어서 출력하는 프로그램을 작성하시오. 단, 단어의 순서는 바꿀 수 없다. 단어는 영어 알파벳으로만 이루어져 있다.📬 입력첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있으며, 문장이 하나 주어진다. 단어의 길이는 최대 20, 문장의 길이는 최대 1000이다. 단어와 단어 사이에는 공백이 하나 있다.📭 출력각 테스트 케이스에 대해서, 입력으로 주어진 문장의 단어를 모두 뒤집어 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  answer = ''  for _ in range(n):      s = input()      s = s.split(' ')      # print(s)      for i in s:          answer += i[::-1]          answer += ' '      print(answer)      answer = ''      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10870번 피보나치 수 5",
+    "url": "/posts/10870/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10870번, 피보나치 수 5, 파이썬",
+    "date": "2023-08-03 18:53:03 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "피보나치 수 5📃 문제피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.이를 식으로 써보면 Fn = Fn-1 + Fn-2 (n ≥ 2)가 된다.n=17일때 까지 피보나치 수를 써보면 다음과 같다.0, 1, 1, 2, 3, 5, 8, 13, 21,...",
+    "content": "피보나치 수 5📃 문제피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.이를 식으로 써보면 Fn = Fn-1 + Fn-2 (n ≥ 2)가 된다.n=17일때 까지 피보나치 수를 써보면 다음과 같다.0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 n이 주어진다. n은 20보다 작거나 같은 자연수 또는 0이다.📭 출력첫째 줄에 n번째 피보나치 수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  def fibonacci(N, fb_list):      for i in range(N):          fb_list.append(fb_list[-1] + fb_list[-2])      return fb_list[N]  print(fibonacci(N, [0, 1]))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2947번 나무조각",
+    "url": "/posts/2947/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2947번, 나무조각, 파이썬",
+    "date": "2023-07-22 09:03:41 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "나무조각📃 문제동혁이는 나무 조각을 5개 가지고 있다. 나무 조각에는 1부터 5까지 숫자 중 하나가 쓰여져 있다. 또, 모든 숫자는 다섯 조각 중 하나에만 쓰여 있다.동혁이는 나무 조각을 다음과 같은 과정을 거쳐서 1, 2, 3, 4, 5 순서로 만들려고 한다.  첫 번째 조각의 수가 두 번째 수보다 크다면, 둘의 위치를 서로 바꾼다.  두 번째 조각...",
+    "content": "나무조각📃 문제동혁이는 나무 조각을 5개 가지고 있다. 나무 조각에는 1부터 5까지 숫자 중 하나가 쓰여져 있다. 또, 모든 숫자는 다섯 조각 중 하나에만 쓰여 있다.동혁이는 나무 조각을 다음과 같은 과정을 거쳐서 1, 2, 3, 4, 5 순서로 만들려고 한다.  첫 번째 조각의 수가 두 번째 수보다 크다면, 둘의 위치를 서로 바꾼다.  두 번째 조각의 수가 세 번째 수보다 크다면, 둘의 위치를 서로 바꾼다.  세 번째 조각의 수가 네 번째 수보다 크다면, 둘의 위치를 서로 바꾼다.  네 번째 조각의 수가 다섯 번째 수보다 크다면, 둘의 위치를 서로 바꾼다.  만약 순서가 1, 2, 3, 4, 5 순서가 아니라면 1 단계로 다시 간다.처음 조각의 순서가 주어졌을 때, 위치를 바꿀 때 마다 조각의 순서를 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 조각에 쓰여 있는 수가 순서대로 주어진다. 숫자는 1보다 크거나 같고, 5보다 작거나 같으며, 중복되지 않는다. 처음 순서는 1, 2, 3, 4, 5가 아니다.📭 출력두 조각의 순서가 바뀔때 마다 조각의 순서를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      wood_data = list(map(int, input().split()))  while True:      if wood_data == [1, 2, 3, 4, 5]:          break      for i in range(4):          if wood_data[i] &gt; wood_data[i+1]:              wood_data[i], wood_data[i+1] = wood_data[i+1], wood_data[i]              print(*wood_data)      ✍️ 한가지 더코드에서 print(*wood_data)에서 *을 사용하면 리스트의 요소를 공백으로 구분하여 출력할 수 있다. 이를 언패킹이라고 하는데, 자세한 내용은 따로 포스팅을 해보겠다.🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "11399번 ATM",
+    "url": "/posts/11399/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 11399번, ATM, 파이썬",
+    "date": "2023-07-17 23:13:29 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "ATM📃 문제인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3...",
+    "content": "ATM📃 문제인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다. 예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다. 2번 사람은 1번 사람이 돈을 뽑을 때 까지 기다려야 하기 때문에, 3+1 = 4분이 걸리게 된다. 3번 사람은 1번, 2번 사람이 돈을 뽑을 때까지 기다려야 하기 때문에, 총 3+1+4 = 8분이 필요하게 된다. 4번 사람은 3+1+4+3 = 11분, 5번 사람은 3+1+4+3+2 = 13분이 걸리게 된다. 이 경우에 각 사람이 돈을 인출하는데 필요한 시간의 합은 3+4+8+11+13 = 39분이 된다.줄을 [2, 5, 1, 4, 3] 순서로 줄을 서면, 2번 사람은 1분만에, 5번 사람은 1+2 = 3분, 1번 사람은 1+2+3 = 6분, 4번 사람은 1+2+3+3 = 9분, 3번 사람은 1+2+3+3+4 = 13분이 걸리게 된다. 각 사람이 돈을 인출하는데 필요한 시간의 합은 1+3+6+9+13 = 32분이다. 이 방법보다 더 필요한 시간의 합을 최소로 만들 수는 없다.줄을 서 있는 사람의 수 N과 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어졌을 때, 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 사람의 수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄에는 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어진다. (1 ≤ Pi ≤ 1,000)📭 출력첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  data = list(map(int, input().split()))  new_data = []  for i in enumerate(data):      new_data.append(i)  new_data = sorted(new_data, key=lambda x:x[1])  result = 0  result_data = []  for j in range(len(new_data)):      result += new_data[j][1]      result_data.append(result)          print(sum(result_data))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "11047번 동전 0",
+    "url": "/posts/11047/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 11047번, 동전 0, 파이썬",
+    "date": "2023-07-12 21:07:39 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "동전 0📃 문제준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.동전을 적절히 사용해서 그 가치의 합을 K로 만들려고 한다. 이때 필요한 동전 개수의 최솟값을 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 N과 K가 주어진다. (1 ≤ N ≤ 10, 1 ≤ K ≤ 100,000,000)둘째 줄부터 N개의 줄에 동전의 가치...",
+    "content": "동전 0📃 문제준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.동전을 적절히 사용해서 그 가치의 합을 K로 만들려고 한다. 이때 필요한 동전 개수의 최솟값을 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 N과 K가 주어진다. (1 ≤ N ≤ 10, 1 ≤ K ≤ 100,000,000)둘째 줄부터 N개의 줄에 동전의 가치 A1가 오름차순으로 주어진다. (1 ≤ A1  ≤ 1,000,000, A1 = 1, i ≥ 2인 경우에 A1는 Ai-1의 배수)📭 출력첫째 줄에 K원을 만드는데 필요한 동전 개수의 최솟값을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n, m = map(int, input().split())  data = []  answer = 0  for _ in range(n):      money = int(input())      data.append(money)  for i in reversed(data):      if m//i &gt; 0:          answer += m//i      m %= i  print(answer)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1541번 잃어버린 괄호",
+    "url": "/posts/1541/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1541번, 잃어버린 괄호, 파이썬",
+    "date": "2023-07-09 20:27:51 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "잃어버린 괄호📃 문제세준이는 양수와 +, -, 그리고 괄호를 가지고 길이가 최대 50인 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다. 그리고 나서 세준이는 괄호를 적절히 쳐서 이 식의 값을 최소로 만드려고 한다. 괄호를 적절히 쳐서 식의 값을 최소로 만드는 프로그램을 작성하시오.📬 입력첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’...",
+    "content": "잃어버린 괄호📃 문제세준이는 양수와 +, -, 그리고 괄호를 가지고 길이가 최대 50인 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다. 그리고 나서 세준이는 괄호를 적절히 쳐서 이 식의 값을 최소로 만드려고 한다. 괄호를 적절히 쳐서 식의 값을 최소로 만드는 프로그램을 작성하시오.📬 입력첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 수는 0으로 시작할 수 있다. 입력으로 주어지는 식의 길이는 50보다 작거나 같다.📭 출력첫째 줄에 정답을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      s = input().split('-')  data = []  for i in s:      n = 0      i = i.split('+')      # print(i)      for j in i:          n += int(j)      data.append(n)  k = data[0]  print(k-sum(data[1:]))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2750번 수 정렬하기",
+    "url": "/posts/2750/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2750번, 수 정렬하기, 파이썬",
+    "date": "2023-07-04 16:02:15 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "수 정렬하기📃 문제N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오📬 입력첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 수가 주어진다. 이 수는 절댓값이 1,000보다 작거나 같은 정수이다. 수는 중복되지 않는다.📭 출력첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하...",
+    "content": "수 정렬하기📃 문제N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오📬 입력첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 수가 주어진다. 이 수는 절댓값이 1,000보다 작거나 같은 정수이다. 수는 중복되지 않는다.📭 출력첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하나씩 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  data = []  for _ in range(N):      number = int(input())      data.append(number)  data.sort()  for i in data:      print(i)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "11651번 좌표 정렬하기 2",
+    "url": "/posts/11651/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 11651번, 좌표 정렬하기 2, 파이썬",
+    "date": "2023-07-03 12:42:40 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "좌표 정렬하기 2📃 문제2차원 평면 위의 점 N개가 주어진다. 좌표를 y좌표가 증가하는 순으로, y좌표가 같으면 x좌표가 증가하는 순서로 정렬한 다음 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 점의 개수 N (1 ≤ N ≤ 100,000)이 주어진다. 둘째 줄부터 N개의 줄에는 i번점의 위치 xi와 yi가 주어진다. (-100,000 ≤ xi, ...",
+    "content": "좌표 정렬하기 2📃 문제2차원 평면 위의 점 N개가 주어진다. 좌표를 y좌표가 증가하는 순으로, y좌표가 같으면 x좌표가 증가하는 순서로 정렬한 다음 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 점의 개수 N (1 ≤ N ≤ 100,000)이 주어진다. 둘째 줄부터 N개의 줄에는 i번점의 위치 xi와 yi가 주어진다. (-100,000 ≤ xi, yi ≤ 100,000) 좌표는 항상 정수이고, 위치가 같은 두 점은 없다.📭 출력첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  data = []  for _ in range(n):      data.append(list(map(int, input().split())))  dotlist1 = sorted(data, key = lambda x : x[0])  dotlist2 = sorted(dotlist1, key = lambda x : x[1])  for i, j in dotlist2:      print(i, j)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2675번 문자열 반복",
+    "url": "/posts/2675/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2675번 문자열 반복, 파이썬",
+    "date": "2023-06-30 11:22:09 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "문자열 반복📃 문제문자열 S를 입력받은 후에, 각 문자를 R번 반복해 새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 즉, 첫 번째 문자를 R번 반복하고, 두 번째 문자를 R번 반복하는 식으로 P를 만들면 된다. S에는 QR Code “alphanumeric” 문자만 들어있다.QR Code “alphanumeric” 문자는 0123456789...",
+    "content": "문자열 반복📃 문제문자열 S를 입력받은 후에, 각 문자를 R번 반복해 새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 즉, 첫 번째 문자를 R번 반복하고, 두 번째 문자를 R번 반복하는 식으로 P를 만들면 된다. S에는 QR Code “alphanumeric” 문자만 들어있다.QR Code “alphanumeric” 문자는 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$%*+-./: 이다.📬 입력첫째 줄에 테스트 케이스의 개수 T(1 ≤ T ≤ 1,000)가 주어진다. 각 테스트 케이스는 반복 횟수 R(1 ≤ R ≤ 8), 문자열 S가 공백으로 구분되어 주어진다. S의 길이는 적어도 1이며, 20글자를 넘지 않는다.📭 출력각 테스트 케이스에 대해 P를 출력한다🙆🏻‍♂️ 문제 답안  내가 제출한 답      S = int(input())  for _ in range(S):      num1, num2 = map(str, input().split())      num2 = list(num2)      answer = ''      for i in range(len(num2)):          answer += int(num1) * num2[i]      print(answer)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1546번 평균",
+    "url": "/posts/1546/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1546번, 평균, 파이썬",
+    "date": "2023-06-27 16:27:19 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "평균📃 문제세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다. 일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 그리고 나서 모든 점수를 점수/M*100으로 고쳤다.예를 들어, 세준이의 최고점이 70이고, 수학점수가 50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다.세준이의 성적을 위의...",
+    "content": "평균📃 문제세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다. 일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 그리고 나서 모든 점수를 점수/M*100으로 고쳤다.예를 들어, 세준이의 최고점이 70이고, 수학점수가 50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다.세준이의 성적을 위의 방법대로 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 시험 본 과목의 개수 N이 주어진다. 이 값은 1000보다 작거나 같다. 둘째 줄에 세준이의 현재 성적이 주어진다. 이 값은 100보다 작거나 같은 음이 아닌 정수이고, 적어도 하나의 값은 0보다 크다.📭 출력첫째 줄에 새로운 평균을 출력한다. 실제 정답과의 절대오차 또는 상대오차가 \\(10^{-2}\\) 이내이면 정답이다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      test_cnt = int(input())  subject = list(map(int, input().split()))  max_score = max(subject)  result = 0  for i in range(test_cnt):      result += subject[i] / max_score * 100  print(result/test_cnt)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2587번 대표값2",
+    "url": "/posts/2587/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2587번, 대표값2, 파이썬",
+    "date": "2023-06-22 14:22:11 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "대표값2📃 문제어떤 수들이 있을 때, 그 수들을 대표하는 값으로 가장 흔하게 쓰이는 것은 평균이다. 평균은 주어진 모든 수의 합을 수의 개수로 나눈 것이다. 예를 들어 10, 40, 30, 60, 30의 평균은 (10 + 40 + 30 + 60 + 30) / 5 = 170 / 5 = 34가 된다.평균 이외의 또 다른 대표값으로 중앙값이라는 것이 있다....",
+    "content": "대표값2📃 문제어떤 수들이 있을 때, 그 수들을 대표하는 값으로 가장 흔하게 쓰이는 것은 평균이다. 평균은 주어진 모든 수의 합을 수의 개수로 나눈 것이다. 예를 들어 10, 40, 30, 60, 30의 평균은 (10 + 40 + 30 + 60 + 30) / 5 = 170 / 5 = 34가 된다.평균 이외의 또 다른 대표값으로 중앙값이라는 것이 있다. 중앙값은 주어진 수를 크기 순서대로 늘어 놓았을 때 가장 중앙에 놓인 값이다. 예를 들어 10, 40, 30, 60, 30의 경우, 크기 순서대로 늘어 놓으면10 30 30 40 60이 되고 따라서 중앙값은 30이 된다.다섯 개의 자연수가 주어질 때 이들의 평균과 중앙값을 구하는 프로그램을 작성하시오📬 입력첫째 줄부터 다섯 번째 줄까지 한 줄에 하나씩 자연수가 주어진다. 주어지는 자연수는 100 보다 작은 10의 배수이다.📭 출력첫째 줄에는 평균을 출력하고, 둘째 줄에는 중앙값을 출력한다. 평균과 중앙값은 모두 자연수이다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      data = []  for _ in range(5):      num = int(input())      data.append(num)  data.sort()  print((sum(data) // 5))  print(data[2])      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "4949번 균형잡힌 세상",
+    "url": "/posts/4949/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 4949번, 균형잡힌 세상, 파이썬",
+    "date": "2023-06-21 14:45:35 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "균형잡힌 세상📃 문제세계는 균형이 잘 잡혀있어야 한다. 양과 음, 빛과 어둠 그리고 왼쪽 괄호와 오른쪽 괄호처럼 말이다.정민이의 임무는 어떤 문자열이 주어졌을 때, 괄호들의 균형이 잘 맞춰져 있는지 판단하는 프로그램을 짜는 것이다.문자열에 포함되는 괄호는 소괄호(“()”) 와 대괄호(“[]”)로 2종류이고, 문자열이 균형을 이루는 조건은 아래와 같다....",
+    "content": "균형잡힌 세상📃 문제세계는 균형이 잘 잡혀있어야 한다. 양과 음, 빛과 어둠 그리고 왼쪽 괄호와 오른쪽 괄호처럼 말이다.정민이의 임무는 어떤 문자열이 주어졌을 때, 괄호들의 균형이 잘 맞춰져 있는지 판단하는 프로그램을 짜는 것이다.문자열에 포함되는 괄호는 소괄호(“()”) 와 대괄호(“[]”)로 2종류이고, 문자열이 균형을 이루는 조건은 아래와 같다.  모든 왼쪽 소괄호(“(“)는 오른쪽 소괄호(“)”)와만 짝을 이뤄야 한다.  모든 왼쪽 대괄호(“[“)는 오른쪽 대괄호(“]”)와만 짝을 이뤄야 한다.  모든 오른쪽 괄호들은 자신과 짝을 이룰 수 있는 왼쪽 괄호가 존재한다.  모든 괄호들의 짝은 1:1 매칭만 가능하다. 즉, 괄호 하나가 둘 이상의 괄호와 짝지어지지 않는다.  짝을 이루는 두 괄호가 있을 때, 그 사이에 있는 문자열도 균형이 잡혀야 한다.정민이를 도와 문자열이 주어졌을 때 균형잡힌 문자열인지 아닌지를 판단해보자.📬 입력각 문자열은 마지막 글자를 제외하고 영문 알파벳, 공백, 소괄호(“( )”), 대괄호(“[ ]”)로 이루어져 있으며, 온점(“.”)으로 끝나고, 길이는 100글자보다 작거나 같다.입력의 종료조건으로 맨 마지막에 온점 하나(“.”)가 들어온다.📭 출력각 줄마다 해당 문자열이 균형을 이루고 있으면 “yes”를, 아니면 “no”를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      while True:  N = input()  stack = []  if N == '.':      break      for i in N:              if i == '[' or i == '(':              stack.append(i)          elif i == ']':              if len(stack) &gt; 0 and stack[-1] == '[':                  stack.pop()              else:                  stack.append(i)                  break          elif i == ')':              if len(stack) &gt; 0 and stack[-1] == '(':                  stack.pop()              else:                  stack.append(i)                  break      if len(stack) == 0:          print('yes')      else:          print('no')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10845번 큐",
+    "url": "/posts/10845/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10845번, 큐, 파이썬",
+    "date": "2023-06-21 14:45:35 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "큐📃 문제정수를 저장하는 큐를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여섯 가지이다.  push X: 정수 X를 큐에 넣는 연산이다.  pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.  size: 큐에 들어있는 정수의 개수를 출력한다....",
+    "content": "큐📃 문제정수를 저장하는 큐를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.명령은 총 여섯 가지이다.  push X: 정수 X를 큐에 넣는 연산이다.  pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.  size: 큐에 들어있는 정수의 개수를 출력한다.  empty: 큐가 비어있으면 1, 아니면 0을 출력한다.  front: 큐의 가장 앞에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.  back: 큐의 가장 뒤에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.📬 입력첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다. 주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.📭 출력출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  from collections import deque  quque = deque()  N = int(sys.stdin.readline())  for _ in range(N):      data = sys.stdin.readline().split()      if data[0] == 'push':          quque.append(data[1])      elif data[0] == 'pop':          if len(quque) &gt; 0:              print(quque[0])              quque.popleft()          else:              print(-1)      elif data[0] == 'size':          print(len(quque))      elif data[0] == 'empty':          if len(quque) &gt; 0:              print(0)          else:              print(1)      elif data[0] == 'front':          if len(quque) &gt; 0:              print(quque[0])          else:              print(-1)      elif data[0] == 'back':          if len(quque) &gt; 0:              print(quque[-1])          else:              print(-1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1427번 소트인사이드",
+    "url": "/posts/1427/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1427번, 소트인사이드, 파이썬",
+    "date": "2023-06-18 11:22:47 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "소트인사이드📃 문제배열을 정렬하는 것은 쉽다. 수가 주어지면, 그 수의 각 자리수를 내림차순으로 정렬해보자.📬 입력첫째 줄에 정렬하고자하는 수 N이 주어진다. N은 1,000,000,000보다 작거나 같은 자연수이다.📭 출력첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답          🙋🏻‍♂️ 개인 공부...",
+    "content": "소트인사이드📃 문제배열을 정렬하는 것은 쉽다. 수가 주어지면, 그 수의 각 자리수를 내림차순으로 정렬해보자.📬 입력첫째 줄에 정렬하고자하는 수 N이 주어진다. N은 1,000,000,000보다 작거나 같은 자연수이다.📭 출력첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답          🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "9012번 괄호",
+    "url": "/posts/9012/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 9012번, 괄호, 파이썬",
+    "date": "2023-06-14 08:43:09 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "괄호📃 문제괄호 문자열(Parenthesis String, PS)은 두 개의 괄호 기호인 ‘(’ 와 ‘)’ 만으로 구성되어 있는 문자열이다. 그 중에서 괄호의 모양이 바르게 구성된 문자열을 올바른 괄호 문자열(Valid PS, VPS)이라고 부른다. 한 쌍의 괄호 기호로 된 “( )” 문자열은 기본 VPS 이라고 부른다. 만일 x 가 VPS 라면 이것...",
+    "content": "괄호📃 문제괄호 문자열(Parenthesis String, PS)은 두 개의 괄호 기호인 ‘(’ 와 ‘)’ 만으로 구성되어 있는 문자열이다. 그 중에서 괄호의 모양이 바르게 구성된 문자열을 올바른 괄호 문자열(Valid PS, VPS)이라고 부른다. 한 쌍의 괄호 기호로 된 “( )” 문자열은 기본 VPS 이라고 부른다. 만일 x 가 VPS 라면 이것을 하나의 괄호에 넣은 새로운 문자열 “(x)”도 VPS 가 된다. 그리고 두 VPS x 와 y를 접합(concatenation)시킨 새로운 문자열 xy도 VPS 가 된다. 예를 들어 “(())()”와 “((()))” 는 VPS 이지만 “(()(”, “(())()))” , 그리고 “(()” 는 모두 VPS 가 아닌 문자열이다.여러분은 입력으로 주어진 괄호 문자열이 VPS 인지 아닌지를 판단해서 그 결과를 YES 와 NO 로 나타내어야 한다.📬 입력입력 데이터는 표준 입력을 사용한다. 입력은 T개의 테스트 데이터로 주어진다. 입력의 첫 번째 줄에는 입력 데이터의 수를 나타내는 정수 T가 주어진다. 각 테스트 데이터의 첫째 줄에는 괄호 문자열이 한 줄에 주어진다. 하나의 괄호 문자열의 길이는 2 이상 50 이하이다.📭 출력출력은 표준 출력을 사용한다. 만일 입력 괄호 문자열이 올바른 괄호 문자열(VPS)이면 “YES”, 아니면 “NO”를 한 줄에 하나씩 차례대로 출력해야 한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      import sys  N = int(sys.stdin.readline())  for i in range(N):      VSP = input()      stack = []      for j in VSP:          if j == '(':              stack.append(j)          elif j == ')':              if stack:                  stack.pop()              else:                  print('NO')                  break      else:              if not stack:              print('YES')          else:              print('NO')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2908번 상수",
+    "url": "/posts/2908/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2908번, 상수, 파이썬",
+    "date": "2023-06-12 04:12:13 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "상수📃 문제상근이의 동생 상수는 수학을 정말 못한다. 상수는 숫자를 읽는데 문제가 있다. 이렇게 수학을 못하는 상수를 위해서 상근이는 수의 크기를 비교하는 문제를 내주었다. 상근이는 세 자리 수 두 개를 칠판에 써주었다. 그 다음에 크기가 큰 수를 말해보라고 했다.상수는 수를 다른 사람과 다르게 거꾸로 읽는다. 예를 들어, 734와 893을 칠판에 적...",
+    "content": "상수📃 문제상근이의 동생 상수는 수학을 정말 못한다. 상수는 숫자를 읽는데 문제가 있다. 이렇게 수학을 못하는 상수를 위해서 상근이는 수의 크기를 비교하는 문제를 내주었다. 상근이는 세 자리 수 두 개를 칠판에 써주었다. 그 다음에 크기가 큰 수를 말해보라고 했다.상수는 수를 다른 사람과 다르게 거꾸로 읽는다. 예를 들어, 734와 893을 칠판에 적었다면, 상수는 이 수를 437과 398로 읽는다. 따라서, 상수는 두 수중 큰 수인 437을 큰 수라고 말할 것이다.두 수가 주어졌을 때, 상수의 대답을 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 상근이가 칠판에 적은 두 수 A와 B가 주어진다. 두 수는 같지 않은 세 자리 수이며, 0이 포함되어 있지 않다.📭 출력첫째 줄에 상수의 대답을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      num1, num2 = input().split()  num1_reverse = ''.join(reversed(num1))  num2_reverse = ''.join(reversed(num2))  print(max(num1_reverse, num2_reverse))        💁🏻‍♂️ 알고 풀자!    숫자를 입력받고 리스트로 출력하기    num_input = list(map(int, input())) # 123print(num_input) # [1, 2, 3]        리스트를 숫자로 변화하기    num_input = list(map(int, input())) # 123result = ''.join(map(str, num_input)) # &lt;class 'str'&gt;result = int(''.join(map(str, num_input))) # &lt;class 'int'&gt;print(result) # 123        리버스 스트링 하는 2가지 방법    str_input = input() # 123str_reverse = str_input[::-1]print(str_reverse) # 321        str_input = input() # 123str_reverse = reversed(str_input)print(''.join(str_reverse)) # 321      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1026번 보물",
+    "url": "/posts/1026/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1026번, 보물, 파이썬",
+    "date": "2023-06-09 19:14:33 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "보물📃 문제옛날 옛적에 수학이 항상 큰 골칫거리였던 나라가 있었다. 이 나라의 국왕 김지민은 다음과 같은 문제를 내고 큰 상금을 걸었다.길이가 N인 정수 배열 A와 B가 있다. 다음과 같이 함수 S를 정의하자.S = A[0] × B[0] + ... + A[N-1] × B[N-1]S의 값을 가장 작게 만들기 위해 A의 수를 재배열하자. 단, B에 있는 ...",
+    "content": "보물📃 문제옛날 옛적에 수학이 항상 큰 골칫거리였던 나라가 있었다. 이 나라의 국왕 김지민은 다음과 같은 문제를 내고 큰 상금을 걸었다.길이가 N인 정수 배열 A와 B가 있다. 다음과 같이 함수 S를 정의하자.S = A[0] × B[0] + ... + A[N-1] × B[N-1]S의 값을 가장 작게 만들기 위해 A의 수를 재배열하자. 단, B에 있는 수는 재배열하면 안 된다.S의 최솟값을 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에 N이 주어진다. 둘째 줄에는 A에 있는 N개의 수가 순서대로 주어지고, 셋째 줄에는 B에 있는 수가 순서대로 주어진다. N은 50보다 작거나 같은 자연수이고, A와 B의 각 원소는 100보다 작거나 같은 음이 아닌 정수이다.📭 출력첫째 줄에 S의 최솟값을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  A_list = list(map(int, input().split()))  B_list = list(map(int, input().split()))  A_list.sort(reverse=True)  B_list.sort()  result = 0  for i in range(n):      result += (A_list[i] * B_list[i])  print(result)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "1259번 팰린드롬수",
+    "url": "/posts/1259/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 1259번, 팰린드롬수, 파이썬",
+    "date": "2023-06-05 08:25:09 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "팰린드롬수📃 문제어떤 단어를 뒤에서부터 읽어도 똑같다면 그 단어를 팰린드롬이라고 한다. ‘radar’, ‘sees’는 팰린드롬이다.수도 팰린드롬으로 취급할 수 있다. 수의 숫자들을 뒤에서부터 읽어도 같다면 그 수는 팰린드롬수다. 121, 12421 등은 팰린드롬수다. 123, 1231은 뒤에서부터 읽으면 다르므로 팰린드롬수가 아니다. 또한 10도 팰린...",
+    "content": "팰린드롬수📃 문제어떤 단어를 뒤에서부터 읽어도 똑같다면 그 단어를 팰린드롬이라고 한다. ‘radar’, ‘sees’는 팰린드롬이다.수도 팰린드롬으로 취급할 수 있다. 수의 숫자들을 뒤에서부터 읽어도 같다면 그 수는 팰린드롬수다. 121, 12421 등은 팰린드롬수다. 123, 1231은 뒤에서부터 읽으면 다르므로 팰린드롬수가 아니다. 또한 10도 팰린드롬수가 아닌데, 앞에 무의미한 0이 올 수 있다면 010이 되어 팰린드롬수로 취급할 수도 있지만, 특별히 이번 문제에서는 무의미한 0이 앞에 올 수 없다고 하자.📬 입력입력은 여러 개의 테스트 케이스로 이루어져 있으며, 각 줄마다 1 이상 99999 이하의 정수가 주어진다. 입력의 마지막 줄에는 0이 주어지며, 이 줄은 문제에 포함되지 않는다.📭 출력각 줄마다 주어진 수가 팰린드롬수면 ‘yes’, 아니면 ‘no’를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      while True:    num = input()    cnt = 0          if num == '0':        break    for i in range(len(num) // 2):        if num[i] == num[-i-1]:            continue        elif num[i] != num[-i-1]:            cnt += 1    if cnt &gt;= 1:        print('no')    elif cnt == 0:        print('yes')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "15969번 행복",
+    "url": "/posts/15969/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 15969번, 행복, 파이썬",
+    "date": "2023-06-02 09:15:13 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "행복📃 문제코이 초등학교에 새로 부임하신 교장 선생님은 어린 학생들의 행복감과 학생들의 성적 차이 관계를 알아보기로 했다. 그래서 이전 성적을 조사하여 학생 들의 시험 점수 차이 변화를 알아보려고 한다.예를 들어서 2016년 학생 8명의 점수가 다음과 같다고 하자. 27, 35, 92, 75, 42, 53, 29, 87그러면 가장 높은 점수는 92점이...",
+    "content": "행복📃 문제코이 초등학교에 새로 부임하신 교장 선생님은 어린 학생들의 행복감과 학생들의 성적 차이 관계를 알아보기로 했다. 그래서 이전 성적을 조사하여 학생 들의 시험 점수 차이 변화를 알아보려고 한다.예를 들어서 2016년 학생 8명의 점수가 다음과 같다고 하자. 27, 35, 92, 75, 42, 53, 29, 87그러면 가장 높은 점수는 92점이고 가장 낮은 점수는 27점이므로 점수의 최대 차이는 65이다. 한편 2017년 학생 8명의 점수가 다음과 같았다. 85, 42, 79, 95, 37, 11, 72, 32이때 가장 높은 점수는 95점이고 가장 낮은 점수는 11점이므로 점수의 최대 차이는 84이다.N명 학생들의 점수가 주어졌을 때, 가장 높은 점수와 가장 낮은 점수의 차이를 구하는 프로그램을 작성하시오.📬 입력표준 입력으로 다음 정보가 주어진다. 첫 번째 줄에는 학생 수 N이 주어진다. 다음 줄에는 N명의 학생 점수가 공백 하나를 사이에 두고 주어진다.📭 출력표준 출력으로 가장 높은 점수와 가장 낮은 점수의 차이를 출력한다.🕒 제한모든 서브태스크에서 2 ≤ N ≤ 1,000이고 입력되는 학생들의 점수는 0 이상 1,000 이하의 정수이다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  data = list(map(int, input().split()))  data.sort()  print(max(data)-min(data))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2577번 숫자의 개수",
+    "url": "/posts/2577/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2577번, 숫자의 개수, 파이썬",
+    "date": "2023-05-23 17:26:52 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "숫자의 개수📃 문제세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0...",
+    "content": "숫자의 개수📃 문제세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.📬 입력첫째 줄에 A, 둘째 줄에 B, 셋째 줄에 C가 주어진다. A, B, C는 모두 100보다 크거나 같고, 1,000보다 작은 자연수이다.📭 출력첫째 줄에는 A × B × C의 결과에 0 이 몇 번 쓰였는지 출력한다. 마찬가지로 둘째 줄부터 열 번째 줄까지 A × B × C의 결과에 1부터 9까지의 숫자가 각각 몇 번 쓰였는지 차례로 한 줄에 하나씩 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      count = 1  num_list = [0 for _ in range(10)]  for _ in range(3):      num = int(input())      count *= num  for i in str(count):      num_list[int(i)] += 1  for i in num_list:      print(i)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2217번 로프",
+    "url": "/posts/2217/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2217번, 로프, 파이썬",
+    "date": "2023-05-19 04:33:17 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "로프📃 문제N(1 ≤ N ≤ 100,000)개의 로프가 있다. 이 로프를 이용하여 이런 저런 물체를 들어올릴 수 있다. 각각의 로프는 그 굵기나 길이가 다르기 때문에 들 수 있는 물체의 중량이 서로 다를 수도 있다.하지만 여러 개의 로프를 병렬로 연결하면 각각의 로프에 걸리는 중량을 나눌 수 있다. k개의 로프를 사용하여 중량이 w인 물체를 들어올릴 ...",
+    "content": "로프📃 문제N(1 ≤ N ≤ 100,000)개의 로프가 있다. 이 로프를 이용하여 이런 저런 물체를 들어올릴 수 있다. 각각의 로프는 그 굵기나 길이가 다르기 때문에 들 수 있는 물체의 중량이 서로 다를 수도 있다.하지만 여러 개의 로프를 병렬로 연결하면 각각의 로프에 걸리는 중량을 나눌 수 있다. k개의 로프를 사용하여 중량이 w인 물체를 들어올릴 때, 각각의 로프에는 모두 고르게 w/k 만큼의 중량이 걸리게 된다.각 로프들에 대한 정보가 주어졌을 때, 이 로프들을 이용하여 들어올릴 수 있는 물체의 최대 중량을 구해내는 프로그램을 작성하시오. 모든 로프를 사용해야 할 필요는 없으며, 임의로 몇 개의 로프를 골라서 사용해도 된다.📬 입력첫째 줄에 정수 N이 주어진다. 다음 N개의 줄에는 각 로프가 버틸 수 있는 최대 중량이 주어진다. 이 값은 10,000을 넘지 않는 자연수이다.📭 출력첫째 줄에 답을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      k = int(input())  RopeList = []  for _ in range(k):      n = int(input())      RopeList.append(n)  RopeList.sort(reverse=True)  RopeWeightList = []  for i in range(len(RopeList)):      RopeList[i] *= (i+1)      RopeWeightList.append(RopeList[i])  print(max(RopeWeightList))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2839번 설탕 배달",
+    "url": "/posts/2839/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 2839번, 설탕 배달, 파이썬",
+    "date": "2023-05-16 23:16:20 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "개수 세기📃 문제상근이는 요즘 설탕공장에서 설탕을 배달하고 있다. 상근이는 지금 사탕가게에 설탕을 정확하게 N킬로그램을 배달해야 한다. 설탕공장에서 만드는 설탕은 봉지에 담겨져 있다. 봉지는 3킬로그램 봉지와 5킬로그램 봉지가 있다.상근이는 귀찮기 때문에, 최대한 적은 봉지를 들고 가려고 한다. 예를 들어, 18킬로그램 설탕을 배달해야 할 때, 3킬로...",
+    "content": "개수 세기📃 문제상근이는 요즘 설탕공장에서 설탕을 배달하고 있다. 상근이는 지금 사탕가게에 설탕을 정확하게 N킬로그램을 배달해야 한다. 설탕공장에서 만드는 설탕은 봉지에 담겨져 있다. 봉지는 3킬로그램 봉지와 5킬로그램 봉지가 있다.상근이는 귀찮기 때문에, 최대한 적은 봉지를 들고 가려고 한다. 예를 들어, 18킬로그램 설탕을 배달해야 할 때, 3킬로그램 봉지 6개를 가져가도 되지만, 5킬로그램 3개와 3킬로그램 1개를 배달하면, 더 적은 개수의 봉지를 배달할 수 있다.상근이가 설탕을 정확하게 N킬로그램 배달해야 할 때, 봉지 몇 개를 가져가면 되는지 그 수를 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 N이 주어진다. (3 ≤ N ≤ 5000)📭 출력상근이가 배달하는 봉지의 최소 개수를 출력한다. 만약, 정확하게 N킬로그램을 만들 수 없다면 -1을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      K = int(input())  count = 0          if K % 5 == 0:      print(K // 5)          else:      while K &gt;= 0:          if K % 5 != 0:              K -= 3              count += 1              if K % 5 == 0:                  count += (K // 5)                  print(count)                  break      else:          print(-1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "4458번 첫 글자를 대문자로",
+    "url": "/posts/4458/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 4458번, 첫 글자를 대문자로",
+    "date": "2023-05-15 16:25:44 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "첫 글자를 대문자로📃 문제문장이 입력되면 모든 글자를 대문자로 바꾸는 프로그램을 작성하시오.📬 입력첫째 줄에 문장이 주어진다. 문장의 길이는 100을 넘지 않는다.📭 출력문장의 첫 번째 글자를 대문자로 바꾸어 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  for _ in range(n):      sent =...",
+    "content": "첫 글자를 대문자로📃 문제문장이 입력되면 모든 글자를 대문자로 바꾸는 프로그램을 작성하시오.📬 입력첫째 줄에 문장이 주어진다. 문장의 길이는 100을 넘지 않는다.📭 출력문장의 첫 번째 글자를 대문자로 바꾸어 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = int(input())  for _ in range(n):      sent = list(input())      tmp = sent[0].upper()      sent[0] = tmp              print(''.join(sent))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2864번 5와 6의 차이",
+    "url": "/posts/2864/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 2864번, 5와 6의 차이, 파이썬, 그리디, 구현",
+    "date": "2023-05-09 18:35:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "5와 6의 차이📃 문제상근이는 2863번에서 표를 너무 열심히 돌린 나머지 5와 6을 헷갈리기 시작했다.상근이가 숫자 5를 볼 때, 5로 볼 때도 있지만, 6으로 잘못 볼 수도 있고, 6을 볼 때는, 6으로 볼 때도 있지만, 5로 잘못 볼 수도 있다.두 수 A와 B가 주어졌을 때, 상근이는 이 두 수를 더하려고 한다. 이때, 상근이가 구할 수 있는 두...",
+    "content": "5와 6의 차이📃 문제상근이는 2863번에서 표를 너무 열심히 돌린 나머지 5와 6을 헷갈리기 시작했다.상근이가 숫자 5를 볼 때, 5로 볼 때도 있지만, 6으로 잘못 볼 수도 있고, 6을 볼 때는, 6으로 볼 때도 있지만, 5로 잘못 볼 수도 있다.두 수 A와 B가 주어졌을 때, 상근이는 이 두 수를 더하려고 한다. 이때, 상근이가 구할 수 있는 두 수의 가능한 합 중, 최솟값과 최댓값을 구해 출력하는 프로그램을 작성하시오📬 입력첫째 줄에 두 정수 A와 B가 주어진다. (1 &lt;= A,B &lt;= 1,000,000)📭 출력첫째 줄에 상근이가 구할 수 있는 두 수의 합 중 최솟값과 최댓값을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n1, n2 = map(str, input().split())  min_n1 = n1.maketrans('6', '5')  max_n1 = n1.maketrans('5', '6')  min_n2 = n2.maketrans('6', '5')  max_n2 = n2.maketrans('5', '6')  print(int(n1.translate(min_n1)) + int(n2.translate(min_n2)), int(n1.translate(max_n1)) + int(n2.translate(max_n2)))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "25305번 커트라인",
+    "url": "/posts/25305/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 25305번, 커트라인, 파이썬, 구현",
+    "date": "2023-05-08 16:25:23 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "커트라인📃 문제2022 연세대학교 미래캠퍼스 슬기로운 코딩생활에 \\(N\\)명의 학생들이 응시했다.이들 중 점수가 가장 높은 \\(k\\)명은 상을 받을 것이다. 이 때, 상을 받는 커트라인이 몇 점인지 구하라.커트라인이란 상을 받는 사람들 중 점수가 가장 가장 낮은 사람의 점수를 말한다.📬 입력첫째 줄에는 응시자의 수 \\(N\\)과 ...",
+    "content": "커트라인📃 문제2022 연세대학교 미래캠퍼스 슬기로운 코딩생활에 \\(N\\)명의 학생들이 응시했다.이들 중 점수가 가장 높은 \\(k\\)명은 상을 받을 것이다. 이 때, 상을 받는 커트라인이 몇 점인지 구하라.커트라인이란 상을 받는 사람들 중 점수가 가장 가장 낮은 사람의 점수를 말한다.📬 입력첫째 줄에는 응시자의 수 \\(N\\)과 상을 받는 사람의 수 \\(k\\)가 공백을 사이에 두고 주어진다.둘째 줄에는 각 학생의 점수 \\(x\\)가 공백을 사이에 두고 주어진다.📭 출력상을 받는 커트라인을 출력하라.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n, k = map(int, input().split())  data = list(map(int, input().split()))  data.sort(reverse=True)  print(data[k-1])      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2869번 달팽이는 올라가고 싶다",
+    "url": "/posts/2869/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 2869번, 달팽이는 올라가고 싶다, 파이썬, 수학",
+    "date": "2023-05-05 15:27:03 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "달팽이는 올라가고 싶다📃 문제땅 위에 달팽이가 있다. 이 달팽이는 높이가 V미터인 나무 막대를 올라갈 것이다.달팽이는 낮에 A미터 올라갈 수 있다. 하지만, 밤에 잠을 자는 동안 B미터 미끄러진다. 또, 정상에 올라간 후에는 미끄러지지 않는다.달팽이가 나무 막대를 모두 올라가려면, 며칠이 걸리는지 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 세 정수...",
+    "content": "달팽이는 올라가고 싶다📃 문제땅 위에 달팽이가 있다. 이 달팽이는 높이가 V미터인 나무 막대를 올라갈 것이다.달팽이는 낮에 A미터 올라갈 수 있다. 하지만, 밤에 잠을 자는 동안 B미터 미끄러진다. 또, 정상에 올라간 후에는 미끄러지지 않는다.달팽이가 나무 막대를 모두 올라가려면, 며칠이 걸리는지 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 세 정수 A, B, V가 공백으로 구분되어서 주어진다. (1 ≤ B &lt; A ≤ V ≤ 1,000,000,000)📭 출력첫째 줄에 달팽이가 나무 막대를 모두 올라가는데 며칠이 걸리는지 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      A, B, V = map(int, input().split())  if ((V-B) % (A-B)) == 0:      print((V-B) // (A-B))  elif ((V-B) % (A-B)) != 0:      print((V-B) // (A-B) + 1)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2609번 최대공약수와 최소공배수",
+    "url": "/posts/2609/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 2609번, 최대공약수와 최소공배수, 파이썬, 수학",
+    "date": "2023-05-05 11:07:53 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "최대공약수와 최소공배수📃 문제두 개의 자연수를 입력받아 최대공약수와 최소공배수를 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다.📭 출력첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소공배수를 출력한다.🙆🏻‍...",
+    "content": "최대공약수와 최소공배수📃 문제두 개의 자연수를 입력받아 최대공약수와 최소공배수를 출력하는 프로그램을 작성하시오.📬 입력첫째 줄에는 두 개의 자연수가 주어진다. 이 둘은 10,000이하의 자연수이며 사이에 한 칸의 공백이 주어진다.📭 출력첫째 줄에는 입력으로 주어진 두 수의 최대공약수를, 둘째 줄에는 입력으로 주어진 두 수의 최소공배수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      A, B = map(int, input().split())  def gcd(A, B):      if A % B == 0:          return B      else:          return gcd(B, A % B)  def lcm(A, B):      return (A * B) // gcd(A, B)          print(gcd(A, B))  print(lcm(A, B))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "5535번 화성 수학",
+    "url": "/posts/5355/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 5535번, 화성 수학, 파이썬, 구현, 수학",
+    "date": "2023-05-02 18:42:03 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "화성 수학📃 문제겨울 방학에 달에 다녀온 상근이는 여름 방학 때는 화성에 갔다 올 예정이다. @는 3을 곱하고, %는 5를 더하며, #는 7을 빼는 연산자이다. 따라서, 화성에서는 수학 식의 가장 앞에 수가 하나 있고, 그 다음에는 연산자가 있다.📬 입력첫째 줄에 테스트 케이스의 개수 T가 주어진다. 다음 줄에는 화성 수학식이 한 줄에 하나씩 주어진다...",
+    "content": "화성 수학📃 문제겨울 방학에 달에 다녀온 상근이는 여름 방학 때는 화성에 갔다 올 예정이다. @는 3을 곱하고, %는 5를 더하며, #는 7을 빼는 연산자이다. 따라서, 화성에서는 수학 식의 가장 앞에 수가 하나 있고, 그 다음에는 연산자가 있다.📬 입력첫째 줄에 테스트 케이스의 개수 T가 주어진다. 다음 줄에는 화성 수학식이 한 줄에 하나씩 주어진다. 입력으로 주어지는 수는 정수이거나 소수 첫째 자리까지 주어지며, 0 이상 100 이하이다. 연산자는 최대 3개 주어진다.📭 출력각 테스트 케이스에 대해서, 화성 수학식의 결과를 계산한 다음에, 소수점 둘째 자리까지 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  for _ in range(N):      k = input().split()      answer = float(k[0])      for i in range(1, len(k)):          if k[i] == '@':              answer *= 3          elif k[i] == '%':              answer += 5          elif k[i] == '#':              answer -= 7      print(f\"{answer:.2f}\")      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10813번 공 바꾸기",
+    "url": "/posts/10813/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 10813번, 공 바꾸기, 파이썬, 구현",
+    "date": "2023-04-24 18:11:33 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "공 바꾸기📃 문제도현이는 바구니를 총 N개 가지고 있고, 각각의 바구니에는 1번부터 N번까지 번호가 매겨져 있다. 바구니에는 공이 1개씩 들어있고, 처음에는 바구니에 적혀있는 번호와 같은 번호가 적힌 공이 들어있다.도현이는 앞으로 M번 공을 바꾸려고 한다. 도현이는 공을 바꿀 바구니 2개를 선택하고, 두 바구니에 들어있는 공을 서로 교환한다.공을 어떻...",
+    "content": "공 바꾸기📃 문제도현이는 바구니를 총 N개 가지고 있고, 각각의 바구니에는 1번부터 N번까지 번호가 매겨져 있다. 바구니에는 공이 1개씩 들어있고, 처음에는 바구니에 적혀있는 번호와 같은 번호가 적힌 공이 들어있다.도현이는 앞으로 M번 공을 바꾸려고 한다. 도현이는 공을 바꿀 바구니 2개를 선택하고, 두 바구니에 들어있는 공을 서로 교환한다.공을 어떻게 바꿀지가 주어졌을 때, M번 공을 바꾼 이후에 각 바구니에 어떤 공이 들어있는지 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 N (1 ≤ N ≤ 100)과 M (1 ≤ M ≤ 100)이 주어진다.둘째 줄부터 M개의 줄에 걸쳐서 공을 교환할 방법이 주어진다. 각 방법은 두 정수 i j로 이루어져 있으며, i번 바구니와 j번 바구니에 들어있는 공을 교환한다는 뜻이다. (1 ≤ i ≤ j ≤ N)도현이는 입력으로 주어진 순서대로 공을 교환한다.📭 출력1번 바구니부터 N번 바구니에 들어있는 공의 번호를 공백으로 구분해 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      # 바구니 개수  N, M = map(int, input().split())  answer = []  for K in range(1, N+1):      answer.append(K)  for idx in range(M):      i, j = map(int, input().split())      temp = answer[i-1]      answer[i-1] = answer[j-1]      answer[j-1] = temp          print(' '.join(map(str, answer)))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2920번 음계",
+    "url": "/posts/2920/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 2920번, 음계, 파이썬, 구현",
+    "date": "2023-04-22 08:15:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "음계📃 문제다장조는 c d e f g a b C, 총 8개 음으로 이루어져있다. 이 문제에서 8개 음은 다음과 같이 숫자로 바꾸어 표현한다. c는 1로, d는 2로, …, C를 8로 바꾼다.1부터 8까지 차례대로 연주한다면 ascending, 8부터 1까지 차례대로 연주한다면 descending, 둘 다 아니라면 mixed 이다.연주한 순서가 주어졌을...",
+    "content": "음계📃 문제다장조는 c d e f g a b C, 총 8개 음으로 이루어져있다. 이 문제에서 8개 음은 다음과 같이 숫자로 바꾸어 표현한다. c는 1로, d는 2로, …, C를 8로 바꾼다.1부터 8까지 차례대로 연주한다면 ascending, 8부터 1까지 차례대로 연주한다면 descending, 둘 다 아니라면 mixed 이다.연주한 순서가 주어졌을 때, 이것이 ascending인지, descending인지, 아니면 mixed인지 판별하는 프로그램을 작성하시오.📬 입력첫째 줄에 8개 숫자가 주어진다. 이 숫자는 문제 설명에서 설명한 음이며, 1부터 8까지 숫자가 한 번씩 등장한다.📭 출력첫째 줄에 ascending, descending, mixed 중 하나를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      n = list(map(int, input().split()))  scale_list = [1,2,3,4,5,6,7,8]  if n == scale_list:      print('ascending')  elif n == scale_list[::-1]:      print('descending')  else:      print('mixed')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "5622번 다이얼",
+    "url": "/posts/5622/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 5622번, 다이얼, 파이썬, 수학",
+    "date": "2023-04-21 20:11:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "다이얼📃 문제상근이의 할머니는 아래 그림과 같이 오래된 다이얼 전화기를 사용한다.  전화를 걸고 싶은 번호가 있다면, 숫자를 하나를 누른 다음에 금속 핀이 있는 곳 까지 시계방향으로 돌려야 한다. 숫자를 하나 누르면 다이얼이 처음 위치로 돌아가고, 다음 숫자를 누르려면 다이얼을 처음 위치에서 다시 돌려야 한다.숫자 1을 걸려면 총 2초가 필요하다. 1...",
+    "content": "다이얼📃 문제상근이의 할머니는 아래 그림과 같이 오래된 다이얼 전화기를 사용한다.  전화를 걸고 싶은 번호가 있다면, 숫자를 하나를 누른 다음에 금속 핀이 있는 곳 까지 시계방향으로 돌려야 한다. 숫자를 하나 누르면 다이얼이 처음 위치로 돌아가고, 다음 숫자를 누르려면 다이얼을 처음 위치에서 다시 돌려야 한다.숫자 1을 걸려면 총 2초가 필요하다. 1보다 큰 수를 거는데 걸리는 시간은 이보다 더 걸리며, 한 칸 옆에 있는 숫자를 걸기 위해선 1초씩 더 걸린다.상근이의 할머니는 전화 번호를 각 숫자에 해당하는 문자로 외운다. 즉, 어떤 단어를 걸 때, 각 알파벳에 해당하는 숫자를 걸면 된다. 예를 들어, UNUCIC는 868242와 같다.할머니가 외운 단어가 주어졌을 때, 이 전화를 걸기 위해서 필요한 최소 시간을 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 알파벳 대문자로 이루어진 단어가 주어진다. 단어의 길이는 2보다 크거나 같고, 15보다 작거나 같다.📭 출력첫째 줄에 다이얼을 걸기 위해서 필요한 최소 시간을 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      words = input()  dialog = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']  answer = 0  for i in words:      for j in dialog:          if i in j:              answer += dialog.index(j)+3  print(answer)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "2292번 벌집",
+    "url": "/posts/2292/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 2292번, 벌집, 파이썬, 구현",
+    "date": "2023-04-18 12:41:30 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "벌집📃 문제위의 그림과 같이 육각형으로 이루어진 벌집이 있다. 그림에서 보는 바와 같이 중앙의 방 1부터 시작해서 이웃하는 방에 돌아가면서 1씩 증가하는 번호를 주소로 매길 수 있다. 숫자 N이 주어졌을 때, 벌집의 중앙 1에서 N번 방까지 최소 개수의 방을 지나서 갈 때 몇 개의 방을 지나가는지(시작과 끝을 포함하여)를 계산하는 프로그램을 작성하시오...",
+    "content": "벌집📃 문제위의 그림과 같이 육각형으로 이루어진 벌집이 있다. 그림에서 보는 바와 같이 중앙의 방 1부터 시작해서 이웃하는 방에 돌아가면서 1씩 증가하는 번호를 주소로 매길 수 있다. 숫자 N이 주어졌을 때, 벌집의 중앙 1에서 N번 방까지 최소 개수의 방을 지나서 갈 때 몇 개의 방을 지나가는지(시작과 끝을 포함하여)를 계산하는 프로그램을 작성하시오. 예를 들면, 13까지는 3개, 58까지는 5개를 지난다.📬 입력첫째 줄에 N(1 ≤ N ≤ 1,000,000,000)이 주어진다.📭 출력입력으로 주어진 방까지 최소 개수의 방을 지나서 갈 때 몇 개의 방을 지나는지 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  cnt = 1  k = 1  for _ in range(N):      if N &gt; 1:          N -= (6*k)          cnt += 1          k += 1      else:          break  print(cnt)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "3052번 OX퀴즈",
+    "url": "/posts/8958/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 8958번, OX퀴즈, 파이썬, 구현",
+    "date": "2023-04-17 12:44:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "OX퀴즈📃 문제“OOXXOXXOOO”와 같은 OX퀴즈의 결과가 있다. O는 문제를 맞은 것이고, X는 문제를 틀린 것이다. 문제를 맞은 경우 그 문제의 점수는 그 문제까지 연속된 O의 개수가 된다. 예를 들어, 10번 문제의 점수는 3이 된다.“OOXXOXXOOO”의 점수는 1+2+0+0+1+0+0+1+2+3 = 10점이다.OX퀴즈의 결과가 주어졌을 ...",
+    "content": "OX퀴즈📃 문제“OOXXOXXOOO”와 같은 OX퀴즈의 결과가 있다. O는 문제를 맞은 것이고, X는 문제를 틀린 것이다. 문제를 맞은 경우 그 문제의 점수는 그 문제까지 연속된 O의 개수가 된다. 예를 들어, 10번 문제의 점수는 3이 된다.“OOXXOXXOOO”의 점수는 1+2+0+0+1+0+0+1+2+3 = 10점이다.OX퀴즈의 결과가 주어졌을 때, 점수를 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 테스트 케이스의 개수가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 길이가 0보다 크고 80보다 작은 문자열이 주어진다. 문자열은 O와 X만으로 이루어져 있다.📭 출력각 테스트 케이스마다 점수를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      N = int(input())  for _ in range(N):      score = list(input())      result, answer = 0, 1              for i in score:          if i == 'O':              result += answer              answer += 1          elif i == 'X':              answer = 1      print(result)      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "3052번 나머지",
+    "url": "/posts/3052/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 3052번, 나머지, 파이썬, 구현",
+    "date": "2023-04-14 22:00:34 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "나머지📃 문제두 자연수 A와 B가 있을 때, A%B는 A를 B로 나눈 나머지 이다. 예를 들어, 7, 14, 27, 38을 3으로 나눈 나머지는 1, 2, 0, 2이다.수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다. 그 다음 서로 다른 값이 몇 개 있는지 출력하는 프로그램을 작성하시오.📬 입력첫째 줄부터 열번째 줄 까지 숫자가 한 줄에 ...",
+    "content": "나머지📃 문제두 자연수 A와 B가 있을 때, A%B는 A를 B로 나눈 나머지 이다. 예를 들어, 7, 14, 27, 38을 3으로 나눈 나머지는 1, 2, 0, 2이다.수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다. 그 다음 서로 다른 값이 몇 개 있는지 출력하는 프로그램을 작성하시오.📬 입력첫째 줄부터 열번째 줄 까지 숫자가 한 줄에 하나씩 주어진다. 이 숫자는 1,000보다 작거나 같고, 음이 아닌 정수이다.📭 출력첫째 줄에, 42로 나누었을 때, 서로 다른 나머지가 몇 개 있는지 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      lst = []  new_list = []  result = 0  for _ in range(10):      num1 = int(input())      result = num1 % 42       lst.append(result)  for i in lst:      if i not in new_list:          new_list.append(i)  print(len(new_list))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "18406번 럭키 스트레이트",
+    "url": "/posts/18406/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, algorithm, 18406번, 럭키 스트레이트, 파이썬, 구현",
+    "date": "2023-04-13 09:15:04 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "럭키 스트레이트📃 문제어떤 게임의 아웃복서 캐릭터에게는 럭키 스트레이트라는 기술이 존재한다. 이 기술은 매우 강력한 대신에 항상 사용할 수는 없으며, 현재 게임 내에서 점수가 특정 조건을 만족할 때만 사용할 수 있다.특정 조건이란 현재 캐릭터의 점수를 N이라고 할 때 점수 N을 자릿수를 기준으로 반으로 나누어 왼쪽 부분의 각 자릿수의 합과 오른쪽 부분...",
+    "content": "럭키 스트레이트📃 문제어떤 게임의 아웃복서 캐릭터에게는 럭키 스트레이트라는 기술이 존재한다. 이 기술은 매우 강력한 대신에 항상 사용할 수는 없으며, 현재 게임 내에서 점수가 특정 조건을 만족할 때만 사용할 수 있다.특정 조건이란 현재 캐릭터의 점수를 N이라고 할 때 점수 N을 자릿수를 기준으로 반으로 나누어 왼쪽 부분의 각 자릿수의 합과 오른쪽 부분의 각 자릿수의 합을 더한 값이 동일한 상황을 의미한다. 예를 들어 현재 점수가 123,402라면 왼쪽 부분의 각 자릿수의 합은 1+2+3, 오른쪽 부분의 각 자릿수의 합은 4+0+2이므로 두 합이 6으로 동일하여 럭키 스트레이트를 사용할 수 있다.현재 점수 N이 주어졌을 때, 럭키 스트레이트를 사용할 수 있는 상태인지 아닌지를 알려주는 프로그램을 작성하시오. 럭키 스트레이트를 사용할 수 있다면 “LUCKY”를, 사용할 수 없다면 “READY”라는 단어를 출력한다. 또한 점수 N의 자릿수는 항상 짝수 형태로만 주어진다. 예를 들어 자릿수가 5인 12,345와 같은 수는 입력으로 들어오지 않는다.📬 입력첫째 줄에 점수 N이 정수로 주어진다. (10 ≤ N ≤ 99,999,999) 단, 점수 N의 자릿수는 항상 짝수 형태로만 주어진다.📭 출력첫째 줄에 럭키 스트레이트를 사용할 수 있다면 “LUCKY”를, 사용할 수 없다면 “READY”라는 단어를 출력한다.🙆🏻‍♂️ 문제 답안  내가 제출한 답      data = list(map(int, input().strip()))  data_front = data[:len(data)//2]  data_back = data[len(data)//2:]  frontnum, backnum = 0, 0  for i in data_front:      frontnum += i  for j in data_back:      backnum += j  if frontnum == backnum:      print('LUCKY')  else:      print('READY')      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  },
+  
+  {
+    "title": "10807번 개수 세기",
+    "url": "/posts/10807/",
+    "categories": "Algorithm, Backjoon",
+    "tags": "baekjoon, 10807번, 개수 세기, 파이썬",
+    "date": "2023-04-10 19:50:43 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "개수 세기📃 문제총 N개의 정수가 주어졌을 때, 정수 V가 몇 개인지 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 정수의 개수 N(1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 정수가 공백으로 구분되어져있다. 셋째 줄에는 찾으려고 하는 정수 v가 주어진다. 입력으로 주어지는 정수와 v는 -100보다 크거나 같으며, 100보다 작거나 같다.📭 출력첫...",
+    "content": "개수 세기📃 문제총 N개의 정수가 주어졌을 때, 정수 V가 몇 개인지 구하는 프로그램을 작성하시오.📬 입력첫째 줄에 정수의 개수 N(1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 정수가 공백으로 구분되어져있다. 셋째 줄에는 찾으려고 하는 정수 v가 주어진다. 입력으로 주어지는 정수와 v는 -100보다 크거나 같으며, 100보다 작거나 같다.📭 출력첫째 줄에 입력으로 주어진 N개의 정수 중에 v가 몇 개인지 출력한다.🙆🏻‍♂️ 문제 답안  for문을 활용한 답      N = int(input())  S = list(map(int, input().split()))  V = int(input())  count = 0  for i in S:      if i == V:          count += 1  print(count)        리스트 컴프리헨션을 활용한 답      N = int(input())  S = list(map(int, input().split()))  V = int(input())  count = sum([1 for i in S if i == V])  print(count)        count메서드를 활용한 답      N = int(input())  V = list(map(int, input().split()))  S = int(input())  print(V.count(S))      🙋🏻‍♂️ 개인 공부&amp;기록 블로그입니다. 오류나 틀린 부분이 있을 경우    비난 및 비판 보다는 댓글을 통해 이슈작성 부탁드립니다. 🙋🏻‍♂️맨 위로 이동하기"
+  }
+  
+]
+

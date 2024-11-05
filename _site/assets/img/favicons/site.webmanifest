@@ -1,0 +1,23 @@
+
+
+{
+  "name": "MYEONGGI",
+  "short_name": "MYEONGGI",
+  "description": "IT 및 프로그래밍 관련된 글을 작성하는 개발 중심의 블로그입니다.",
+  "icons": [
+    {
+      "src": "/assets/img/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "start_url": "/index.html",
+  "theme_color": "#2a1e6b",
+  "background_color": "#ffffff",
+  "display": "fullscreen"
+}
+
