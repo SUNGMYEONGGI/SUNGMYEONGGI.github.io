@@ -11,7 +11,9 @@
       {%- endif -%}
     </a>
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="site-title">
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </p>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->
@@ -38,6 +40,7 @@
         <!-- .nav-item -->
       {% endfor %}
     </ul>
+    {% include_cached adsense.html lang=lang %}
   </nav>
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">

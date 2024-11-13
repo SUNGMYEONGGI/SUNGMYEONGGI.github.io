@@ -1,15 +1,14 @@
-import { basic, initTopbar, initSidebar } from './modules/layouts';
-
+import { basic, initSidebar, initTopbar } from './modules/layouts';
 import {
   loadImg,
   imgPopup,
   initLocaleDatetime,
   initClipboard,
-  initToc
+  toc
 } from './modules/plugins';
 
 loadImg();
-initToc();
+toc();
 imgPopup();
 initSidebar();
 initLocaleDatetime();

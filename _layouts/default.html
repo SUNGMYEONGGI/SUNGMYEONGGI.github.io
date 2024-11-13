@@ -37,6 +37,7 @@ layout: compress
             <div class="access">
               {% include_cached update-list.html lang=lang %}
               {% include_cached trending-tags.html lang=lang %}
+              {% include_cached adsense.html lang=lang %}
             </div>
 
             {% for _include in layout.panel_includes %}
@@ -68,7 +69,7 @@ layout: compress
       </aside>
     </div>
 
-    <div id="mask" class="d-none position-fixed w-100 h-100 z-1"></div>
+    <div id="mask"></div>
 
     {% if site.pwa.enabled %}
       {% include_cached notification.html lang=lang %}
