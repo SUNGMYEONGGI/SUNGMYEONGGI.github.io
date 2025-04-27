@@ -74,6 +74,15 @@ The avatar and favicon for the project's website are from [ClipartMAX][clipartma
 
 This project is published under [MIT License][license].
 
+## Daily Posts Automation
+
+This repository includes a GitHub Actions workflow that automatically creates a new blog post in the `Daily` category every day. The posts follow the format `YYYY-MM-DD-01.md`.
+
+To manually trigger the workflow:
+1. Go to the "Actions" tab in the repository
+2. Select the "Daily Blog Post" workflow
+3. Click "Run workflow"
+
 [gem]: https://rubygems.org/gems/jekyll-theme-chirpy
 [ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
 [codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade

@@ -1,0 +1,40 @@
+name: Daily Blog Post
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs at midnight UTC every day
+  workflow_dispatch: # Allows manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  create-daily-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up current date
+        id: date
+        run: |
+          echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "COUNTER=01" >> $GITHUB_ENV
+
+      - name: Create daily post
+        run: |
+          mkdir -p _posts/Daily
+          POST_FILE="_posts/Daily/${DATE}-${COUNTER}.md"
+
+          # Create the post file with the specified format
+          echo "---" > $POST_FILE
+          echo "" >> $POST_FILE
+          echo "@https://github.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io" >> $POST_FILE
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add _posts/Daily/
+          git commit -m "Add daily post for ${DATE}" || exit 0
+          git push
