@@ -58,7 +58,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-XXXXXXXXXX # Replace with your actual Google Analytics ID when available
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -226,3 +226,12 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+# Explicitly include plugins for better SEO
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-archives
+  - jekyll-include-cache

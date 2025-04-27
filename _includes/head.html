@@ -9,16 +9,24 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
   <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="{{ site.title }} Feed">
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  >
   <!-- umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e4249fb6-0c76-4824-a4cf-e81644994c92"></script>
   <!-- GoatCounter -->
   <script data-goatcounter="https://bluemiv.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   <!-- naver web master -->
-  <meta name="naver-site-verification" content="f323e1ef6dd667f1d8914e2c06ef3fda0af76114" />
+  <meta name="naver-site-verification" content="f323e1ef6dd667f1d8914e2c06ef3fda0af76114">
   <!-- adsense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9462926197232794"
-     crossorigin="anonymous"></script>
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9462926197232794"
+    crossorigin="anonymous"
+  ></script>
 
   {%- capture seo_tags -%}
     {% seo title=false %}
@@ -68,6 +76,9 @@
     {{ site.title }}
   </title>
 
+  <!-- Canonical URL for SEO -->
+  {% include canonical-url.html %}
+
   {% include_cached favicons.html %}
 
   <!-- Resource Hints -->
@@ -88,7 +99,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}">
 
   <!-- Web Font -->
-<!--  <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">-->
+  <!-- <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}"> -->
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ site.data.origin[type].fontawesome.css | relative_url }}">
@@ -107,6 +118,9 @@
     <!-- Image Popup -->
     <link rel="stylesheet" href="{{ site.data.origin[type].glightbox.css | relative_url }}">
   {% endif %}
+
+  <!-- Structured Data for SEO -->
+  {% include structured-data.html %}
 
   <!-- JavaScript -->
 

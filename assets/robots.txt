@@ -6,8 +6,9 @@ permalink: /robots.txt
 User-agent: *
 
 Disallow: /norobots/
-Disallow: /tags/
+Allow: /
 
+# Allow crawling of all content
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
 
 #DaumWebMasterTool:723c398ab07c8bce7a728fb97acb3474cd056c4b061d3761199e9a7e8a52cdd3:e2oWQUCuWqFnhyrO2S7qdQ==
