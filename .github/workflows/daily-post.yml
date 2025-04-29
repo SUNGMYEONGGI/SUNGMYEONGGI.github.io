@@ -1,15 +1,15 @@
-name: Daily Blog Post
+name: Daily Workflow Post
 
 on:
   schedule:
-    - cron: "0 21 * * *" # Runs at 9:00 PM UTC every day
-  workflow_dispatch: # Allows manual triggering
+    - cron: "0 23 * * *" # 매일 오전 8시 KST (23:00 UTC)
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  create-daily-post:
+  create-daily-workflow-post:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,22 +19,38 @@ jobs:
         id: date
         run: |
           echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-          echo "COUNTER=01" >> $GITHUB_ENV
+          echo "YYMMDD=$(date +'%y%m%d')" >> $GITHUB_ENV
+          echo "CURRENT_TIME=$(date +'%H:%M:%S')" >> $GITHUB_ENV
 
-      - name: Create daily post
+      - name: Create daily workflow post
         run: |
-          mkdir -p _posts/Daily
-          POST_FILE="_posts/Daily/${DATE}-${COUNTER}.md"
-
-          # Create the post file with the specified format
-          echo "---" > $POST_FILE
-          echo "" >> $POST_FILE
-          echo "@https://github.com/SUNGMYEONGGI/SUNGMYEONGGI.github.io" >> $POST_FILE
+          mkdir -p _posts/데일리/워크플로우
+          POST_FILE="_posts/데일리/워크플로우/${DATE}-${YYMMDD}-workflow.md"
+          TEMPLATE_FILE="_posts/데일리/워크플로우/template.md"
+          if [ -f "$TEMPLATE_FILE" ]; then
+            cp "$TEMPLATE_FILE" "$POST_FILE"
+            sed -i "s/YYYY-MM-DD HH:MM:SC/${DATE} ${CURRENT_TIME}/g" "$POST_FILE"
+            sed -i "s/YYYY-MM-DD/${DATE}/g" "$POST_FILE"
+            sed -i "s/YY-MM-DD/${YYMMDD}/g" "$POST_FILE"
+            sed -i "s/title: 자동화 글.*/title: 자동화 글 ${DATE}/g" "$POST_FILE"
+            sed -i "s/# YYYY-MM-DD 제목/# ${DATE} 워크플로우 자동 생성 글/g" "$POST_FILE"
+          else
+            echo "---" > "$POST_FILE"
+            echo "title: 자동화 글 ${DATE}" >> "$POST_FILE"
+            echo "description: 자동화 글" >> "$POST_FILE"
+            echo "date: ${DATE} ${CURRENT_TIME} +0900" >> "$POST_FILE"
+            echo "last_modified_at: ${DATE} ${CURRENT_TIME} +0900" >> "$POST_FILE"
+            echo "categories: [ 데일리, 워크플로우 ]" >> "$POST_FILE"
+            echo "tags: [ 자동화, 데일리 ]" >> "$POST_FILE"
+            echo "image:\n  path: \n  alt: " >> "$POST_FILE"
+            echo "---" >> "$POST_FILE"
+            echo "\n# ${DATE} 워크플로우 자동 생성 글\n\n***\n    🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 \n    언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄\n\n<a href=\"#\" style=\"display: inline-block; padding: 5px 10px; color: #007bff; text-decoration: none; border: 0.5px solid #007bff; border-radius: 5px; float: right;\">맨 위로 이동하기</a>" >> "$POST_FILE"
+          fi
 
       - name: Commit and push if changed
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add _posts/Daily/
-          git commit -m "Add daily post for ${DATE}" || exit 0
+          git add _posts/데일리/워크플로우/
+          git commit -m "Daily workflow post for ${DATE}" || exit 0
           git push
