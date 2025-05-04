@@ -1,0 +1,25 @@
+name: Daily Contribution
+
+on:
+  schedule:
+    - cron: "0 0,6,12,18 * * *" # 하루에 4번 실행
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  add-contribution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Add empty commit
+        run: |
+          git config --global user.name 'SUNGMYEONGGI'
+          git config --global user.email 'smgsmg226@gmail.com'
+          echo "$(date)" >> .github/contribution-timestamps.txt
+          git add .github/contribution-timestamps.txt
+          git commit -m "일일 기여: $(date)"
+          git push
