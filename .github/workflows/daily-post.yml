@@ -34,6 +34,7 @@ jobs:
             sed -i "s/CURRENT_TIME/${CURRENT_TIME}/g" "$POST_FILE"
             sed -i "s/YYMMDD/${YYMMDD}/g" "$POST_FILE"
             sed -i "s/title: 자동화 글.*/title: 자동화 글 ${DATE}/g" "$POST_FILE"
+            sed -i "s/alt: 자동화 글 이미지/alt: 자동화 글 ${DATE} 이미지/g" "$POST_FILE"
           else
             echo "---" > "$POST_FILE"
             echo "title: 자동화 글 ${DATE}" >> "$POST_FILE"
@@ -43,8 +44,8 @@ jobs:
             echo "categories: [ 데일리, 워크플로우 ]" >> "$POST_FILE"
             echo "tags: [ 자동화, 데일리 ]" >> "$POST_FILE"
             echo "image:" >> "$POST_FILE"
-            echo "  path: " >> "$POST_FILE"
-            echo "  alt: " >> "$POST_FILE"
+            echo "  path: 'https://heuristing.net/attachment/1/Blog-graphic-from-Istock.jpg'" >> "$POST_FILE"
+            echo "  alt: '자동화 글 ${DATE} 이미지'" >> "$POST_FILE"
             echo "---" >> "$POST_FILE"
             echo "" >> "$POST_FILE"
             echo "# ${DATE} 워크플로우 자동 생성 글" >> "$POST_FILE"
