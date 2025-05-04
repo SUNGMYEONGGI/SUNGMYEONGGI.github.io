@@ -19,6 +19,7 @@ jobs:
         id: date
         run: |
           echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "FULLYEAR=$(date +'%Y')" >> $GITHUB_ENV
           echo "YYMMDD=$(date +'%y%m%d')" >> $GITHUB_ENV
           echo "CURRENT_TIME=$(date +'%H:%M:%S')" >> $GITHUB_ENV
 
@@ -29,11 +30,10 @@ jobs:
           TEMPLATE_FILE="_posts/데일리/워크플로우/template.md"
           if [ -f "$TEMPLATE_FILE" ]; then
             cp "$TEMPLATE_FILE" "$POST_FILE"
-            sed -i "s/YYYY-MM-DD HH:MM:SC/${DATE} ${CURRENT_TIME}/g" "$POST_FILE"
-            sed -i "s/YYYY-MM-DD/${DATE}/g" "$POST_FILE"
-            sed -i "s/YY-MM-DD/${YYMMDD}/g" "$POST_FILE"
+            sed -i "s/FULLYEAR-MM-DD/${DATE}/g" "$POST_FILE"
+            sed -i "s/CURRENT_TIME/${CURRENT_TIME}/g" "$POST_FILE"
+            sed -i "s/YYMMDD/${YYMMDD}/g" "$POST_FILE"
             sed -i "s/title: 자동화 글.*/title: 자동화 글 ${DATE}/g" "$POST_FILE"
-            sed -i "s/# YYYY-MM-DD 제목/# ${DATE} 워크플로우 자동 생성 글/g" "$POST_FILE"
           else
             echo "---" > "$POST_FILE"
             echo "title: 자동화 글 ${DATE}" >> "$POST_FILE"
@@ -42,9 +42,18 @@ jobs:
             echo "last_modified_at: ${DATE} ${CURRENT_TIME} +0900" >> "$POST_FILE"
             echo "categories: [ 데일리, 워크플로우 ]" >> "$POST_FILE"
             echo "tags: [ 자동화, 데일리 ]" >> "$POST_FILE"
-            echo "image:\n  path: \n  alt: " >> "$POST_FILE"
+            echo "image:" >> "$POST_FILE"
+            echo "  path: " >> "$POST_FILE"
+            echo "  alt: " >> "$POST_FILE"
             echo "---" >> "$POST_FILE"
-            echo "\n# ${DATE} 워크플로우 자동 생성 글\n\n***\n    🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 \n    언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄\n\n<a href=\"#\" style=\"display: inline-block; padding: 5px 10px; color: #007bff; text-decoration: none; border: 0.5px solid #007bff; border-radius: 5px; float: right;\">맨 위로 이동하기</a>" >> "$POST_FILE"
+            echo "" >> "$POST_FILE"
+            echo "# ${DATE} 워크플로우 자동 생성 글" >> "$POST_FILE"
+            echo "" >> "$POST_FILE"
+            echo "***" >> "$POST_FILE"
+            echo "    🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 " >> "$POST_FILE"
+            echo "    언제든지 댓글 혹은 메일로 지적해주시면 감사하겠습니다! 😄" >> "$POST_FILE"
+            echo "" >> "$POST_FILE"
+            echo "<a href=\"#\" style=\"display: inline-block; padding: 5px 10px; color: #007bff; text-decoration: none; border: 0.5px solid #007bff; border-radius: 5px; float: right;\">맨 위로 이동하기</a>" >> "$POST_FILE"
           fi
 
       - name: Commit and push if changed
