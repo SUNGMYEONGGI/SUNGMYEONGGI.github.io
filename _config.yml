@@ -6,7 +6,7 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: ko
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Seoul
@@ -19,7 +19,7 @@ title: MYEONGGI # the main title
 tagline: IT tech blog # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  IT 및 프로그래밍 관련된 글을 작성하는 개발 중심의 블로그입니다.
+  IT 및 프로그래밍 관련된 글을 작성하는 개발 중심의 블로그입니다. Programming, Development, and Tech blog.
 
 # Fill in the protocol & hostname for your site.
 url: "https://sungmyeonggi.github.io"
@@ -39,9 +39,7 @@ social:
     # The first element serves as the copyright owner's link
     - https://x.com/dev_ruatnec # change to your twitter homepage
     - https://github.com/SUNGMYEONGGI # change to your github homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/sungmyeonggi # 링크드인 프로필로 변경하세요
 
 # Site Verification Settings
 webmaster_verifications:
@@ -58,7 +56,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: G-XXXXXXXXXX # Replace with your actual Google Analytics ID when available
+    id: G-XYZ123456 # 실제 Google Analytics ID로 변경하세요
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -72,7 +70,7 @@ analytics:
 
 # Pageviews settings
 pageviews:
-  provider: goatcounter # now only supports 'goatcounter'
+  provider: false # goatcounter ID가 없으므로 비활성화
 
 # Prefer color scheme setting.
 #
@@ -99,7 +97,7 @@ avatar: https://avatars.githubusercontent.com/u/104310191?v=4
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: /assets/img/ogimage.jpg # 소셜 미디어 공유를 위한 이미지 경로
 
 # boolean type, the global switch for TOC in posts.
 toc: true
@@ -118,15 +116,15 @@ comments:
     label: comment # 이슈에 추가될 라벨
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
-    repo_id: #
-    category: #
-    category_id: #
-    mapping: # optional, default to 'pathname'
-    strict: # optional, default to '0'
-    input_position: # optional, default to 'bottom'
-    lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
+    repo: SUNGMYEONGGI/SUNGMYEONGGI.github.io # <gh-username>/<repo>
+    repo_id: 738532815 # GitHub에서 확인한 repo ID
+    category: Comments # 토론 카테고리 이름
+    category_id: DIC_kwDONOmc3s4CYJ7c # GitHub에서 확인한 category ID
+    mapping: pathname # optional, default to 'pathname'
+    strict: 0 # optional, default to '0'
+    input_position: bottom # optional, default to 'bottom'
+    lang: ko # optional, default to the value of `site.lang`
+    reactions_enabled: 1 # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
