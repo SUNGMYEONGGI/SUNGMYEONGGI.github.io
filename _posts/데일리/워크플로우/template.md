@@ -1,16 +1,13 @@
 ---
 title: 자동화 글 YYMMDD
 description: 자동화 글
-date: FULLYEAR-MM-DD CURRENT_TIME +0900
-last_modified_at: FULLYEAR-MM-DD CURRENT_TIME +0900
+date: 2024-MM-DD CURRENT_TIME +0900
+last_modified_at: 2024-MM-DD CURRENT_TIME +0900
 categories: [ 데일리, 워크플로우 ]
 tags: [ 자동화, 데일리 ]
-image:
-  path: 
-  alt: 
 ---
 
-# FULLYEAR-MM-DD 워크플로우 자동 생성 글
+# 2024-MM-DD 워크플로우 자동 생성 글
 
 ***
     🌜 개인 공부 기록용 블로그입니다. 오류나 틀린 부분이 있을 경우 

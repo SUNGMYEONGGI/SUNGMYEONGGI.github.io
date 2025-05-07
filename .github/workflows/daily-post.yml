@@ -18,8 +18,8 @@ jobs:
       - name: Set up current date
         id: date
         run: |
-          echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-          echo "FULLYEAR=$(date +'%Y')" >> $GITHUB_ENV
+          echo "DATE=2024-$(date +'%m-%d')" >> $GITHUB_ENV
+          echo "FULLYEAR=2024" >> $GITHUB_ENV
           echo "YYMMDD=$(date +'%y%m%d')" >> $GITHUB_ENV
           echo "CURRENT_TIME=$(date +'%H:%M:%S')" >> $GITHUB_ENV
 
@@ -30,7 +30,7 @@ jobs:
           TEMPLATE_FILE="_posts/데일리/워크플로우/template.md"
           if [ -f "$TEMPLATE_FILE" ]; then
             cp "$TEMPLATE_FILE" "$POST_FILE"
-            sed -i "s/FULLYEAR-MM-DD/${DATE}/g" "$POST_FILE"
+            sed -i "s/2024-MM-DD/${DATE}/g" "$POST_FILE"
             sed -i "s/CURRENT_TIME/${CURRENT_TIME}/g" "$POST_FILE"
             sed -i "s/YYMMDD/${YYMMDD}/g" "$POST_FILE"
             sed -i "s/title: 자동화 글.*/title: 자동화 글 ${DATE}/g" "$POST_FILE"
@@ -43,9 +43,6 @@ jobs:
             echo "last_modified_at: ${DATE} ${CURRENT_TIME} +0900" >> "$POST_FILE"
             echo "categories: [ 데일리, 워크플로우 ]" >> "$POST_FILE"
             echo "tags: [ 자동화, 데일리 ]" >> "$POST_FILE"
-            echo "image:" >> "$POST_FILE"
-            echo "  path: 'https://heuristing.net/attachment/1/Blog-graphic-from-Istock.jpg'" >> "$POST_FILE"
-            echo "  alt: '자동화 글 ${DATE} 이미지'" >> "$POST_FILE"
             echo "---" >> "$POST_FILE"
             echo "" >> "$POST_FILE"
             echo "# ${DATE} 워크플로우 자동 생성 글" >> "$POST_FILE"
@@ -64,3 +61,10 @@ jobs:
           git add _posts/데일리/워크플로우/
           git commit -m "Daily workflow post for ${DATE}" || exit 0
           git push
+
+      - name: Trigger deploy workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: deploy-pages
