@@ -65,6 +65,6 @@ jobs:
       - name: Trigger deploy workflow
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.AutoCommit_Token }}
           repository: ${{ github.repository }}
           event-type: deploy-pages
