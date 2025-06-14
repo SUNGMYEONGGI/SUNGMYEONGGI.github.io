@@ -59,7 +59,15 @@ jobs:
           git config --global user.name 'SUNGMYEONGGI'
           git config --global user.email 'smgsmg226@gmail.com'
           git add _posts/데일리/워크플로우/
-          git commit -m "Daily workflow post for ${DATE}" || exit 0
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit --author="SUNGMYEONGGI <smgsmg226@gmail.com>" -m "📝 자동 포스팅: ${DATE} 데일리 워크플로우 글 생성
+
+          - 자동화 스크립트를 통한 일일 포스팅
+          - 카테고리: 데일리, 워크플로우
+          - 생성 시간: ${DATE} ${CURRENT_TIME}"
           git push
 
       - name: Trigger deploy workflow
